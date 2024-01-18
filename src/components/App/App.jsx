@@ -4,10 +4,9 @@ import TargetCard from '../TargetCard/TargetCard.jsx';
 
 function App() {
   return (
-    <>
-      <p>Start</p>
+    <div className='page'>
       <TargetCard />
-    </>
+    </div>
   );
 }
 

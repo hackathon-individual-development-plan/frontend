@@ -1,3 +1,13 @@
 @import url(../../vendor/normalize.css);
 
 @import url(../../vendor/fonts.css);
+
+.page {
+    margin: 0 auto;
+    position: relative;
+    min-width: 1280px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--Text-Black, #0E0E0E);
+    display: flex;
+    flex-direction: column;
+}
