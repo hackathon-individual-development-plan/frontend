@@ -1,0 +1,6 @@
+.employees-list__items {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-row-gap: 19px;
+}
