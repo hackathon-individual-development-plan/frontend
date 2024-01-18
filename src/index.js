@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App/App.jsx';
+import '@alfalab/core-components/vars/gaps.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
