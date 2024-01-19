@@ -1,12 +1,11 @@
 .card {
-  margin: var(--gap-2xl);
   width: 408px;
-  /* height: 500px; */
   display: flex;
   flex-direction: column;
   padding: var(--gap-xl);
   border-radius: 16px;
   box-shadow: 0px 7px 14px 0px rgba(14, 14, 14, 0.08);
+  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
 }
 
 .card__target {
@@ -42,10 +41,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
   border-radius: 8px;
   background-color: #e7e8ea;
-  /* margin-top: var(--gap-s); */
 }
 
 .card__input_white {
@@ -60,6 +57,7 @@
 .card__trash {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .card__field-name {
@@ -92,21 +90,6 @@
   margin-bottom: 20px;
 }
 
-.card__textarea {
-  position: relative;
-}
-
-.card__textarea-button {
-  background: url('/public/images/send-arrow-button-icon.svg');
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  border: none;
-  right: 16px;
-  bottom: 16px;
-  cursor: pointer;
-}
-
 .card__list {
   margin-bottom: var(--gap-l);
 }
@@ -123,6 +106,7 @@
   width: 24px;
   height: 24px;
   border: none;
+  cursor: pointer;
 }
 
 .card__list-title {
@@ -180,6 +164,7 @@
   height: 13px;
   border: none;
   margin-right: var(--gap-xs);
+  cursor: pointer;
 }
 
 .card__message-list {
@@ -206,6 +191,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  color: var(--Text-Black, #0E0E0E);
 }
 
 .card__message-name {
@@ -225,4 +211,32 @@
   font-weight: 400;
   line-height: 20px;
   margin: 0;
+}
+
+.card__textarea {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #d2d3d9;
+}
+
+.card__textarea-field {
+  border: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  height: 20px;
+  margin: var(--gap-s) var(--gap-m);
+}
+
+.card__textarea-button {
+  background: url('/public/images/send-arrow-button-icon.svg');
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: var(--gap-m);
+  margin-bottom: var(--gap-m);
 }
