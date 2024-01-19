@@ -1,9 +1,6 @@
 .content {
   display: flex;
-  padding: 40px 76px;
   justify-content: space-between;
-  margin-bottom: var(--gap-6xl);
-  margin-top: var(--gap-6xl);
 }
 
 .content__input-title {

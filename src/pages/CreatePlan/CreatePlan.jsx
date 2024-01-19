@@ -6,6 +6,7 @@ import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfir
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 import SearchInput from '../../components/SearchInput/SearchInput.jsx';
 import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
+import Menu from '../../components/Menu/Menu.jsx';
 
 function CreatePlan() {
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
@@ -20,7 +21,9 @@ function CreatePlan() {
 
   return (
     <div className="content">
-      <section className="content__left-part"></section>
+      <section className="content__left-part">
+        <Menu />
+      </section>
 
       <section className="content__middle-part">
         <input
