@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import TargetCard from '../TargetCard/TargetCard.jsx';
+import BriefInfoCard from '../BriefInfoCard/BriefInfoCard.jsx';
 
 function App() {
   return (
-    <>
-      <p>Start</p>
-      <TargetCard />
-    </>
+    <div className='page'>
+      <BriefInfoCard />
+    </div>
   );
 }
 
