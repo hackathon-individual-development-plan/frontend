@@ -1,0 +1,36 @@
+.progress-bar__title {
+    margin: 0;
+    margin-bottom: var(--gap-s);
+    color: var(--Text-Black, #0E0E0E);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.progress-bar__custom {
+    width: 216px;
+}
+
+.progress-bar__container {
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+}
+
+.progress-bar__result {
+    margin: 0;
+    color: var(--Text-Black, #0E0E0E);;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.progress-bar__total {
+    color: var(--Text-Black, #0E0E0E);;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
