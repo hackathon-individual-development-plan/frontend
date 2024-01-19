@@ -4,7 +4,7 @@ import BriefInfoCard from '../BriefInfoCard/BriefInfoCard.jsx';
 
 function App() {
   return (
-    <div className='page'>
+    <div className="page">
       <BriefInfoCard />
     </div>
   );
