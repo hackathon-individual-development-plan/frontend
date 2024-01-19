@@ -3,11 +3,13 @@
 @import url(../../vendor/fonts.css);
 
 .page {
-    margin: 0 auto;
+    margin: 0;
     position: relative;
     min-width: 1280px;
     font-family: 'Roboto', Arial, sans-serif;
     color: var(--Text-Black, #0E0E0E);
     display: flex;
     flex-direction: column;
+    padding: 40px 76px 48px;
+    background-color: white;
 }

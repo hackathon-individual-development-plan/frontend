@@ -1,0 +1,74 @@
+@import '@alfalab/core-components/vars/gaps.css';
+
+.header {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--gap-3xl);
+    height: 40px;
+}
+
+.header__menu {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: var(--gap-s);
+}
+
+.header__title {
+    margin: 0;
+    color: var(--Text-Black, #0E0E0E);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 83.333% */
+    letter-spacing: 0.48px;
+    margin-right: var(--gap-3xl);
+}
+
+.header__navigation {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xl);
+    width: 338px;
+}
+
+.header__link {
+    margin: 0;
+    cursor: pointer;
+    color: var(--Text-Black, #0E0E0E);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; 
+}
+
+.header__account {
+    margin: 0;
+    display: flex;
+    gap: var(--gap-l);
+    align-items: center;
+}
+
+.header__bell {
+    margin: 0;
+    width: 24px;
+    height: 24px;
+}
+
+
+
+.header__avatar {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+}
