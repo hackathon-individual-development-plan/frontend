@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import TargetCard from '../TargetCard/TargetCard.jsx';
+import BriefInfoCard from '../BriefInfoCard/BriefInfoCard.jsx';
 
 function App() {
   return (
     <div className='page'>
-      <TargetCard />
+      <BriefInfoCard />
     </div>
   );
 }
