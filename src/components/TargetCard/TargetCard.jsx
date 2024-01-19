@@ -1,6 +1,5 @@
 import React from 'react';
 import './TargetCard.css';
-import { Textarea } from '@alfalab/core-components/textarea';
 import PickerStatusButton from '../PickerStatusButton/PickerStatusButton.jsx';
 import DateInput from '../DateInput/DateInput.jsx';
 
@@ -47,44 +46,36 @@ function TargetCard() {
           </ol>
           <div className="card__list-add">
             <button className="card__list-add-button"></button>
-            <input className="card__input card__input_white card__input_border-none" type="text" name="input-target" placeholder="Добавить задачу" />
+            <input
+              className="card__input card__input_white card__input_border-none"
+              type="text"
+              name="input-target"
+              placeholder="Добавить задачу"
+            />
           </div>
         </section>
 
-        <section className="card__list card__list-padding-none" >
+        <section className="card__list card__list-padding-none">
           <div className="card__list-header">
             <button className="card__list-button"></button>
             <p className="card__list-title">
-            Комментарии <span>1</span>
+              Комментарии <span>1</span>
             </p>
           </div>
-          <ul className='card__message-list'>
-            <li className='card__message-item'>
-              <img className='card__message-photo'src='/images/photo-xs.svg' />
-              <div className='card__message-info'>
-                <p className='card__message-name'>Артемьев Олег Иванович</p>
-                <p className='card__message-text'>Начал проходить тренинг</p>
+          <ul className="card__message-list">
+            <li className="card__message-item">
+              <img className="card__message-photo" src="/images/photo-xs.svg" />
+              <div className="card__message-info">
+                <p className="card__message-name">Артемьев Олег Иванович</p>
+                <p className="card__message-text">Начал проходить тренинг</p>
               </div>
             </li>
           </ul>
 
-          <div
-          className="card__textarea"
-          style={{
-            width: 408,
-          }}
-        >
-          <Textarea
-            placeholder="Добавьте комментарий"
-            block={true}
-            minRows={1}
-            maxLength={400}
-            showCounter={false}
-            size="s"
-            color="blue"
-          />
-          <button className="card__textarea-button"></button>
-        </div>
+          <section className="card__textarea">
+            <textarea className="card__textarea-field" placeholder="Добавьте комментарий"></textarea>
+            <button className="card__textarea-button"></button>
+          </section>
         </section>
       </form>
     </div>
