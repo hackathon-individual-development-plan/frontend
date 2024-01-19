@@ -74,7 +74,7 @@ function TargetCard() {
 
           <section className="card__textarea">
             <textarea className="card__textarea-field" placeholder="Добавьте комментарий"></textarea>
-            <button className="card__textarea-button"></button>
+            {/* <button className="card__textarea-button"></button> */}
           </section>
         </section>
       </form>
