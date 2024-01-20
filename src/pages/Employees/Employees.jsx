@@ -3,7 +3,7 @@ import './Employees.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import SearchInput from '../../components/SearchInput/SearchInput.jsx';
 import EmployeesCardList from '../../components/EmployeesCardList/EmployeesCardList.jsx';
-// import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
+import FilterEmployeesBar from '../../components/FilterEmployeesBar/FilterEmployeesBar.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 
 function Employees() {
@@ -19,7 +19,9 @@ function Employees() {
         </section>
       </section>
 
-      <section className="content__right-part">{/* <BriefInfoCard /> */}</section>
+      <section className="content__right-part">
+        <FilterEmployeesBar />
+      </section>
     </div>
   );
 }
