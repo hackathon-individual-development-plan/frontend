@@ -36,7 +36,7 @@ function Calendar() {
   };
 
   return (
-    <div style={{ width: '262px', height: '293px', ...calendarStyles }}>
+    <div style={{ width: '320px', marginTop: 'var(--gap-2xl)', ...calendarStyles }}>
       <CalendarDesktop
         defaultMonth={defaultDate.getTime()}
         value={value}
