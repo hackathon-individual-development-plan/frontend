@@ -1,0 +1,41 @@
+.filter-bar {
+    display: flex;
+    flex-direction: column;
+    max-width: 264px;
+    row-gap: var(--gap-s);
+}
+
+.filter-bar__container {
+    margin-bottom: 8px;;
+}
+
+.filter-bar__title{
+    margin: 0;
+    margin-bottom: var(--gap-s);
+    color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.filter-bar__counter {
+    margin: 0;
+    color: var(--Text-Black, #0E0E0E);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.filter-bar__list{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-xs);
+}
+
+.filter-bar__element{
+    list-style: none;
+}
