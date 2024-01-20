@@ -9,9 +9,11 @@ function Header() {
         <img src='/images/LogoAlfaPeople.svg' className='header__logo' alt='Логотип' />
         <h1 className='header__title'>Alfa People</h1>
         <nav className='header__navigation'>
-          <p className='header__link'>Контакты</p>
-          <p className='header__link'>Всё о работе</p>
-          <p className='header__link'>Подразделения</p>
+          <ul className='header__list'>
+            <li className='header__link'>Контакты</li>
+            <li className='header__link'>Всё о работе</li>
+            <li className='header__link'>Подразделения</li>
+          </ul>
         </nav>
       </div>
       <div className='header__account'>

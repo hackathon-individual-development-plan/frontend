@@ -38,10 +38,6 @@
         "react/jsx-uses-vars": "error",
         "react/prop-types": [
             0
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
         ]
     },
     "settings": {

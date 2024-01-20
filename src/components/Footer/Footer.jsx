@@ -36,10 +36,10 @@ function Footer() {
         </div>
       </div>
       <div className='footer__down'>
-        <div className='footer__help-group'>
-          <p className='footer__help'>Help Desk | IT-поддержка</p>
-          <p className='footer__help'>Human Help | HR-поддержка</p>
-        </div>
+        <ul className='footer__help-group'>
+          <li className='footer__help'>Help Desk | IT-поддержка</li>
+          <li className='footer__help'>Human Help | HR-поддержка</li>
+        </ul>
         <ButtonDesktop size='xxs' shape='rectangular' view='secondary' className='footer__button-help'>
           Помощь
         </ButtonDesktop>
