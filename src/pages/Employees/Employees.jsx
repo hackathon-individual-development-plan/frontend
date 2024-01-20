@@ -19,7 +19,9 @@ function Employees() {
         </section>
       </section>
 
-      <section className="content__right-part">{/* <BriefInfoCard /> */}</section>
+      <section className="content__right-part">
+        {/* <BriefInfoCard /> */}
+        </section>
     </div>
   );
 }

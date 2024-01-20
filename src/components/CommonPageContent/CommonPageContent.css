@@ -27,3 +27,9 @@
   width: 456px;
   color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
 }
+
+.content__right-part {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+}
