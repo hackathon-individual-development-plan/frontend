@@ -119,9 +119,12 @@
 }
 
 .footer__help-group {
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap-2xs);
+    list-style: none;
 }
 
 .footer__help {
