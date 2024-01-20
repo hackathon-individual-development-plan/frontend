@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import employees from '../../utils/employees';
 import './SearchInput.css';
