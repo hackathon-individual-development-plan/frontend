@@ -21,22 +21,22 @@ export default function TabsPrimary() {
   };
 
   return (
-        <>
-            <Tabs
-                breakpoint={450}
-                selectedId={selectedId}
-                onChange={handleChange}
-                view='secondary'
-                size='xxs'
-                scrollable={false}
-                tagShape='rounded'
-                tagView='outlined'
-                fullWidthScroll={IS_MOBILE}
-            >
-                {TABS.map((item) => (
-                    <Tab title={item.title} id={item.id} key={item.id} className='pull' />
-                ))}
-            </Tabs>
-        </>
+    <>
+      <Tabs
+        breakpoint={450}
+        selectedId={selectedId}
+        onChange={handleChange}
+        view='secondary'
+        size='xxs'
+        scrollable={false}
+        tagShape='rounded'
+        tagView='outlined'
+        fullWidthScroll={IS_MOBILE}
+      >
+        {TABS.map((item) => (
+          <Tab title={item.title} id={item.id} key={item.id} className='pull' />
+        ))}
+      </Tabs>
+    </>
   );
 }
