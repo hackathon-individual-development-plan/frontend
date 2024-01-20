@@ -20,6 +20,7 @@
   font-weight: 500;
   line-height: 38px;
   color: var(--Text-Black, #0E0E0E);
+  margin: 0 0 var(--gap-3xl) 0;
 }
 
 .content__middle-part {
@@ -34,3 +35,4 @@
   flex-direction: column;
   margin-left: auto;
 }
+

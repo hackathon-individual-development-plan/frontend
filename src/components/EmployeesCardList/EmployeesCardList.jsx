@@ -5,16 +5,16 @@ import './EmployeesCardList.css';
 
 export default function EmployeesCardList() {
   return (
-        <section className='employees-list'>
-            <ul className="employees-list__items">
-                {employees.map((item) => (
-                    <EmployeesCard
-                        key={item.id}
-                        employee={item}
-                    />
-                ))
-                }
-            </ul>
-        </section>
+    <section className='employees-list'>
+      <ul className="employees-list__items">
+        {employees.map((item) => (
+          <EmployeesCard
+            key={item.id}
+            employee={item}
+          />
+        ))
+        }
+      </ul>
+    </section>
   );
 }
