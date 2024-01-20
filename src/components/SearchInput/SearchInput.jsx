@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import employees from '../../utils/employees';
 import './SearchInput.css';
@@ -15,8 +14,8 @@ export default function SearchInput() {
   }
 
   return (
-    <div className='search'>
-      <div className='search__container'>
+    <>
+      <div className='search'>
         <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onChange={onChange} />
       </div>
       <div className='search__dropdown'>
@@ -31,6 +30,6 @@ export default function SearchInput() {
             {item.name}
           </div>))}
       </div>
-    </div>
+    </>
   );
 }
