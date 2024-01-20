@@ -14,8 +14,8 @@ export default function SearchInput() {
   }
 
   return (
-    <>
-      <div className='search'>
+    <div className='search'>
+      <div className='search__container'>
         <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onChange={onChange} />
       </div>
       <div className='search__dropdown'>
@@ -30,6 +30,6 @@ export default function SearchInput() {
             {item.name}
           </div>))}
       </div>
-    </>
+    </div>
   );
 }
