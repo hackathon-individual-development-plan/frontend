@@ -11,6 +11,8 @@ export default function PageTitle({ content }) {
             {pathname === '/' && (
                 <h1 className="headline__title">Индивидуальный план развития</h1>)}
             {pathname === '/create-target' && (content)}
+            {pathname === '/matrix' && (
+                <h1 className="headline__title">Матрица компетенций</h1>)}
         </section>
   );
 }

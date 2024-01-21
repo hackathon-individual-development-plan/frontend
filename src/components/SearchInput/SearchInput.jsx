@@ -16,19 +16,21 @@ export default function SearchInput() {
   return (
     <>
       <div className='search'>
-        <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onChange={onChange} />
-      </div>
-      <div className='search__dropdown'>
-        {employees.filter((item) => {
-          const searchTerm = value.toLowerCase();
-          const name = item.name.toLowerCase();
+        <div className='search__container'>
+          <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onChange={onChange} />
+        </div>
+        <div className='search__dropdown'>
+          {employees.filter((item) => {
+            const searchTerm = value.toLowerCase();
+            const name = item.name.toLowerCase();
 
-          return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
-        })
-          .slice(0, 10)
-          .map((item) => (<div className='search__dropdown-row' onClick={() => onSearch(item.name)} key={item.id}>
-            {item.name}
-          </div>))}
+            return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
+          })
+            .slice(0, 10)
+            .map((item) => (<div className='search__dropdown-row' onClick={() => onSearch(item.name)} key={item.id}>
+              {item.name}
+            </div>))}
+        </div>
       </div>
     </>
   );

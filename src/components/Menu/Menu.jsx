@@ -27,7 +27,7 @@ function Menu() {
             </NavLink>
           </li>
           <li className='menu__element'>
-            <NavLink to='/matrix' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`} onClick={onClick}>
+            <NavLink to='/matrix' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
               <img src='/images/diagram.svg' className='menu__img' alt='Диаграмма' />Матрица компетенций
             </NavLink>
           </li>

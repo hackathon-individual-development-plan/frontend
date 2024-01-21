@@ -15,7 +15,7 @@ function Footer() {
           <a className='footer__link' href='#'>Академия</a>
           <a className='footer__link' href='#'>SAP АХД</a>
           <a className='footer__link' href='#'>Заказ HR-услуг</a>
-          <a className='footer__link' href='#'>Заках IT-услуг</a>
+          <a className='footer__link' href='#'>Заказ IT-услуг</a>
           <a className='footer__link' href='#'>WSS Docs</a>
           <a className='footer__link' href='#'>Карьера в банке</a>
           <a className='footer__link' href='#'>Сайт Альфа Банка</a>

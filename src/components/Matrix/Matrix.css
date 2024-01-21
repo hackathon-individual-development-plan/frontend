@@ -1,5 +1,6 @@
 .matrix {
     margin: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     padding-top: 54px;
