@@ -9,6 +9,7 @@ import PageTitle from '../../components/PageTitle/PageTitle.jsx';
 // import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 // import Calendar from '../../components/Calendar/Calendar.jsx';
+import cardsTarget from '../../utils/cardsTarget';
 
 function CreatePlan() {
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
@@ -23,14 +24,14 @@ function CreatePlan() {
 
   return (
     <>
-      <PageTitle content = {<input
-            className="content__input-title"
-            type="text"
-            name="input-plan-name"
-            placeholder={placeholderName}
-            onFocus={handlePlaceholderFocus}
-            onBlur={handlePlaceholderBlur}
-          />}/>
+      <PageTitle content={<input
+        className="content__input-title"
+        type="text"
+        name="input-plan-name"
+        placeholder={placeholderName}
+        onFocus={handlePlaceholderFocus}
+        onBlur={handlePlaceholderBlur}
+      />} />
       <div className="content">
         <section className="content__left-part">
           <Menu />
@@ -54,7 +55,13 @@ function CreatePlan() {
               <button className="plan__add-newtarget-button"></button>
               <p className="plan__add-newtarget-title">Добавить цель</p>
             </div>
-            <TargetCard />
+            {cardsTarget.map((item) => (
+              <TargetCard
+                key={item.id}
+                cardTarget={item}
+              />
+            ))
+            }
             <section className="plan__content-buttons">
               <ButtonConfirmation />
               <ButtonCancellation />
@@ -62,12 +69,12 @@ function CreatePlan() {
           </section>
         </section>
 
-      {/* <section className="content__right-part">
+        {/* <section className="content__right-part">
         <BriefInfoCard />
         <Calendar />
       </section> */}
-    </div>
-  </>
+      </div>
+    </>
   );
 }
 
