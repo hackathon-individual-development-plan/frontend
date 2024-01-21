@@ -4,6 +4,7 @@ import './App.css';
 import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
 import Employees from '../../pages/Employees/Employees.jsx';
 import Layout from '../Layout/Layout.jsx';
+import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 // import FilterEmployeesBar from '../FilterEmployeesBar/FilterEmployeesBar.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Employees />} />
         <Route path='/create-target' element={<CreatePlan />} />
         <Route path='/matrix' element={<MatrixCompetency />} />
+        <Route path='/my-idp/senior' element={<MyPlanSenior />} />
       </Route>
      </Routes>
       </div>
