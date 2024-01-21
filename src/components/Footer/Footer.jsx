@@ -6,20 +6,44 @@ function Footer() {
   return (
     <footer className='footer'>
       <div className='footer__up'>
-        <div className='footer__links'>
-          <a className='footer__link' href='#'>Главная</a>
-          <a className='footer__link' href='#'>Сервисы</a>
-          <a className='footer__link' href='#'>Контакты</a>
-          <a className='footer__link' href='#'>Подразделения</a>
-          <a className='footer__link' href='#'>Всё о работе</a>
-          <a className='footer__link' href='#'>Академия</a>
-          <a className='footer__link' href='#'>SAP АХД</a>
-          <a className='footer__link' href='#'>Заказ HR-услуг</a>
-          <a className='footer__link' href='#'>Заках IT-услуг</a>
-          <a className='footer__link' href='#'>WSS Docs</a>
-          <a className='footer__link' href='#'>Карьера в банке</a>
-          <a className='footer__link' href='#'>Сайт Альфа Банка</a>
-        </div>
+        <ul className='footer__links'>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Главная</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Сервисы</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Контакты</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Подразделения</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Всё о работе</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Академия</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>SAP АХД</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Заказ HR-услуг</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Заказ IT-услуг</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>WSS Docs</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Карьера в банке</a>
+          </li>
+          <li className='footer__list-element'>
+            <a className='footer__link' href='#'>Сайт Альфа Банка</a>
+          </li>
+        </ul>
         <div className='footer__contacts'>
           <div className='footer__app'>
             <img src='/images/appFooter.svg' className='footer__image-app' alt='Приложение Альфа' />

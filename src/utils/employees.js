@@ -36,14 +36,25 @@ const employees = [
     IPDName: '-',
     status: 'Отсутствует',
   },
+  // {
+  //   id: 5,
+  //   name: 'Артемьев bdfy Игоревич',
+  //   avatar: pic4,
+  //   position: 'Junior дизайнер',
+  //   IPDName: '-',
+  //   status: 'Отсутствует',
+  // },
+];
+
+const seniors = [
   {
-    id: 5,
-    name: 'Артемьев bdfy Игоревич',
-    avatar: pic4,
-    position: 'Junior дизайнер',
-    IPDName: '-',
+    id: 1,
+    name: 'Осипов Александр Владимирович',
+    avatar: pic1,
+    position: 'Руководитель IT-отдела',
+    IPDName: '',
     status: 'Отсутствует',
   },
 ];
 
-export default employees;
+export { employees, seniors };

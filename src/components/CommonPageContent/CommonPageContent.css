@@ -1,6 +1,7 @@
 .content {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
 }
 
 .content__input-title {
@@ -9,7 +10,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 38px;
-  margin-bottom: var(--gap-3xl);
+  /* margin-bottom: var(--gap-3xl); */
   border: none;
 }
 
@@ -32,5 +33,7 @@
 .content__right-part {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  margin-left: auto;
+  align-items: flex-end;
 }
+
