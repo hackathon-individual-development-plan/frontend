@@ -4,17 +4,22 @@ import './PageTitle.css';
 
 export default function PageTitle({ content }) {
   const { pathname } = useLocation();
+  let title = '';
+
+  if (pathname === '/') {
+    title = 'Индивидуальный план развития';
+  } else if (pathname === '/create-target') {
+    title = content;
+  } else if (pathname === '/matrix') {
+    title = 'Матрица компетенций';
+  } else if (pathname === '/my-idp/senior') {
+    title = 'Индивидуальный план развития';
+  }
 
   return (
     <section className='headline'>
       <button type='button' className='headline__button'></button>
-      {pathname === '/' && (
-        <h1 className="headline__title">Индивидуальный план развития</h1>)}
-      {pathname === '/create-target' && (content)}
-      {pathname === '/matrix' && (
-        <h1 className="headline__title">Матрица компетенций</h1>)}
-      {pathname === '/my-idp/senior' && (
-        <h1 className="headline__title">Индивидуальный план развития</h1>)}
+      {title && <h1 className="headline__title">{title}</h1>}
     </section>
   );
 }
