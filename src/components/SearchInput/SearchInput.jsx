@@ -13,11 +13,15 @@ export default function SearchInput() {
     setValue(searchTerm);
   }
 
+  function onClick() {
+    setValue('');
+  }
+
   return (
     <>
       <div className='search'>
         <div className='search__container'>
-          <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onChange={onChange} />
+          <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onClick={onClick} onChange={onChange} />
         </div>
         <div className='search__dropdown'>
           {employees.filter((item) => {
