@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer.jsx';
 import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
 import Employees from '../../pages/Employees/Employees.jsx';
 // import FilterEmployeesBar from '../FilterEmployeesBar/FilterEmployeesBar.jsx';
+import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
             element={(
               <>
                 <CreatePlan />
+              </>
+            )}
+          />
+          <Route
+            path='/employee-plan'
+            element={(
+              <>
+                <EmployeePlan />
               </>
             )}
           />

@@ -1,27 +1,27 @@
 import React from 'react';
 import './TargetCard.css';
-import PickerStatusButton from '../PickerStatusButton/PickerStatusButton.jsx';
 import DateInput from '../DateInput/DateInput.jsx';
+import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
-function TargetCard() {
+function TargetCard(card) {
   return (
     <div className="card">
       <form className="card__form">
         <div className="card__target">
           <div className="card__target-header">
-            <p className="card__field-name">Цель:</p>
+            <p className="card__field-name">{card.title}</p>
             <img className="card__trash" src="/images/trash-icon.svg" alt="trash logo" />
           </div>
           <input className="card__input" type="text" name="input-target" placeholder="Название цели" />
         </div>
         <section className="card__condition">
-          <p className="card__field-name">Дедлайн:</p>
-          <p className="card__field-name">Статус:</p>
-          <DateInput />
-          <PickerStatusButton />
+          <p className="card__field-name"></p>
+          <p className="card__field-name"></p>
+          <DateInput deadline={card.deadline} />
+          <DropdownButton status={card.status} />
         </section>
         <section className="card__discription">
-          <p className="card__field-name">Описание:</p>
+          <p className="card__field-name"></p>
           <input
             className="card__input card__input_white"
             type="text"
@@ -38,10 +38,10 @@ function TargetCard() {
           </div>
           <ol className="card__list-items">
             <li className="card__list-item">
-              <p className="card__list-item-name">Слетай в отпуск</p>
+              <p className="card__list-item-name"></p>
             </li>
             <li className="card__list-item">
-              <p className="card__list-item-name">Слетай в отпуск</p>
+              <p className="card__list-item-name"></p>
             </li>
           </ol>
           <div className="card__list-add">
@@ -54,8 +54,7 @@ function TargetCard() {
             />
           </div>
         </section>
-
-        <section className="card__list card__list-padding-none">
+        {/* <section className="card__list card__list-padding-none">
           <div className="card__list-header">
             <button className="card__list-button"></button>
             <p className="card__list-title">
@@ -71,12 +70,12 @@ function TargetCard() {
               </div>
             </li>
           </ul>
-
           <section className="card__textarea">
-            <textarea className="card__textarea-field" placeholder="Добавьте комментарий"></textarea>
-            {/* <button className="card__textarea-button"></button> */}
+            <textarea className="card__textarea-field"
+            placeholder="Добавьте комментарий"></textarea>
+            <button className="card__textarea-button"></button>
           </section>
-        </section>
+        </section> */}
       </form>
     </div>
   );
