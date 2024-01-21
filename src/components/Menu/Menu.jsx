@@ -1,37 +1,50 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Menu.css';
 
-function PathToPage() {
-  /* const [isActiveButton, setActiveButton] = React.useState(false);
-  function handleClick() {
-    setActiveButton(!isActiveButton);
-  } */
+function Menu() {
+  const onClick = (evt) => {
+    evt.preventDefault();
+  };
 
   return (
     <section className='menu'>
-      <button type='button' className='menu__exit'></button>
-      <div className='menu__group'>
-        <button type='button' /* onClick={handleClick} */ className='menu__item'>
-          <img src='/images/multiple-users.svg' className='menu__img' alt='Сотрудники' />Сотрудники
-        </button>
-        <button type='button' /* onClick={handleClick} */ className='menu__item'>
-          <img src='/images/add__menu.svg' className='menu__img' alt='Плюс' />Создать ИПР
-        </button>
-        <button type='button' /* onClick={handleClick} */ className='menu__item'>
-          <img src='/images/pages-menu.svg' className='menu__img' alt='Документ' />Мой ИПР
-        </button>
-        <button type='button' /* onClick={handleClick} */ className='menu__item'>
-          <img src='/images/diagram.svg' className='menu__img' alt='Диаграмма' />Матрица компетенций
-        </button>
-        <button type='button' /* onClick={handleClick} */ className='menu__item'>
-          <img src='/images/akademiaMenu.svg' className='menu__img' alt='Академия' />Альфа-Академия
-        </button>
-        <button type='button' /* onClick={handleClick} */ className='menu__item'>
-          <img src='/images/chatMenu.svg' className='menu__img' alt='Чат' />Альфа-помощь
-        </button>
-      </div>
+      <nav className='menu__group'>
+        <ul className='menu__list'>
+          <li className='menu__element'>
+            <NavLink to='/' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+              <img src='/images/multiple-users.svg' className='menu__img' alt='Сотрудники' />Сотрудники
+            </NavLink>
+          </li>
+          <li className='menu__element'>
+            <NavLink to='/create-target' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+              <img src='/images/add__menu.svg' className='menu__img' alt='Плюс' />Создать ИПР
+            </NavLink>
+          </li>
+          <li className='menu__element'>
+            <NavLink to='/my-idp/senior' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+              <img src='/images/pages-menu.svg' className='menu__img' alt='Документ' />Мой ИПР
+            </NavLink>
+          </li>
+          <li className='menu__element'>
+            <NavLink to='/matrix' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+              <img src='/images/diagram.svg' className='menu__img' alt='Диаграмма' />Матрица компетенций
+            </NavLink>
+          </li>
+          <li className='menu__element'>
+            <NavLink to='/alfa-academy' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`} onClick={onClick}>
+              <img src='/images/akademiaMenu.svg' className='menu__img' alt='Академия' />Альфа-Академия
+            </NavLink>
+          </li>
+          <li className='menu__element'>
+            <NavLink to='alfa-help' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`} onClick={onClick}>
+              <img src='/images/chatMenu.svg' className='menu__img' alt='Чат' />Альфа-помощь
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </section>
   );
 }
 
-export default PathToPage;
+export default Menu;

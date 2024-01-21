@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import employees from '../../utils/employees';
+import { employees } from '../../utils/employees';
 import './SearchInput.css';
 
 export default function SearchInput() {
@@ -14,23 +13,29 @@ export default function SearchInput() {
     setValue(searchTerm);
   }
 
-  return (
-    <div className='search'>
-      <div className='search__container'>
-        <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onChange={onChange} />
-      </div>
-      <div className='search__dropdown'>
-        {employees.filter((item) => {
-          const searchTerm = value.toLowerCase();
-          const name = item.name.toLowerCase();
+  function onClick() {
+    setValue('');
+  }
 
-          return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
-        })
-          .slice(0, 10)
-          .map((item) => (<div className='search__dropdown-row' onClick={() => onSearch(item.name)} key={item.id}>
-            {item.name}
-          </div>))}
+  return (
+    <>
+      <div className='search'>
+        <div className='search__container'>
+          <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onClick={onClick} onChange={onChange} />
+        </div>
+        <div className='search__dropdown'>
+          {employees.filter((item) => {
+            const searchTerm = value.toLowerCase();
+            const name = item.name.toLowerCase();
+
+            return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
+          })
+            .slice(0, 10)
+            .map((item) => (<div className='search__dropdown-row' onClick={() => onSearch(item.name)} key={item.id}>
+              {item.name}
+            </div>))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
