@@ -6,8 +6,9 @@ import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfir
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 import SearchInput from '../../components/SearchInput/SearchInput.jsx';
 import PageTitle from '../../components/PageTitle/PageTitle.jsx';
+// import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
-import Calendar from '../../components/Calendar/Calendar.jsx';
+// import Calendar from '../../components/Calendar/Calendar.jsx';
 
 function CreatePlan() {
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
@@ -60,12 +61,11 @@ function CreatePlan() {
             </section>
           </section>
         </section>
-      </section>
 
-      <section className="content__right-part">
+      {/* <section className="content__right-part">
         <BriefInfoCard />
         <Calendar />
-      </section>
+      </section> */}
     </div>
   </>
   );
