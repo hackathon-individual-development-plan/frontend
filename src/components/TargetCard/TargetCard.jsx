@@ -3,6 +3,7 @@ import './TargetCard.css';
 import { useForm } from 'react-hook-form';
 import PickerStatusButton from '../PickerStatusButton/PickerStatusButton.jsx';
 import DateInput from '../DateInput/DateInput.jsx';
+import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
 function TargetCard({ cardTarget }) {
   const { register, handleSubmit } = useForm();
@@ -16,7 +17,7 @@ function TargetCard({ cardTarget }) {
       <form onSubmit={handleSubmit(onSubmit)} className="card__form">
         <div className="card__target">
           <div className="card__target-header">
-            <p className="card__field-name">Цель:</p>
+            <p className="card__field-name">{card.title}</p>
             <img className="card__trash" src="/images/trash-icon.svg" alt="trash logo" />
           </div>
           <input {...(register('target'), {
@@ -24,13 +25,13 @@ function TargetCard({ cardTarget }) {
           })} value={cardTarget.target} className="card__input" type="text" name="input-target" placeholder='Название цели' />
         </div>
         <section className="card__condition">
-          <p className="card__field-name">Дедлайн:</p>
-          <p className="card__field-name">Статус:</p>
-          <DateInput />
-          <PickerStatusButton />
+          <p className="card__field-name"></p>
+          <p className="card__field-name"></p>
+          <DateInput deadline={card.deadline} />
+          <DropdownButton status={card.status} />
         </section>
         <section className="card__discription">
-          <p className="card__field-name">Описание:</p>
+          <p className="card__field-name"></p>
           <input
             {...(register('description'), {
               required: true,
@@ -70,8 +71,7 @@ function TargetCard({ cardTarget }) {
             />
           </div>
         </section>
-
-        <section className="card__list card__list-padding-none">
+        {/* <section className="card__list card__list-padding-none">
           <div className="card__list-header">
             <button type='button' className="card__list-button"></button>
             <p className="card__list-title">
@@ -90,12 +90,12 @@ function TargetCard({ cardTarget }) {
             ))
             }
           </ul>
-
           <section className="card__textarea">
-            <textarea className="card__textarea-field" placeholder="Добавьте комментарий"></textarea>
-            {/* <button className="card__textarea-button"></button> */}
+            <textarea className="card__textarea-field"
+            placeholder="Добавьте комментарий"></textarea>
+            <button className="card__textarea-button"></button>
           </section>
-        </section>
+        </section> */}
       </form>
     </div>
   );
