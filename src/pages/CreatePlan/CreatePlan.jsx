@@ -8,6 +8,7 @@ import SearchInput from '../../components/SearchInput/SearchInput.jsx';
 import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 import Calendar from '../../components/Calendar/Calendar.jsx';
+import cardsTarget from '../../utils/cardsTarget';
 
 function CreatePlan() {
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
@@ -44,8 +45,14 @@ function CreatePlan() {
             <button className="plan__add-newtarget-button"></button>
             <p className="plan__add-newtarget-title">Добавить цель</p>
           </div>
-          <TargetCard />
-          <section className="plan__content-buttons">
+          {cardsTarget.map((item) => (
+            <TargetCard
+              key={item.id}
+              cardTarget={item}
+            />
+          ))
+          }
+          <section className="plan__content-buttons"> {/* кнопки нужно внести в форму, */}
             <ButtonConfirmation />
             <ButtonCancellation />
           </section>
