@@ -46,4 +46,15 @@ const employees = [
   // },
 ];
 
-export default employees;
+const seniors = [
+  {
+    id: 1,
+    name: 'Осипов Александр Владимирович',
+    avatar: pic1,
+    position: 'Руководитель IT-отдела',
+    IPDName: '',
+    status: 'Отсутствует',
+  },
+];
+
+export { employees, seniors };

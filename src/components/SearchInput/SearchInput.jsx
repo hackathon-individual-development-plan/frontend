@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import employees from '../../utils/employees';
+import { employees } from '../../utils/employees';
 import './SearchInput.css';
 
 export default function SearchInput() {
