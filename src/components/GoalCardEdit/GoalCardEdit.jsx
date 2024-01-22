@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './GoalCardEdit.css';
 import { useForm } from 'react-hook-form';
 import DateInput from '../DateInput/DateInput.jsx';
 import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
-function GoalCardEdit({ cardTarget }) {
+function GoalCardEdit({ card }) {
   const { register, handleSubmit } = useForm();
   const [isActiveTasks, setActiveTasks] = useState(false);
   const onSubmit = (data) => {
@@ -25,7 +25,7 @@ function GoalCardEdit({ cardTarget }) {
             {
               required: true,
             })}
-            value={cardTarget.target}
+            value={card?.title}
             className="card__input"
             type="text"
             name="input-target"
@@ -45,7 +45,7 @@ function GoalCardEdit({ cardTarget }) {
             {
               required: true,
             })}
-            value={cardTarget.description}
+            value={card?.description}
             className="card__input card__input_white"
             type="text"
             name="input-target"
@@ -56,18 +56,19 @@ function GoalCardEdit({ cardTarget }) {
           <div className="card__list-header">
             <button type='button' onClick={() => setActiveTasks(!isActiveTasks)} className={isActiveTasks ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
             <p className="card__list-title">
-              Задачи <span>{cardTarget.tasks.length}</span>
+              Задачи <span>{card?.tasks.length}</span>
             </p>
           </div>
           <div className={isActiveTasks ? 'card__list-tasks card__list-tasks_active' : 'card__list-tasks'}>
             <ol className='card__list-items'>
-              {(cardTarget.tasks).map((item) => (
-                <li key={item.id} className="card__list-item">
-                  <p className="card__list-item-name">{item.task}</p>
+            {card?.tasks
+          && card?.tasks.map((item, index) => (
+                <li className="card__list-item" key={index}>
+                  <p className="card__list-item-name">{item.name}</p>
                 </li>
-              ))
+          ))
               }
-            </ol>
+          </ol>
             <div className="card__list-add">
               <button type='button' className="card__list-add-button"></button>
               <input
@@ -87,25 +88,21 @@ function GoalCardEdit({ cardTarget }) {
           <div className="card__list-header">
             <button type="button" className="card__list-button"></button>
             <p className="card__list-title">
-              Комментарии <span>{cardTarget.comments.length}</span>
+              Комментарии <span>{card?.comments.length}</span>
             </p>
           </div>
           <ul className="card__message-list">
-            {cardTarget.comments.map((item) => (
-              <li key={item.id} className="card__message-item">
+          {card?.comments
+          && card?.comments.map((item, index) => (
+              <li className="card__message-item" key={index}>
                 <img className="card__message-photo" src={item.avatar} />
                 <div className="card__message-info">
-                  <p className="card__message-name">{item.name}</p>
-                  <p className="card__message-text">{item.comment}</p>
+                  <p className="card__message-name">{item.employeeName}</p>
+                  <p className="card__message-text">{item.message}</p>
                 </div>
               </li>
-            ))}
-          </ul>
-
-          <section className="card__textarea">
-            <textarea className="card__textarea-field" placeholder="Добавьте комментарий"></textarea>
-            {/* <button className="card__textarea-button"></button> */}
-          </section>
+          ))}
+        </ul>
         </section>
       </form>
     </div>

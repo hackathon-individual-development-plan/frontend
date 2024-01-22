@@ -1,6 +1,6 @@
 import pic1 from '../images/avatar-1.jpg';
-import pic2 from '../images/avatar-2.jpg';
-// import pic3 from '../images/avatar-3.jpg';
+// import pic2 from '../images/avatar-2.jpg';
+import pic3 from '../images/avatar-3.jpg';
 // import pic4 from '../images/avatar-4.jpg';
 
 const targetsFromDB = [
@@ -30,7 +30,7 @@ const targetsFromDB = [
       {
         employeeId: 123,
         employeeName: 'Осипов Александр Владимирович',
-        employeeAvatar: pic2,
+        employeeAvatar: pic3,
         message: 'Удачи с тренингом.',
       },
     ],
@@ -61,7 +61,7 @@ const targetsFromDB = [
       {
         employeeId: 123,
         employeeName: 'Осипов Александр Владимирович',
-        employeeAvatar: pic2,
+        employeeAvatar: pic3,
         message: 'Удачи с тренингом.',
       },
     ],
