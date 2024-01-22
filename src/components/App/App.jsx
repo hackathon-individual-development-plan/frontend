@@ -13,15 +13,15 @@ function App() {
   return (
     <div className='body'>
       <div className="page">
-     <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route path='/' element={<Employees />} />
-        <Route path='/create-target' element={<CreatePlan />} />
-        <Route path='/matrix' element={<MatrixCompetency />} />
-        <Route path='/my-idp/senior' element={<MyPlanSenior />} />
-        <Route path='/employee-plan' element={<EmployeePlan />}/>
-      </Route>
-     </Routes>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path='/' element={<Employees />} />
+            <Route path='/create-target' element={<CreatePlan />} />
+            <Route path='/matrix' element={<MatrixCompetency />} />
+            <Route path='/my-idp/senior' element={<MyPlanSenior />} />
+            <Route path='/employee-plan' element={<EmployeePlan />} />
+          </Route>
+        </Routes>
       </div>
     </div>
   );
