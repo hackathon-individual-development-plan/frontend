@@ -1,0 +1,192 @@
+.card {
+  width: 408px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--gap-xl);
+  border-radius: 16px;
+  box-shadow: 0px 7px 14px 0px rgba(14, 14, 14, 0.08);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--Text-Black, #0e0e0e);
+  margin-bottom: var(--gap-l);
+}
+
+.card__title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--Text-Black, #0e0e0e);
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d2d3d9;
+  margin: 0 0 var(--gap-xl) 0;
+}
+
+.card__field-name {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
+  margin: 0 var(--gap-xs) 0 0;
+}
+
+.card__deadline {
+  display: flex;
+  margin-bottom: var(--gap-m);
+}
+
+.card__deadline__date {
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.card__status__type {
+  margin: 0;
+}
+
+.card__status {
+  display: flex;
+  margin-bottom: var(--gap-m);
+  height: 28px;
+  align-items: center;
+}
+
+.card__description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--gap-m);
+}
+
+.card__description-text {
+  margin: var(--gap-xs) 0 0 0;
+}
+
+.card__list {
+  margin-bottom: var(--gap-l);
+}
+
+.card__list-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d2d3d9;
+}
+
+.card__list-button {
+  background: url('/public/images/chevron-down-icon.svg');
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  margin-right: 14px;
+}
+
+.card__list-items {
+  display: flex;
+  flex-direction: column;
+  counter-reset: list-counter;
+  list-style-type: none;
+  margin: 0;
+  margin-top: var(--gap-s);
+  padding: 0 0 0 40px;
+}
+
+.card__list-item {
+  display: flex;
+  counter-increment: list-counter;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d2d3d9;
+  margin-bottom: var(--gap-s);
+  height: 20px;
+}
+
+.card__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.card__list-item-name {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+}
+
+.card__list-item-name::before {
+  content: counter(list-counter) '.';
+  margin-right: var(--gap-2xs);
+}
+
+.card__message-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: var(--gap-xs);
+}
+
+.card__message-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-top: var(--gap-m);
+}
+
+.card__message-photo {
+  width: 40px;
+  height: 40px;
+  margin-right: var(--gap-s);
+}
+
+.card__message-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--Text-Black, #0e0e0e);
+}
+
+.card__message-name {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+  width: 100%;
+  height: 18px;
+  padding-bottom: 4px;
+}
+
+.card__message-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+}
+
+.card__textarea {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #d2d3d9;
+  margin-top: var(--gap-m);
+}
+
+.card__textarea-field {
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  height: 20px;
+  margin: var(--gap-s) var(--gap-m);
+}
+
+.card__textarea-button {
+  background: url('/public/images/send-arrow-button-icon.svg');
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: var(--gap-m);
+  margin-bottom: var(--gap-m);
+}

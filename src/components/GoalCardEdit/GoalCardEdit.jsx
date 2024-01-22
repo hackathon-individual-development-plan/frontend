@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './TargetCard.css';
+import React from 'react';
+import './GoalCardEdit.css';
 import { useForm } from 'react-hook-form';
-import PickerStatusButton from '../PickerStatusButton/PickerStatusButton.jsx';
 import DateInput from '../DateInput/DateInput.jsx';
+import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
-function TargetCard({ cardTarget }) {
+function GoalCardEdit({ cardTarget }) {
   const { register, handleSubmit } = useForm();
   const [isActiveTasks, setActiveTasks] = useState(false);
   const onSubmit = (data) => {
@@ -20,27 +20,36 @@ function TargetCard({ cardTarget }) {
             <p className="card__field-name">Цель:</p>
             <img className="card__trash" src="/images/trash-icon.svg" alt="trash logo" />
           </div>
-          <input {...(register('target'), {
-            required: true,
-          })} value={cardTarget.target} className="card__input" type="text" name="input-target" placeholder='Название цели' />
+          <input
+            {...(register('target'),
+            {
+              required: true,
+            })}
+            value={cardTarget.target}
+            className="card__input"
+            type="text"
+            name="input-target"
+            placeholder="Название цели"
+          />
         </div>
         <section className="card__condition">
           <p className="card__field-name">Дедлайн:</p>
           <p className="card__field-name">Статус:</p>
           <DateInput />
-          <PickerStatusButton />
+          <DropdownButton />
         </section>
         <section className="card__discription">
           <p className="card__field-name">Описание:</p>
           <input
-            {...(register('description'), {
+            {...(register('description'),
+            {
               required: true,
             })}
             value={cardTarget.description}
             className="card__input card__input_white"
             type="text"
             name="input-target"
-            placeholder='Добавить комментарий'
+            placeholder="Добавить комментарий"
           />
         </section>
         <section className="card__list">
@@ -76,13 +85,13 @@ function TargetCard({ cardTarget }) {
 
         <section className="card__list card__list-padding-none">
           <div className="card__list-header">
-            <button type='button' className="card__list-button"></button>
+            <button type="button" className="card__list-button"></button>
             <p className="card__list-title">
               Комментарии <span>{cardTarget.comments.length}</span>
             </p>
           </div>
           <ul className="card__message-list">
-            {(cardTarget.comments).map((item) => (
+            {cardTarget.comments.map((item) => (
               <li key={item.id} className="card__message-item">
                 <img className="card__message-photo" src={item.avatar} />
                 <div className="card__message-info">
@@ -90,8 +99,7 @@ function TargetCard({ cardTarget }) {
                   <p className="card__message-text">{item.comment}</p>
                 </div>
               </li>
-            ))
-            }
+            ))}
           </ul>
 
           <section className="card__textarea">
@@ -103,4 +111,4 @@ function TargetCard({ cardTarget }) {
     </div>
   );
 }
-export default TargetCard;
+export default GoalCardEdit;

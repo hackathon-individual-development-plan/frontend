@@ -45,6 +45,18 @@
   background-color: #e7e8ea;
 }
 
+.card__input-error {
+  border: 1px solid red;
+  width: auto;
+  height: 30px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border-radius: 8px;
+  background-color: #e7e8ea;
+}
 
 .card__input_white {
   background-color: white;
@@ -147,7 +159,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 .card__list-item {
   display: flex;

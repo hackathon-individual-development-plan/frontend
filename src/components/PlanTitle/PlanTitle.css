@@ -1,0 +1,23 @@
+.headline-plan__container {
+  display: flex;
+  justify-content: space-between;
+  width: 456px;
+}
+
+.headline-plan__title {
+  margin: 0 var(--gap-xl) 0 0;
+  color: var(--Text-Black, #0e0e0e);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 38px;
+  max-width: 394px;
+}
+
+.headline-plan__edit {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: url('../../../public/images/edit-icon.svg') center;
+  background-repeat: no-repeat;
+}
