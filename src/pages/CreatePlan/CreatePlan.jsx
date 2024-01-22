@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
+import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
 import GoalCardEdit from '../../components/GoalCardEdit/GoalCardEdit.jsx';
 import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfirmation.jsx';
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 import SearchInput from '../../components/SearchInput/SearchInput.jsx';
 import PageTitle from '../../components/PageTitle/PageTitle.jsx';
 // import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
+import ButtonAddGoal from '../../components/ButtonAddGoal/ButtonAddGoal.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 // import Calendar from '../../components/Calendar/Calendar.jsx';
 import cardsTarget from '../../utils/cardsTarget';
 
 function CreatePlan() {
+  const { setGoalsComponent } = useGoals();
+
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
 
   const handlePlaceholderFocus = () => {
@@ -21,6 +25,10 @@ function CreatePlan() {
   const handlePlaceholderBlur = () => {
     setPlaceholderName('Введите название ИПР');
   };
+
+  useEffect(() => {
+    setGoalsComponent([]);
+  }, []);
 
   return (
     <>
@@ -51,10 +59,11 @@ function CreatePlan() {
             <div className="plan__status">
               <p className="plan__status-title">Статус ИПР:</p>
             </div>
-            <div className="plan__newtarget">
+            {/* <div className="plan__newtarget">
               <button className="plan__add-newtarget-button"></button>
               <p className="plan__add-newtarget-title">Добавить цель</p>
-            </div>
+            </div> */}
+            <ButtonAddGoal />
             {cardsTarget.map((item) => (
               <GoalCardEdit
                 key={item.id}
