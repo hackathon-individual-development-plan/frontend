@@ -5,7 +5,7 @@ import '../../components/CommonPageContent/CommonPageContent.css';
 // import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfirmation.jsx';
 // import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 // import SearchInput from '../../components/SearchInput/SearchInput.jsx';
-import PlanTitle from '../../components/PlanTitle/PageTitle.jsx';
+import PlanTitle from '../../components/PlanTitle/PlanTitle.jsx';
 import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
