@@ -6,11 +6,12 @@
 // дочерние компоненты и предоставляет им доступ к значениям контекста.
 
 import { useState, useEffect } from 'react';
-import TargetProviderContext from './TargetProvider.context';
+import GoalProviderContext from './GoalProvider.context';
 import targetsFromDB from '../../utils/targets';
 
-const TargetProvider = ({ children }) => {
+const GoalProvider = ({ children }) => {
   const [targetList, setTargetList] = useState(targetsFromDB);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const initialize = () => {
     useEffect(() => {
@@ -18,8 +19,11 @@ const TargetProvider = ({ children }) => {
     }, [targetsFromDB]);
   };
 
+  const toggleEditMode = () => {
+    setIsEditMode(!isEditMode); // Инвертируем текущее состояние режима редактирования
+  };
+
   const edit = () => {
-    setTargetList();
   };
 
   const add = () => {
@@ -32,13 +36,15 @@ const TargetProvider = ({ children }) => {
 
   const value = {
     initialize,
+    toggleEditMode,
     edit,
     add,
     remove,
     targetList,
+    isEditMode,
   };
 
-  return <TargetProviderContext.Provider value={value}>{children}</TargetProviderContext.Provider>;
+  return <GoalProviderContext.Provider value={value}>{children}</GoalProviderContext.Provider>;
 };
 
-export default TargetProvider;
+export default GoalProvider;

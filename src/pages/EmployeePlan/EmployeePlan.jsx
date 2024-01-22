@@ -1,23 +1,22 @@
 import React from 'react';
-import useTargets from '../../providers/TargetProvider/TargetProvider.hook';
+import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
 import './EmployeePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 // import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfirmation.jsx';
 // import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 // import SearchInput from '../../components/SearchInput/SearchInput.jsx';
-import PlanTitle from '../../components/PlanTitle/PageTitle.jsx';
+import PlanTitle from '../../components/PlanTitle/PlanTitle.jsx';
 import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
+import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
 
 function EmployeePlan() {
   const {
     initialize,
-    // edit,
-    // add,
-    // remove,
     targetList,
-  } = useTargets();
+    isEditMode,
+  } = useGoals();
 
   initialize();
 
@@ -29,6 +28,13 @@ function EmployeePlan() {
   // const handlePlaceholderBlur = () => {
   //   setPlaceholderName('Введите название ИПР');
   // };
+  const renderCardOrEditForm = () => {
+    if (isEditMode) {
+      return <GoalCardEditList targetList={targetList}/>;
+    }
+
+    return <GoalCardList targetList={targetList} />;
+  };
 
   return (
     <>
@@ -37,18 +43,7 @@ function EmployeePlan() {
         <section className="content__left-part">
           <Menu />
         </section>
-
         <section className="content__middle-part">
-          {/* ДЛЯ РЕЖИМА РЕДАКТИРОВАНИЯ */}
-          {/* <input
-          className="content__input-title"
-          type="text"
-          name="input-plan-name"
-          placeholder={placeholderName}
-          onFocus={handlePlaceholderFocus}
-          onBlur={handlePlaceholderBlur}
-        /> */}
-          {/* <SearchInput /> */}
           <section className="plan">
             <div className="plan__status">
               <p className="plan__status-title">Статус ИПР:</p>
@@ -58,7 +53,7 @@ function EmployeePlan() {
             <button className="plan__add-newtarget-button"></button>
             <p className="plan__add-newtarget-title">Добавить цель</p>
           </div> */}
-            <GoalCardList targetList={targetList} />
+            {renderCardOrEditForm()}
             {/* <section className="plan__content-buttons">
             <ButtonConfirmation />
             <ButtonCancellation />
