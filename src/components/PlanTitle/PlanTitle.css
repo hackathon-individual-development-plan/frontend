@@ -20,4 +20,5 @@
   border: none;
   background: url('../../../public/images/edit-icon.svg') center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
