@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './GoalCardEdit.css';
 import { useForm } from 'react-hook-form';
 import DateInput from '../DateInput/DateInput.jsx';
@@ -61,12 +61,12 @@ function GoalCardEdit({ card }) {
           </div>
           <div className={isActiveTasks ? 'card__list-tasks card__list-tasks_active' : 'card__list-tasks'}>
             <ol className='card__list-items'>
-            {(card?.tasks
-          && card?.tasks).map((item, index) => (
+            {card?.tasks
+          && card?.tasks.map((item, index) => (
                 <li className="card__list-item" key={index}>
                   <p className="card__list-item-name">{item.name}</p>
                 </li>
-            ))
+          ))
               }
           </ol>
             <div className="card__list-add">
