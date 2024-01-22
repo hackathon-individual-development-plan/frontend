@@ -14,7 +14,7 @@ export default function PlanTitle() {
     <>
       <PageTitle content={<div className="headline-plan__container">
         <h1 className="headline-plan__title">От Junior к Middle</h1>
-        <button className='headline-plan__edit'></button>
+        <button className='headline-plan__edit' onClick={handlEditClick}></button>
       </div>}
       />
     </>
