@@ -6,6 +6,7 @@ import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
 function GoalCardEdit({ card }) {
   const { register, handleSubmit } = useForm();
+  const [isActiveTasks, setActiveTasks] = useState(false);
   const onSubmit = (data) => {
     console.log(data);
     alert('Сохранено');
@@ -53,31 +54,33 @@ function GoalCardEdit({ card }) {
         </section>
         <section className="card__list">
           <div className="card__list-header">
-            <button type="button" className="card__list-button"></button>
+            <button type='button' onClick={() => setActiveTasks(!isActiveTasks)} className={isActiveTasks ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
             <p className="card__list-title">
               Задачи <span>{card?.tasks.length}</span>
             </p>
           </div>
-          <ol className="card__list-items">
-          {card?.tasks
-          && card?.tasks.map((item, index) => (
-              <li className="card__list-item" key={index}>
-                <p className="card__list-item-name">{item.name}</p>
-              </li>
-          ))}
-        </ol>
-          <div className="card__list-add">
-            <button type="button" className="card__list-add-button"></button>
-            <input
-              {...(register('task'),
-              {
-                required: true,
-              })}
-              className="card__input card__input_white card__input_border-none"
-              type="text"
-              name="input-target"
-              placeholder="Добавить задачу"
-            />
+          <div className={isActiveTasks ? 'card__list-tasks card__list-tasks_active' : 'card__list-tasks'}>
+            <ol className='card__list-items'>
+            {(card?.tasks
+          && card?.tasks).map((item, index) => (
+                <li className="card__list-item" key={index}>
+                  <p className="card__list-item-name">{item.name}</p>
+                </li>
+            ))
+              }
+          </ol>
+            <div className="card__list-add">
+              <button type='button' className="card__list-add-button"></button>
+              <input
+                {...(register('task'), {
+                  required: true,
+                })}
+                className="card__input card__input_white card__input_border-none"
+                type="text"
+                name="input-target"
+                placeholder="Добавить задачу"
+              />
+            </div>
           </div>
         </section>
 
