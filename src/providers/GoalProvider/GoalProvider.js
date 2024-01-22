@@ -12,6 +12,7 @@ import targetsFromDB from '../../utils/targets';
 const GoalProvider = ({ children }) => {
   const [targetList, setTargetList] = useState(targetsFromDB);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [goalsComponent, setGoalsComponent] = useState([]);
 
   const initialize = () => {
     useEffect(() => {
@@ -22,6 +23,18 @@ const GoalProvider = ({ children }) => {
   const toggleEditMode = () => {
     setIsEditMode(!isEditMode); // Инвертируем текущее состояние режима редактирования
   };
+
+  const addNewGoal = (element) => {
+    const newGoal = element;
+    setGoalsComponent((prevGoalsComponent) => [...prevGoalsComponent, newGoal]);
+  };
+
+  // const renderNewGoalForm = (element) => {
+  //   if (isAddGoal) {
+  //     return (... (element));
+  //   }
+  //   return null;
+  // };
 
   const edit = () => {
   };
@@ -37,11 +50,14 @@ const GoalProvider = ({ children }) => {
   const value = {
     initialize,
     toggleEditMode,
+    addNewGoal,
     edit,
     add,
     remove,
     targetList,
     isEditMode,
+    goalsComponent,
+    setGoalsComponent,
   };
 
   return <GoalProviderContext.Provider value={value}>{children}</GoalProviderContext.Provider>;
