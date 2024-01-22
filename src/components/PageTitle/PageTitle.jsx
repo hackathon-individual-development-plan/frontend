@@ -14,8 +14,6 @@ export default function PageTitle({ content }) {
     title = 'Матрица компетенций';
   } else if (pathname === '/my-idp/senior') {
     title = 'Индивидуальный план развития';
-  } else if (pathname === '/employee-plan') {
-    title = '-----';
   }
 
   return (
