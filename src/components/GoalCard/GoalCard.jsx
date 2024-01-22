@@ -37,18 +37,9 @@ function GoalCard(card) {
         <div className="card__list-header">
           <button className="card__list-button"></button>
           <p className="card__field-name">
-            Комментарии <span>1</span>
+            Комментарии <span>{card.comments.length}</span>
           </p>
         </div>
-        {/* <ul className="card__message-list">
-          <li className="card__message-item">
-            <img className="card__message-photo" src="/images/photo-xs.svg" />
-            <div className="card__message-info">
-              <p className="card__message-name">Артемьев Олег Иванович</p>
-              <p className="card__message-text">Начал проходить тренинг</p>
-            </div>
-          </li>
-        </ul> */}
         <ul className="card__message-list">
           {card.comments
           && card.comments.map((item, index) => (
