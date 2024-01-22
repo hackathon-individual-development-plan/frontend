@@ -1,10 +1,10 @@
 import React from 'react';
-import './TargetCard.css';
+import './GoalCardEdit.css';
 import { useForm } from 'react-hook-form';
 import DateInput from '../DateInput/DateInput.jsx';
 import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
-function TargetCard({ cardTarget }) {
+function GoalCardEdit({ cardTarget }) {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
@@ -108,4 +108,4 @@ function TargetCard({ cardTarget }) {
     </div>
   );
 }
-export default TargetCard;
+export default GoalCardEdit;

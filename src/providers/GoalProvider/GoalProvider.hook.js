@@ -4,8 +4,8 @@
 // доступа к функциям и данным из вашего контекста.
 
 import { useContext } from 'react';
-import TargetProviderContext from './TargetProvider.context';
+import GoalProviderContext from './GoalProvider.context';
 
-const useTargets = () => useContext(TargetProviderContext);
+const useGoals = () => useContext(GoalProviderContext);
 
-export default useTargets;
+export default useGoals;

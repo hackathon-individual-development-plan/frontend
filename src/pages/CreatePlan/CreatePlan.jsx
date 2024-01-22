@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
-import TargetCard from '../../components/TargetCard/TargetCard.jsx';
+import GoalCardEdit from '../../components/GoalCardEdit/GoalCardEdit.jsx';
 import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfirmation.jsx';
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 import SearchInput from '../../components/SearchInput/SearchInput.jsx';
@@ -56,7 +56,7 @@ function CreatePlan() {
               <p className="plan__add-newtarget-title">Добавить цель</p>
             </div>
             {cardsTarget.map((item) => (
-              <TargetCard
+              <GoalCardEdit
                 key={item.id}
                 cardTarget={item}
               />
