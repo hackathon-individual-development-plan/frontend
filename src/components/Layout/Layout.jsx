@@ -7,13 +7,13 @@ import './Layout.css';
 
 export default function Layout() {
   return (
-        <>
-            <Header />
-            <PathToPage />
-            <main className='main'>
-                <Outlet />
-            </main>
-            <Footer />
-        </>
+    <>
+      <Header />
+      <PathToPage />
+      <main className='main'>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
   );
 }

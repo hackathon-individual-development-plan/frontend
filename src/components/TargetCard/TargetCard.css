@@ -45,18 +45,6 @@
   background-color: #e7e8ea;
 }
 
-.card__input-error {
-  border: 1px solid red;
-  width: auto;
-  height: 30px;
-  padding: 8px 16px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  border-radius: 8px;
-  background-color: #e7e8ea;
-}
 
 .card__input_white {
   background-color: white;
@@ -110,20 +98,45 @@
 .card__list-header {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
   padding-bottom: 8px;
   border-bottom: 1px solid #d2d3d9;
 }
 
 .card__list-button {
-  background: url('/public/images/chevron-down-icon.svg');
+  background: url('/public/images/chevron-right.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 24px;
   height: 24px;
   border: none;
   cursor: pointer;
 }
 
+.card__list-button_active {
+  background: url('/public/images/chevron-down-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .card__list-title {
   margin: 0 0 0 14px;
+}
+
+.card__list-tasks {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__list-tasks_active {
+  margin-top: var(--gap-s);
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
 }
 
 .card__list-items {
@@ -132,9 +145,9 @@
   counter-reset: list-counter;
   list-style-type: none;
   margin: 0;
-  margin-top: var(--gap-s);
   padding: 0;
 }
+
 
 .card__list-item {
   display: flex;

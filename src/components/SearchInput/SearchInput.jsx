@@ -27,7 +27,6 @@ export default function SearchInput() {
           {employees.filter((item) => {
             const searchTerm = value.toLowerCase();
             const name = item.name.toLowerCase();
-
             return searchTerm && name.startsWith(searchTerm) && name !== searchTerm;
           })
             .slice(0, 10)
