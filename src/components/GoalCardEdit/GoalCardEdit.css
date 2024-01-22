@@ -186,7 +186,6 @@
 
 .card__list-add {
   display: flex;
-  margin-left: 40px;
   align-items: center;
   margin-left: var(--gap-3xl);
   border-bottom: 1px solid #d2d3d9;
