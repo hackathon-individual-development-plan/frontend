@@ -18,7 +18,7 @@ function GoalCardEdit({ card }) {
           <div className="card__target">
             <div className="card__target-header">
               <p className="card__field-name">Цель:</p>
-              <img className="card__trash" src="/images/trash-icon.svg" alt="trash logo" />
+              <button type='button' className="card__trash"/>
             </div>
             <input
               {...(register('target'),
