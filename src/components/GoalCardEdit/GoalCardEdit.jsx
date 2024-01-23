@@ -112,6 +112,7 @@ function GoalCardEdit({ card }) {
               && card?.tasks.map((item, index) => (
                   <li className="card__list-edit-item" key={index}>
                     <p className="card__list-edit-item-name">{item.name}</p>
+                    <button className='card__list-edit-item-delete'></button>
                   </li>
               ))}
             </ol>

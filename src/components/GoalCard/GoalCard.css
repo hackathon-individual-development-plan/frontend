@@ -100,7 +100,6 @@
   padding-bottom: 8px;
   border-bottom: 1px solid #d2d3d9;
   margin-bottom: var(--gap-s);
-  height: 20px;
 }
 
 .card__list-item:last-child {
