@@ -31,18 +31,37 @@ import './DropdownButton.css';
 
 function DropdownButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState('');
+  const items = {
+    text1: 'В работе',
+    text2: 'Выполнен',
+    text3: 'Не выполнен',
+    text4: 'Отсутствует',
+  };
+
+  function onClick() {
+    setIsOpen(!isOpen);
+  }
+
+  function onChange(evt) {
+    setValue(evt.target.value);
+  }
+
+  function onClickItem(term) {
+    setValue(term);
+    setIsOpen(false);
+  }
 
   return (
-    <nav className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-      {' '}
-      -
+    <div className='dropdown-button-container'>
+      <input placeholder='–' value={value} onClick={onClick} onChange={onChange} className="dropdown-button" />
       <ul className={`dropdown-button__list ${isOpen ? 'active' : ''}`}>
-        <li className="dropdown-button__item dropdown-button__item_blue">В работе</li>
-        <li className="dropdown-button__item dropdown-button__item_green">Выполнен</li>
-        <li className="dropdown-button__item dropdown-button__item_red">Не выполнен</li>
-        <li className="dropdown-button__item dropdown-button__item_grey">Отсутствует</li>
+        <li className="dropdown-button__item dropdown-button__item_blue" onClick={() => onClickItem(items.text1)} >{items.text1}</li>
+        <li className="dropdown-button__item dropdown-button__item_green" onClick={() => onClickItem(items.text2)}>{items.text2}</li>
+        <li className="dropdown-button__item dropdown-button__item_red" onClick={() => onClickItem(items.text3)}>{items.text3}</li>
+        <li className="dropdown-button__item dropdown-button__item_grey" onClick={() => onClickItem(items.text4)}>{items.text4}</li>
       </ul>
-    </nav>
+    </div>
   );
 }
 

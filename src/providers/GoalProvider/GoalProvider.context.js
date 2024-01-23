@@ -5,12 +5,11 @@ import { createContext } from 'react';
 
 export default createContext({
   initialize: () => [],
-  toggleEditMode: () => {},
-  addNewGoal: () => {},
-  filterEmployees: () => {},
-  edit: () => {},
-  add: () => {},
-  remove: () => {},
+  toggleEditMode: () => { },
+  addNewGoal: () => { },
+  edit: () => { },
+  add: () => { },
+  remove: () => { },
   targetList: [],
   employeesList: [],
   filteredEmployeesList: [],

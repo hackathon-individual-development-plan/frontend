@@ -30,7 +30,7 @@ function EmployeePlan() {
   // };
   const renderCardOrEditForm = () => {
     if (isEditMode) {
-      return <GoalCardEditList targetList={targetList}/>;
+      return <GoalCardEditList targetList={targetList} />;
     }
 
     return <GoalCardList targetList={targetList} />;

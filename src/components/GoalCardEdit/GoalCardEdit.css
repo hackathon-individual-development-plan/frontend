@@ -115,8 +115,6 @@
 .card__list-header {
   display: flex;
   align-items: center;
-  margin: 0;
-  padding: 0;
   padding-bottom: 8px;
   border-bottom: 1px solid #d2d3d9;
 }
@@ -137,10 +135,6 @@
   background-repeat: no-repeat;
 }
 
-.card__list-title {
-  margin: 0 0 0 14px;
-}
-
 .card__list-tasks {
   margin: 0;
   padding: 0;
@@ -156,13 +150,17 @@
   visibility: visible;
 }
 
+.card__list-title {
+  margin: 0 0 0 14px;
+}
+
 .card__list-items {
   display: flex;
   flex-direction: column;
   counter-reset: list-counter;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 40px;
 }
 
 .card__list-item {
@@ -172,7 +170,6 @@
   border-bottom: 1px solid #d2d3d9;
   margin-bottom: var(--gap-s);
   height: 20px;
-  padding-left: 40px;
 }
 
 .card__list-item:last-child {
@@ -194,7 +191,6 @@
 
 .card__list-add {
   display: flex;
-  margin-left: 40px;
   align-items: center;
   margin-left: var(--gap-3xl);
   border-bottom: 1px solid #d2d3d9;
@@ -209,18 +205,31 @@
   cursor: pointer;
 }
 
+.card__list-messages {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__list-messages_active {
+  margin-top: var(--gap-s);
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
 .card__message-list {
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin-top: var(--gap-xs);
 }
 
 .card__message-item {
   display: flex;
   align-items: center;
   margin: 0;
-  margin-top: var(--gap-m);
 }
 
 .card__message-photo {
