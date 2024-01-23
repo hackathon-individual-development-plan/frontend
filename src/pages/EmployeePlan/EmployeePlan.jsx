@@ -42,10 +42,12 @@ function EmployeePlan() {
   const renderModeOfPlanStatus = () => {
     // add extra class for small dropdown button
     const smallSizeClass = 'dropdown-button_small';
+    const statusName = planFromDB.planStatus;
+
     if (isEditMode) {
       return <DropdownButton className={smallSizeClass} />;
     }
-    return <p className="plan__status-type">В работе</p>;
+    return <p className="plan__status-type">{statusName}</p>;
   };
 
   return (

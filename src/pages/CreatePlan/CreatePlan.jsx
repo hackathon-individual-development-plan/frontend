@@ -16,12 +16,11 @@ import cardsTarget from '../../utils/cardsTarget';
 function CreatePlan() {
   const { setGoalsComponent } = usePlan();
 
+  // placeholder
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
-
   const handlePlaceholderFocus = () => {
     setPlaceholderName('');
   };
-
   const handlePlaceholderBlur = () => {
     setPlaceholderName('Введите название ИПР');
   };
