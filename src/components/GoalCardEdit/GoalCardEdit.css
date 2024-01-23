@@ -103,18 +103,18 @@
   margin-bottom: 20px;
 }
 
-.card__list {
+.card__list-edit {
   margin-bottom: var(--gap-l);
 }
 
-.card__list-header {
+.card__list-edit-header {
   display: flex;
   align-items: center;
   padding-bottom: 8px;
   border-bottom: 1px solid #d2d3d9;
 }
 
-.card__list-button {
+.card__list-edit-button {
   background: url('/public/images/chevron-right.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -124,13 +124,13 @@
   cursor: pointer;
 }
 
-.card__list-button_active {
+.card__list-edit-button_active {
   background: url('/public/images/chevron-down-icon.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.card__list-tasks {
+.card__list-edit-tasks {
   margin: 0;
   padding: 0;
   height: 0;
@@ -138,18 +138,18 @@
   visibility: hidden;
 }
 
-.card__list-tasks_active {
+.card__list-edit-tasks_active {
   margin-top: var(--gap-s);
   height: 100%;
   opacity: 1;
   visibility: visible;
 }
 
-.card__list-title {
+.card__list-edit-title {
   margin: 0 0 0 14px;
 }
 
-.card__list-items {
+.card__list-edit-items {
   display: flex;
   flex-direction: column;
   counter-reset: list-counter;
@@ -158,7 +158,7 @@
   padding: 0 0 0 40px;
 }
 
-.card__list-item {
+.card__list-edit-item {
   display: flex;
   counter-increment: list-counter;
   padding-bottom: 8px;
@@ -167,11 +167,11 @@
   height: 20px;
 }
 
-.card__list-item:last-child {
+.card__list-edit-item:last-child {
   margin-bottom: 0;
 }
 
-.card__list-item-name {
+.card__list-edit-item-name {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -179,19 +179,19 @@
   margin: 0;
 }
 
-.card__list-item-name::before {
+.card__list-edit-item-name::before {
   content: counter(list-counter) '.';
   margin-right: var(--gap-2xs);
 }
 
-.card__list-add {
+.card__list-edit-add {
   display: flex;
   align-items: center;
   margin-left: var(--gap-3xl);
   border-bottom: 1px solid #d2d3d9;
 }
 
-.card__list-add-button {
+.card__list-edit-add-button {
   background: url('/public/images/plus-button-icon.svg');
   width: 13px;
   height: 13px;
@@ -200,7 +200,7 @@
   cursor: pointer;
 }
 
-.card__list-messages {
+.card__list-edit-messages {
   margin: 0;
   padding: 0;
   height: 0;
@@ -208,39 +208,40 @@
   visibility: hidden;
 }
 
-.card__list-messages_active {
+.card__list-edit-messages_active {
   margin-top: var(--gap-s);
   height: 100%;
   opacity: 1;
   visibility: visible;
 }
 
-.card__message-list {
+.card__message-edit-list {
   display: flex;
   flex-direction: column;
   padding: 0;
+  gap: var(--gap-m);
 }
 
-.card__message-item {
+.card__message-edit-item {
   display: flex;
   align-items: center;
   margin: 0;
 }
 
-.card__message-photo {
+.card__message-edit-photo {
   width: 40px;
   height: 40px;
   margin-right: var(--gap-s);
 }
 
-.card__message-info {
+.card__message-edit-info {
   display: flex;
   flex-direction: column;
   width: 100%;
   color: var(--Text-Black, #0E0E0E);
 }
 
-.card__message-name {
+.card__message-edit-name {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -251,7 +252,7 @@
   padding-bottom: 4px;
 }
 
-.card__message-text {
+.card__message-edit-text {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

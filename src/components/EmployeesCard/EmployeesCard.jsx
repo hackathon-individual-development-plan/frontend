@@ -1,9 +1,16 @@
 import React from 'react';
 import './EmployeesCard.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function EmployeesCard({ employee }) {
+  const navigate = useNavigate();
+
+  function openEmployeePlan() {
+    navigate('/employee-plan');
+  }
+
   return (
-    <div className='employees-card'>
+    <div onClick={openEmployeePlan} className='employees-card'>
       <ul className='employees-card__list'>
         <li className='employees-card__element'>
           <p className='employees-card__title'>Сотрудник:<span className='employees-card__value'>{employee.name}</span></p>
