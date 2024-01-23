@@ -300,7 +300,7 @@
 }
 
 .card__list-edit-item-delete {
-  background: url('../../../public/images/cross-small.svg');
+  background: url('/public/images/cross-small.svg');
   width: 24px;
   height: 24px;
   border: none;
