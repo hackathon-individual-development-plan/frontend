@@ -1,5 +1,5 @@
 import React from 'react';
-import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
+import useGoals from '../../providers/PlanProvider/PlanProvider.hook.js';
 import EmployeesCard from '../EmployeesCard/EmployeesCard.jsx';
 import './EmployeesCardList.css';
 

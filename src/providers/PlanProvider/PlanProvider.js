@@ -8,21 +8,27 @@
 /* eslint-disable no-unused-vars */
 
 import { useState, useEffect } from 'react';
-import GoalProviderContext from './GoalProvider.context';
-import targetsFromDB from '../../utils/targets';
+import PlanProviderContext from './PlanProvider.context';
+import planFromDB from '../../utils/planFromDB';
 import { employees } from '../../utils/employees';
 
-const GoalProvider = ({ children }) => {
-  const [targetList, setTargetList] = useState(targetsFromDB);
+const PlanProvider = ({ children }) => {
+  const [plan, setPlan] = useState(planFromDB);
   const [employeesList, setEmployeesList] = useState(employees);
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
   const [isEditMode, setIsEditMode] = useState(false);
   const [goalsComponent, setGoalsComponent] = useState([]);
 
+  // const initialize = () => {
+  //   useEffect(() => {
+  //     setTargetList(plansFromDB);
+  //   }, [plansFromDB]);
+  // };
+
   const initialize = () => {
     useEffect(() => {
-      setTargetList(targetsFromDB);
-    }, [targetsFromDB]);
+      setPlan(planFromDB);
+    }, [planFromDB]);
   };
 
   const toggleEditMode = () => {
@@ -47,11 +53,11 @@ const GoalProvider = ({ children }) => {
   };
 
   const add = () => {
-    setTargetList();
+    // setTargetList();
   };
 
   const remove = () => {
-    setTargetList();
+    // setTargetList();
   };
 
   const value = {
@@ -61,7 +67,7 @@ const GoalProvider = ({ children }) => {
     edit,
     add,
     remove,
-    targetList,
+    planFromDB,
     employeesList,
     isEditMode,
     goalsComponent,
@@ -71,7 +77,7 @@ const GoalProvider = ({ children }) => {
 
   };
 
-  return <GoalProviderContext.Provider value={value}>{children}</GoalProviderContext.Provider>;
+  return <PlanProviderContext.Provider value={value}>{children}</PlanProviderContext.Provider>;
 };
 
-export default GoalProvider;
+export default PlanProvider;

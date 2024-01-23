@@ -1,10 +1,10 @@
 import React from 'react';
-import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './ButtonAddGoal.css';
 import GoalCardEdit from '../GoalCardEdit/GoalCardEdit.jsx';
 
 export default function ButtonAddGoal() {
-  const { addNewGoal, goalsComponent } = useGoals();
+  const { addNewGoal, goalsComponent } = usePlan();
 
   function handleAddClick() {
     addNewGoal(<GoalCardEdit />);

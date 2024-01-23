@@ -46,6 +46,7 @@ margin: 0;
 .plan__status {
   display: flex;
   margin-bottom: var(--gap-l);
+  align-items: center;
 }
 
 .plan__status-title {

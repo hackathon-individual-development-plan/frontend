@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
-import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import GoalCardEdit from '../../components/GoalCardEdit/GoalCardEdit.jsx';
 import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfirmation.jsx';
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
@@ -14,7 +14,7 @@ import Menu from '../../components/Menu/Menu.jsx';
 import cardsTarget from '../../utils/cardsTarget';
 
 function CreatePlan() {
-  const { setGoalsComponent } = useGoals();
+  const { setGoalsComponent } = usePlan();
 
   const [placeholderName, setPlaceholderName] = useState('Введите название ИПР');
 
