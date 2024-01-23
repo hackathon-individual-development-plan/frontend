@@ -1,10 +1,10 @@
 import React from 'react';
-import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import EmployeesCard from '../EmployeesCard/EmployeesCard.jsx';
 import './EmployeesCardList.css';
 
 export default function EmployeesCardList() {
-  const { filteredEmployeesList } = useGoals();
+  const { filteredEmployeesList } = usePlan();
 
   return (
       <section className='employees-list'>

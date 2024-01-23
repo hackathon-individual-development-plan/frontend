@@ -3,12 +3,12 @@ import './GoalCardEditList.css';
 import ButtonAddGoal from '../ButtonAddGoal/ButtonAddGoal.jsx';
 import GoalCardEdit from '../GoalCardEdit/GoalCardEdit.jsx';
 
-export default function GoalCardEditList({ targetList }) {
+export default function GoalCardEditList({ listOfGoals }) {
   return (
     <>
       <ButtonAddGoal />
       <ul className="target-card-list">
-        {targetList.map((item) => (
+        {listOfGoals.map((item) => (
           <GoalCardEdit
             key={item.id}
             card={item}

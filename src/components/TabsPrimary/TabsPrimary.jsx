@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { Tabs, Tab } from '@alfalab/core-components/tabs';
-import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
+import useGoals from '../../providers/PlanProvider/PlanProvider.hook';
 import './TabsPrimary.css';
 
 export default function TabsPrimary() {

@@ -2,10 +2,10 @@ import React from 'react';
 import './GoalCardList.css';
 import GoalCard from '../GoalCard/GoalCard.jsx';
 
-export default function GoalCardList({ targetList }) {
+export default function GoalCardList({ listOfGoals }) {
   return (
     <ul className="target-card-list">
-      {targetList.map((item) => (
+      {listOfGoals.map((item) => (
         <GoalCard
           key={item.id}
           title={item.title}

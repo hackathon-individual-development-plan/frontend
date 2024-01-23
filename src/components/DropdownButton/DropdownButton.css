@@ -56,6 +56,10 @@
     position: relative;
     caret-color: transparent;
   }
+
+  .dropdown-button_small {
+    padding: 8px 16px;
+  }
   
   .dropdown-button__list {
     margin: 0;

@@ -29,9 +29,10 @@
 import React, { useState } from 'react';
 import './DropdownButton.css';
 
-function DropdownButton() {
+function DropdownButton(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
+
   const items = {
     text1: 'В работе',
     text2: 'Выполнен',
@@ -53,13 +54,27 @@ function DropdownButton() {
   }
 
   return (
-    <div className='dropdown-button-container'>
-      <input placeholder='–' value={value} onClick={onClick} onChange={onChange} className="dropdown-button" />
+    <div className="dropdown-button-container">
+      <input
+        placeholder="–"
+        value={value}
+        onClick={onClick}
+        onChange={onChange}
+        className={`dropdown-button ${props.className}`}
+      />
       <ul className={`dropdown-button__list ${isOpen ? 'active' : ''}`}>
-        <li className="dropdown-button__item dropdown-button__item_blue" onClick={() => onClickItem(items.text1)} >{items.text1}</li>
-        <li className="dropdown-button__item dropdown-button__item_green" onClick={() => onClickItem(items.text2)}>{items.text2}</li>
-        <li className="dropdown-button__item dropdown-button__item_red" onClick={() => onClickItem(items.text3)}>{items.text3}</li>
-        <li className="dropdown-button__item dropdown-button__item_grey" onClick={() => onClickItem(items.text4)}>{items.text4}</li>
+        <li className="dropdown-button__item dropdown-button__item_blue" onClick={() => onClickItem(items.text1)}>
+          {items.text1}
+        </li>
+        <li className="dropdown-button__item dropdown-button__item_green" onClick={() => onClickItem(items.text2)}>
+          {items.text2}
+        </li>
+        <li className="dropdown-button__item dropdown-button__item_red" onClick={() => onClickItem(items.text3)}>
+          {items.text3}
+        </li>
+        <li className="dropdown-button__item dropdown-button__item_grey" onClick={() => onClickItem(items.text4)}>
+          {items.text4}
+        </li>
       </ul>
     </div>
   );

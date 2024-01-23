@@ -22,3 +22,12 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
+.headline-plan__title-edit {
+  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 38px;
+  border: none;
+}
