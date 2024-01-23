@@ -13,13 +13,51 @@ function GoalCardEdit({ card }) {
     alert('Сохранено');
   };
 
+  const commentsSection = () => {
+    if (!card) return <></>;
+    return (
+      <section className="card__list-edit card__list-edit-padding-none">
+        <div className="card__list-edit-header">
+          <button
+            type="button"
+            onClick={() => setActiveMessages(!isActiveMessages)}
+            className={
+              isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'
+            }
+          ></button>
+          <p className="card__list-edit-title">
+            Комментарии <span>{card?.comments.length}</span>
+          </p>
+        </div>
+        <div
+          className={
+            isActiveMessages ? 'card__list-edit-messages card__list-edit-messages_active' : 'card__list-edit-messages'
+          }
+        >
+          <ul className="card__message-edit-list">
+            {card?.comments
+            && card?.comments.map((item, index) => (
+                <li className="card__message-edit-item" key={index}>
+                  <img className="card__message-edit-photo" src={item.avatar} />
+                  <div className="card__message-edit-info">
+                    <p className="card__message-edit-name">{item.employeeName}</p>
+                    <p className="card__message-edit-text">{item.message}</p>
+                  </div>
+                </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  };
+
   return (
     <div className="card">
       <form onSubmit={handleSubmit(onSubmit)} className="card__form">
         <div className="card__target">
           <div className="card__target-header">
             <p className="card__field-name">Цель:</p>
-            <button type='button' className="card__trash"/>
+            <button type="button" className="card__trash" />
           </div>
           <input
             {...(register('target'),
@@ -55,20 +93,27 @@ function GoalCardEdit({ card }) {
         </section>
         <section className="card__list-edit">
           <div className="card__list-edit-header">
-            <button type='button' onClick={() => setActiveTasks(!isActiveTasks)} className={isActiveTasks ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'}></button>
+            <button
+              type="button"
+              onClick={() => setActiveTasks(!isActiveTasks)}
+              className={
+                isActiveTasks ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'
+              }
+            ></button>
             <p className="card__list-edit-title">
               Задачи <span>{card?.tasks.length}</span>
             </p>
           </div>
-          <div className={isActiveTasks ? 'card__list-edit-tasks card__list-edit-tasks_active' : 'card__list-edit-tasks'}>
-            <ol className='card__list-edit-items'>
+          <div
+            className={isActiveTasks ? 'card__list-edit-tasks card__list-edit-tasks_active' : 'card__list-edit-tasks'}
+          >
+            <ol className="card__list-edit-items">
               {card?.tasks
-                && card?.tasks.map((item, index) => (
+              && card?.tasks.map((item, index) => (
                   <li className="card__list-edit-item" key={index}>
                     <p className="card__list-edit-item-name">{item.name}</p>
                   </li>
-                ))
-              }
+              ))}
             </ol>
             <div className="card__list-edit-add">
               <button type="button" className="card__list-edit-add-button"></button>
@@ -85,15 +130,20 @@ function GoalCardEdit({ card }) {
             </div>
           </div>
         </section>
-
-        <section className="card__list-edit card__list-edit-padding-none">
+        {commentsSection()}
+        {/* <section className="card__list-edit card__list-edit-padding-none">
           <div className="card__list-edit-header">
-            <button type='button' onClick={() => setActiveMessages(!isActiveMessages)} className={isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'}></button>
+            <button type='button' onClick={() =>
+              setActiveMessages(!isActiveMessages)}
+              className={isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' :
+              'card__list-edit-button'}></button>
             <p className="card__list-edit-title">
               Комментарии <span>{card?.comments.length}</span>
             </p>
           </div>
-          <div className={isActiveMessages ? 'card__list-edit-messages card__list-edit-messages_active' : 'card__list-edit-messages'}>
+          <div className={isActiveMessages ?
+            'card__list-edit-messages card__list-edit-messages_active' :
+          'card__list-edit-messages'}>
             <ul className="card__message-edit-list">
               {card?.comments
                 && card?.comments.map((item, index) => (
@@ -107,7 +157,7 @@ function GoalCardEdit({ card }) {
                 ))}
             </ul>
           </div>
-        </section>
+        </section> */}
       </form>
     </div>
   );

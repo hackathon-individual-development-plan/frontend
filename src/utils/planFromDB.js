@@ -5,6 +5,7 @@ import pic3 from '../images/avatar-3.jpg';
 
 const planFromDB = {
   planTitle: 'От Junior к Middle',
+  planStatus: 'Не выполнен',
   listOfGoals: [
     {
       id: 1,
