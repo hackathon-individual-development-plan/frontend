@@ -11,6 +11,8 @@ export default createContext({
   add: () => { },
   remove: () => { },
   targetList: [],
+  employeesList: [],
+  filteredEmployeesList: [],
   isEditMode: false,
   goalsComponent: [],
 });
