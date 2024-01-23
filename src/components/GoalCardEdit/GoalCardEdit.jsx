@@ -53,25 +53,25 @@ function GoalCardEdit({ card }) {
             placeholder="Добавить комментарий"
           />
         </section>
-        <section className="card__list">
-          <div className="card__list-header">
-            <button type='button' onClick={() => setActiveTasks(!isActiveTasks)} className={isActiveTasks ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
-            <p className="card__list-title">
+        <section className="card__list-edit">
+          <div className="card__list-edit-header">
+            <button type='button' onClick={() => setActiveTasks(!isActiveTasks)} className={isActiveTasks ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'}></button>
+            <p className="card__list-edit-title">
               Задачи <span>{card?.tasks.length}</span>
             </p>
           </div>
-          <div className={isActiveTasks ? 'card__list-tasks card__list-tasks_active' : 'card__list-tasks'}>
-            <ol className='card__list-items'>
+          <div className={isActiveTasks ? 'card__list-edit-tasks card__list-edit-tasks_active' : 'card__list-edit-tasks'}>
+            <ol className='card__list-edit-items'>
               {card?.tasks
                 && card?.tasks.map((item, index) => (
-                  <li className="card__list-item" key={index}>
-                    <p className="card__list-item-name">{item.name}</p>
+                  <li className="card__list-edit-item" key={index}>
+                    <p className="card__list-edit-item-name">{item.name}</p>
                   </li>
                 ))
               }
             </ol>
-            <div className="card__list-add">
-              <button type="button" className="card__list-add-button"></button>
+            <div className="card__list-edit-add">
+              <button type="button" className="card__list-edit-add-button"></button>
               <input
                 {...(register('task'),
                 {
@@ -86,22 +86,22 @@ function GoalCardEdit({ card }) {
           </div>
         </section>
 
-        <section className="card__list card__list-padding-none">
-          <div className="card__list-header">
-            <button type='button' onClick={() => setActiveMessages(!isActiveMessages)} className={isActiveMessages ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
-            <p className="card__list-title">
+        <section className="card__list-edit card__list-edit-padding-none">
+          <div className="card__list-edit-header">
+            <button type='button' onClick={() => setActiveMessages(!isActiveMessages)} className={isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'}></button>
+            <p className="card__list-edit-title">
               Комментарии <span>{card?.comments.length}</span>
             </p>
           </div>
-          <div className={isActiveMessages ? 'card__list-messages card__list-messages_active' : 'card__list-messages'}>
-            <ul className="card__message-list">
+          <div className={isActiveMessages ? 'card__list-edit-messages card__list-edit-messages_active' : 'card__list-edit-messages'}>
+            <ul className="card__message-edit-list">
               {card?.comments
                 && card?.comments.map((item, index) => (
-                  <li className="card__message-item" key={index}>
-                    <img className="card__message-photo" src={item.avatar} />
-                    <div className="card__message-info">
-                      <p className="card__message-name">{item.employeeName}</p>
-                      <p className="card__message-text">{item.message}</p>
+                  <li className="card__message-edit-item" key={index}>
+                    <img className="card__message-edit-photo" src={item.avatar} />
+                    <div className="card__message-edit-info">
+                      <p className="card__message-edit-name">{item.employeeName}</p>
+                      <p className="card__message-edit-text">{item.message}</p>
                     </div>
                   </li>
                 ))}
