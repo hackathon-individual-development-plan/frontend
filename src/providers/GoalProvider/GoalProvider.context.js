@@ -15,5 +15,4 @@ export default createContext({
   filteredEmployeesList: [],
   isEditMode: false,
   goalsComponent: [],
-  filter: '',
 });
