@@ -7,6 +7,7 @@ export default createContext({
   initialize: () => [],
   toggleEditMode: () => { },
   addNewGoal: () => { },
+  deleteEmptyGoal: () => { },
   edit: () => { },
   add: () => { },
   remove: () => { },
