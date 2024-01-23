@@ -1,15 +1,18 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { Tabs, Tab } from '@alfalab/core-components/tabs';
+import useGoals from '../../providers/GoalProvider/GoalProvider.hook';
 import './TabsPrimary.css';
 
 export default function TabsPrimary() {
+  const { filterEmployees } = useGoals();
+
   const TABS = [
-    { title: 'Все', id: 'tab-1' },
-    { title: 'В работе', id: 'tab-2' },
-    { title: 'Выполнен', id: 'tab-3' },
-    { title: 'Не выполнен', id: 'tab-4' },
-    { title: 'Отсутствует', id: 'tab-5' },
+    { title: 'Все', id: 'Все' },
+    { title: 'В работе', id: 'В работе' },
+    { title: 'Выполнен', id: 'Выполнен' },
+    { title: 'Не выполнен', id: 'Не выполнен' },
+    { title: 'Отсутствует', id: 'Отсутствует' },
   ];
 
   const IS_MOBILE = document.body.clientWidth < 450;
@@ -18,6 +21,7 @@ export default function TabsPrimary() {
 
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
+    filterEmployees(selectedId);
   };
 
   return (
@@ -28,6 +32,7 @@ export default function TabsPrimary() {
         onChange={handleChange}
         view='secondary'
         size='xxs'
+        keepMounted={false}
         scrollable={false}
         tagShape='rounded'
         tagView='outlined'
