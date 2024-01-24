@@ -16,7 +16,6 @@ export default function SearchInput() {
     setValue(searchTermInput);
     setSearchTerm(searchTermInput);
     filterEmployees(searchTerm);
-    console.log(searchTerm);
   }
 
   function onClick() {
