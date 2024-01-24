@@ -14,6 +14,7 @@ import { readPlan } from '../../utils/planFromDB';
 import { employees } from '../../utils/employees';
 
 const PlanProvider = ({ children }) => {
+  // state for current plan (at first is null)
   const [plan, setPlan] = useState(null);
   const [employeesList, setEmployeesList] = useState(employees);
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
@@ -21,16 +22,10 @@ const PlanProvider = ({ children }) => {
   const [goalsComponent, setGoalsComponent] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // const initialize = () => {
-  //   useEffect(() => {
-  //     setTargetList(plansFromDB);
-  //   }, [plansFromDB]);
-  // };
-
-  const initialize = () => readPlan(1);
-  // useEffect(() => {
-  //   readPlan(1).then((p) => setPlan(p));
-  // }, []);
+  // initialize plan from server
+  const initialize = () => readPlan(1).then((currentPlan) => {
+    setPlan(currentPlan);
+  });
 
   const toggleEditMode = () => {
     setIsEditMode(!isEditMode);

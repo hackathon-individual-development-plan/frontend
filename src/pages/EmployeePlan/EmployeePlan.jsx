@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './EmployeePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
@@ -13,17 +13,16 @@ import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
 
 function EmployeePlan() {
-  const [currentPlan, setCurrentPlan] = useState({});
-  const { initialize, isEditMode } = usePlan();
+  const { initialize, isEditMode, plan } = usePlan();
 
   useEffect(() => {
-    initialize().then((p) => setCurrentPlan(p));
+    initialize();
   }, []);
   // initialize();
 
   // switch a goal card mode
   const renderCardOrEditForm = () => {
-    const goalsList = currentPlan?.goals;
+    const goalsList = plan?.goals;
 
     if (isEditMode) {
       return <GoalCardEditList listOfGoals={goalsList} />;
@@ -33,7 +32,7 @@ function EmployeePlan() {
 
   // switch a title mode
   const renderTitleOrEdit = () => {
-    const planTitle = currentPlan?.title;
+    const planTitle = plan?.title;
 
     if (isEditMode) {
       return <PlanTitle titleOfPlan={planTitle} />;
@@ -45,7 +44,7 @@ function EmployeePlan() {
   const renderModeOfPlanStatus = () => {
     // add extra class for small dropdown button
     const smallSizeClass = 'dropdown-button_small';
-    const statusName = currentPlan?.status;
+    const statusName = plan?.status;
 
     if (isEditMode) {
       return <DropdownButton className={smallSizeClass} />;
