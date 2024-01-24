@@ -8,6 +8,13 @@
     align-items: flex-start;
     border-radius: 8px;
     box-shadow: 0px 7px 14px 0px rgba(14, 14, 14, 0.08);
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+.employees-card_inactive {
+    cursor: default;
+    background: var(--Gray-10, #F3F4F6);
 }
 
 .employees-card__list {
@@ -43,6 +50,10 @@
 .employees-card__status-value {
     padding: 4px 10px;
     border-radius: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
     margin-left: var(--gap-xs);
     text-align: center;
 }
@@ -53,7 +64,8 @@
 }
 
 .employees-card__status-value_done {
-    background: var(--Status-Green, #D1F1D7);;
+    background: var(--Status-Green, #D1F1D7);
+    ;
     color: var(--Status-Green, #0A9336);
 }
 
