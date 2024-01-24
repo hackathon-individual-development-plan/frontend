@@ -19,6 +19,7 @@ const PlanProvider = ({ children }) => {
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
   const [isEditMode, setIsEditMode] = useState(false);
   const [goalsComponent, setGoalsComponent] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   // const initialize = () => {
   //   useEffect(() => {
@@ -46,12 +47,27 @@ const PlanProvider = ({ children }) => {
       prevGoalsComponent.filter((element) => element.props.uniqueId !== uniqueId));
   };
 
+  // const filterEmployees = (selectedId) => {
+  //   if (selectedId === 'Все') {
+  //     setFilteredEmployeesList(employeesList);
+  //     return;
+  //   }
+  //   const filteredList = employeesList.filter((employee) => employee.status === selectedId);
+  //   setFilteredEmployeesList(filteredList);
+  // };
+
   const filterEmployees = (selectedId) => {
-    if (selectedId === 'Все') {
-      setFilteredEmployeesList(employeesList);
-      return;
+    // Фильтрация по статусу
+    let filteredList = employeesList;
+    if (selectedId !== 'Все') {
+      filteredList = employeesList.filter((employee) => employee.status === selectedId);
     }
-    const filteredList = employeesList.filter((employee) => employee.status === selectedId);
+    // Фильтрация по поисковому термину
+    if (searchTerm) {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      filteredList = employeesList.filter((employee) =>
+        employee.name.toLowerCase() === lowerCaseSearchTerm);
+    }
     setFilteredEmployeesList(filteredList);
   };
 
@@ -78,7 +94,10 @@ const PlanProvider = ({ children }) => {
     employeesList,
     isEditMode,
     goalsComponent,
+    searchTerm,
+    setSearchTerm,
     setGoalsComponent,
+    setFilteredEmployeesList,
     filterEmployees,
     filteredEmployeesList,
   };
