@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 // Здесь создается компонент TargetProvider, который использует useState
 // для хранения состояния targetList. Функции initialize, edit, add,
 // и remove используют setTargetList для обновления состояния. Затем
@@ -10,11 +9,12 @@
 
 import { useState, useEffect } from 'react';
 import PlanProviderContext from './PlanProvider.context';
-import planFromDB from '../../utils/planFromDB';
+// import planFromDB from '../../utils/planFromDB';
+import { readPlan } from '../../utils/planFromDB';
 import { employees } from '../../utils/employees';
 
 const PlanProvider = ({ children }) => {
-  const [plan, setPlan] = useState(planFromDB);
+  const [plan, setPlan] = useState(null);
   const [employeesList, setEmployeesList] = useState(employees);
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -27,14 +27,13 @@ const PlanProvider = ({ children }) => {
   //   }, [plansFromDB]);
   // };
 
-  const initialize = () => {
-    useEffect(() => {
-      setPlan(planFromDB);
-    }, [planFromDB]);
-  };
+  const initialize = () => readPlan(1);
+  // useEffect(() => {
+  //   readPlan(1).then((p) => setPlan(p));
+  // }, []);
 
   const toggleEditMode = () => {
-    setIsEditMode(!isEditMode); // Инвертируем текущее состояние режима редактирования
+    setIsEditMode(!isEditMode);
   };
 
   const addNewGoal = (element) => {
@@ -43,8 +42,8 @@ const PlanProvider = ({ children }) => {
   };
 
   const deleteEmptyGoal = (uniqueId) => {
-    setGoalsComponent((prevGoalsComponent) =>
-      prevGoalsComponent.filter((element) => element.props.uniqueId !== uniqueId));
+    setGoalsComponent((prevGoalsComponent) => prevGoalsComponent
+      .filter((element) => element.props.uniqueId !== uniqueId));
   };
 
   // const filterEmployees = (selectedId) => {
@@ -65,14 +64,13 @@ const PlanProvider = ({ children }) => {
     // Фильтрация по поисковому термину
     if (searchTerm) {
       const lowerCaseSearchTerm = searchTerm.toLowerCase();
-      filteredList = employeesList.filter((employee) =>
-        employee.name.toLowerCase() === lowerCaseSearchTerm);
+      filteredList = employeesList.filter((employee) => employee.name.toLowerCase()
+      === lowerCaseSearchTerm);
     }
     setFilteredEmployeesList(filteredList);
   };
 
-  const edit = () => {
-  };
+  const edit = () => {};
 
   const add = () => {
     // setTargetList();
@@ -90,7 +88,7 @@ const PlanProvider = ({ children }) => {
     edit,
     add,
     remove,
-    planFromDB,
+    plan,
     employeesList,
     isEditMode,
     goalsComponent,

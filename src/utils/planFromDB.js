@@ -3,74 +3,90 @@ import pic1 from '../images/avatar-1.jpg';
 import pic3 from '../images/avatar-3.jpg';
 // import pic4 from '../images/avatar-4.jpg';
 
-const planFromDB = {
-  planTitle: 'От Junior к Middle',
-  planStatus: 'Не выполнен',
-  listOfGoals: [
+let planFromDB = {
+  id: 1,
+  title: 'От Junior к Middle',
+  status: 'In progress',
+  goals: [
     {
       id: 1,
       title: 'Java программирование',
-      deadline: '28.04.2024',
-      status: 'В работе',
       description:
         'Необходимо улучшить навыки и скорость программирования на языке Java, соответствующие уровню Middle.',
       tasks: [
         {
           id: 1,
-          name: 'Пройти онлайн тренинг «Java Middle» Прочитать книгу «Качество кода» Прочитать книгу «Качество кода»',
+          text: 'Пройти онлайн тренинг «Java Middle» Прочитать книгу «Качество кода» Прочитать книгу «Качество кода»',
+          created_at: '2019-08-24T14:15:22Z',
         },
         {
           id: 2,
-          name: 'Прочитать книгу «Качество кода»',
+          text: 'Прочитать книгу «Качество кода»',
+          created_at: '2019-08-24T14:15:22Z',
         },
       ],
+      status: 'In progress',
+      created_at: '2019-08-24T14:15:22Z',
+      deadline: '28.04.2024',
       comments: [
         {
-          employeeId: 250,
-          employeeName: 'Артемьев Олег Игоревич',
-          avatar: pic1,
+          id: 250,
+          fio: 'Артемьев Олег Игоревич',
+          photo: pic1,
           message: 'Начал проходить тренинг.',
         },
         {
-          employeeId: 123,
-          employeeName: 'Осипов Александр Владимирович',
-          avatar: pic3, // Use consistent property name 'avatar'
+          id: 123,
+          fio: 'Осипов Александр Владимирович',
+          photo: pic3, // Use consistent property name 'avatar'
           message: 'Удачи с тренингом.',
         },
       ],
     },
     {
-      id: 2,
-      title: 'JS программирование',
-      deadline: '28.04.2028',
-      status: 'Не выполнен',
-      description: 'Необходимо улучшить навыки и скорость в JS программирование',
+      id: 1,
+      title: 'Java программирование',
+      description:
+        'Необходимо улучшить навыки и скорость программирования на языке Java, соответствующие уровню Middle.',
       tasks: [
         {
           id: 1,
-          name: 'Пройти онлайн тренинг «Java Middle»',
+          text: 'Пройти онлайн тренинг «Java Middle» Прочитать книгу «Качество кода» Прочитать книгу «Качество кода»',
+          created_at: '2019-08-24T14:15:22Z',
         },
         {
           id: 2,
-          name: 'Прочитать книгу «Качество кода»',
+          text: 'Прочитать книгу «Качество кода»',
+          created_at: '2019-08-24T14:15:22Z',
         },
       ],
+      status: 'In progress',
+      created_at: '2019-08-24T14:15:22Z',
+      deadline: '28.04.2024',
       comments: [
         {
-          employeeId: 250,
-          employeeName: 'Артемьев Олег Игоревич',
-          avatar: pic1,
+          id: 250,
+          fio: 'Артемьев Олег Игоревич',
+          photo: pic1,
           message: 'Начал проходить тренинг.',
         },
         {
-          employeeId: 123,
-          employeeName: 'Осипов Александр Владимирович',
-          avatar: pic3, // Use consistent property name 'avatar'
+          id: 123,
+          fio: 'Осипов Александр Владимирович',
+          photo: pic3, // Use consistent property name 'avatar'
           message: 'Удачи с тренингом.',
         },
       ],
     },
   ],
 };
-
-export default planFromDB;
+export const updatePlan = (planRecord) => new Promise((resolve) => {
+  planFromDB = { ...planRecord };
+  // const updatedPlan = [...planFromDB., planRecord];
+  resolve(planFromDB);
+});
+export const createPlan = () => {};
+// eslint-disable-next-line no-unused-vars
+export const readPlan = (id) => new Promise((resolve) => {
+  resolve(planFromDB);
+});

@@ -44,9 +44,9 @@ function GoalCardEdit({ card, uniqueId }) {
             {card?.comments
               && card?.comments.map((item, index) => (
                 <li className="card__message-edit-item" key={index}>
-                  <img className="card__message-edit-photo" src={item.avatar} />
+                  <img className="card__message-edit-photo" src={item.photo} />
                   <div className="card__message-edit-info">
-                    <p className="card__message-edit-name">{item.employeeName}</p>
+                    <p className="card__message-edit-name">{item.fio}</p>
                     <p className="card__message-edit-text">{item.message}</p>
                   </div>
                 </li>
@@ -91,7 +91,7 @@ function GoalCardEdit({ card, uniqueId }) {
               required: true,
             })}
             value={card?.description}
-            className="card__input card__input_white"
+            className="card__discription-input"
             type="text"
             name="input-target"
             placeholder="Добавить комментарий"
@@ -117,7 +117,7 @@ function GoalCardEdit({ card, uniqueId }) {
               {card?.tasks
                 && card?.tasks.map((item, index) => (
                   <li className="card__list-edit-item" key={index}>
-                    <p className="card__list-edit-item-name">{item.name}</p>
+                    <p className="card__list-edit-item-name">{item.text}</p>
                     <button className='card__list-edit-item-delete'></button>
                   </li>
                 ))}
@@ -138,33 +138,6 @@ function GoalCardEdit({ card, uniqueId }) {
           </div>
         </section>
         {commentsSection()}
-        {/* <section className="card__list-edit card__list-edit-padding-none">
-          <div className="card__list-edit-header">
-            <button type='button' onClick={() =>
-              setActiveMessages(!isActiveMessages)}
-              className={isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' :
-              'card__list-edit-button'}></button>
-            <p className="card__list-edit-title">
-              Комментарии <span>{card?.comments.length}</span>
-            </p>
-          </div>
-          <div className={isActiveMessages ?
-            'card__list-edit-messages card__list-edit-messages_active' :
-          'card__list-edit-messages'}>
-            <ul className="card__message-edit-list">
-              {card?.comments
-                && card?.comments.map((item, index) => (
-                  <li className="card__message-edit-item" key={index}>
-                    <img className="card__message-edit-photo" src={item.avatar} />
-                    <div className="card__message-edit-info">
-                      <p className="card__message-edit-name">{item.employeeName}</p>
-                      <p className="card__message-edit-text">{item.message}</p>
-                    </div>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        </section> */}
       </form>
     </div>
   );

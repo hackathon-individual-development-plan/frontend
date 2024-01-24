@@ -28,7 +28,7 @@ function GoalCard(card) {
           {card.tasks
             && card.tasks.map((item, index) => (
               <li className="card__list-item" key={index}>
-                <p className="card__list-item-name">{item.name}</p>
+                <p className="card__list-item-name">{item.text}</p>
               </li>
             ))}
         </ol>
@@ -44,9 +44,9 @@ function GoalCard(card) {
           {card.comments
             && card.comments.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.avatar} />
+                <img className="card__message-photo" src={item.photo} />
                 <div className="card__message-info">
-                  <p className="card__message-name">{item.employeeName}</p>
+                  <p className="card__message-name">{item.fio}</p>
                   <p className="card__message-text">{item.message}</p>
                 </div>
               </li>
