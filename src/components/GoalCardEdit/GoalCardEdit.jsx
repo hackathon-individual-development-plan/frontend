@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import './GoalCardEdit.css';
 import { useForm } from 'react-hook-form';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import DateInput from '../DateInput/DateInput.jsx';
 import DropdownButton from '../DropdownButton/DropdownButton.jsx';
 
-function GoalCardEdit({ card }) {
+function GoalCardEdit({ card, uniqueId }) {
   const { register, handleSubmit } = useForm();
+  const { deleteEmptyGoal } = usePlan();
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
   const onSubmit = (data) => {
     console.log(data);
     alert('Сохранено');
+  };
+
+  const onDelete = () => {
+    deleteEmptyGoal(uniqueId);
   };
 
   const commentsSection = () => {
@@ -36,7 +42,7 @@ function GoalCardEdit({ card }) {
         >
           <ul className="card__message-edit-list">
             {card?.comments
-            && card?.comments.map((item, index) => (
+              && card?.comments.map((item, index) => (
                 <li className="card__message-edit-item" key={index}>
                   <img className="card__message-edit-photo" src={item.photo} />
                   <div className="card__message-edit-info">
@@ -44,7 +50,7 @@ function GoalCardEdit({ card }) {
                     <p className="card__message-edit-text">{item.message}</p>
                   </div>
                 </li>
-            ))}
+              ))}
           </ul>
         </div>
       </section>
@@ -57,7 +63,7 @@ function GoalCardEdit({ card }) {
         <div className="card__target">
           <div className="card__target-header">
             <p className="card__field-name">Цель:</p>
-            <button type="button" className="card__trash" />
+            <button type="button" className="card__trash" onClick={onDelete} />
           </div>
           <input
             {...(register('target'),
@@ -109,12 +115,12 @@ function GoalCardEdit({ card }) {
           >
             <ol className="card__list-edit-items">
               {card?.tasks
-              && card?.tasks.map((item, index) => (
+                && card?.tasks.map((item, index) => (
                   <li className="card__list-edit-item" key={index}>
                     <p className="card__list-edit-item-name">{item.text}</p>
                     <button className='card__list-edit-item-delete'></button>
                   </li>
-              ))}
+                ))}
             </ol>
             <div className="card__list-edit-add">
               <button type="button" className="card__list-edit-add-button"></button>

@@ -7,7 +7,8 @@ export default function ButtonAddGoal() {
   const { addNewGoal, goalsComponent } = usePlan();
 
   function handleAddClick() {
-    addNewGoal(<GoalCardEdit />);
+    const uniqueId = Date.now(); // Генерируем уникальный идентификатор
+    addNewGoal(<GoalCardEdit key={uniqueId} uniqueId={uniqueId} />);
   }
 
   return (
@@ -16,8 +17,10 @@ export default function ButtonAddGoal() {
         <button className="newtarget__button" onClick={handleAddClick}></button>
         <p className="newtarget__title">Добавить цель</p>
       </div>
-      {goalsComponent.map((component, index) => (
-        <div key={index}>{component}</div>
+      {goalsComponent.map((component) => (
+        <>
+          {component}
+        </>
       ))}
     </>
   );

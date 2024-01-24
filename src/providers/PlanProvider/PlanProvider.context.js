@@ -7,6 +7,7 @@ export default createContext({
   initialize: () => Promise,
   toggleEditMode: () => { },
   addNewGoal: () => { },
+  deleteEmptyGoal: () => { },
   edit: () => { },
   add: () => { },
   remove: () => { },
@@ -15,4 +16,5 @@ export default createContext({
   filteredEmployeesList: [],
   isEditMode: false,
   goalsComponent: [],
+  searchTerm: '',
 });
