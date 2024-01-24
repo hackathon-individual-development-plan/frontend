@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 // Здесь создается компонент TargetProvider, который использует useState
 // для хранения состояния targetList. Функции initialize, edit, add,
 // и remove используют setTargetList для обновления состояния. Затем
@@ -40,6 +41,11 @@ const PlanProvider = ({ children }) => {
     setGoalsComponent((prevGoalsComponent) => [...prevGoalsComponent, newGoal]);
   };
 
+  const deleteEmptyGoal = (uniqueId) => {
+    setGoalsComponent((prevGoalsComponent) =>
+      prevGoalsComponent.filter((element) => element.props.uniqueId !== uniqueId));
+  };
+
   const filterEmployees = (selectedId) => {
     if (selectedId === 'Все') {
       setFilteredEmployeesList(employeesList);
@@ -64,6 +70,7 @@ const PlanProvider = ({ children }) => {
     initialize,
     toggleEditMode,
     addNewGoal,
+    deleteEmptyGoal,
     edit,
     add,
     remove,
@@ -74,7 +81,6 @@ const PlanProvider = ({ children }) => {
     setGoalsComponent,
     filterEmployees,
     filteredEmployeesList,
-
   };
 
   return <PlanProviderContext.Provider value={value}>{children}</PlanProviderContext.Provider>;
