@@ -42,8 +42,8 @@ const PlanProvider = ({ children }) => {
   };
 
   const deleteEmptyGoal = (uniqueId) => {
-    setGoalsComponent((prevGoalsComponent) =>
-      prevGoalsComponent.filter((element) => element.props.uniqueId !== uniqueId));
+    setGoalsComponent((prevGoalsComponent) => prevGoalsComponent
+      .filter((element) => element.props.uniqueId !== uniqueId));
   };
 
   // const filterEmployees = (selectedId) => {
@@ -64,14 +64,13 @@ const PlanProvider = ({ children }) => {
     // Фильтрация по поисковому термину
     if (searchTerm) {
       const lowerCaseSearchTerm = searchTerm.toLowerCase();
-      filteredList = employeesList.filter((employee) =>
-        employee.name.toLowerCase() === lowerCaseSearchTerm);
+      filteredList = employeesList.filter((employee) => employee.name.toLowerCase()
+      === lowerCaseSearchTerm);
     }
     setFilteredEmployeesList(filteredList);
   };
 
-  const edit = () => {
-  };
+  const edit = () => {};
 
   const add = () => {
     // setTargetList();
