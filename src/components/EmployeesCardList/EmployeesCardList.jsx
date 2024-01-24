@@ -1,22 +1,31 @@
 import React from 'react';
-import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
+import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import EmployeesCard from '../EmployeesCard/EmployeesCard.jsx';
 import './EmployeesCardList.css';
 
 export default function EmployeesCardList() {
-  const { filteredEmployeesList } = usePlan();
+  const { filteredEmployeesList, selectedEmployee } = useEmployees();
+
+  const searchedEmployee = filteredEmployeesList.find((item) => item.name === selectedEmployee);
 
   return (
     <section className='employees-list'>
-      <ul className="employees-list__items">
-        {filteredEmployeesList.map((item) => (
-          <EmployeesCard
-            key={item.id}
-            employee={item}
-          />
-        ))
-        }
-      </ul>
+      {selectedEmployee ? (
+        <EmployeesCard
+          key={searchedEmployee.id}
+          employee={searchedEmployee}
+        />
+      ) : (
+        <ul className="employees-list__items">
+          {filteredEmployeesList.map((item) => (
+            <EmployeesCard
+              key={item.id}
+              employee={item}
+            />
+          ))
+          }
+        </ul>)
+      }
     </section>
   );
 }

@@ -1,37 +1,35 @@
-import React, { useState } from 'react';
-import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
+import React, { useEffect } from 'react';
+import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import './SearchInput.css';
 
 export default function SearchInput() {
   const {
-    employeesList, setFilteredEmployeesList, setSearchTerm, searchTerm, filterEmployees,
-  } = usePlan();
-  const [value, setValue] = useState('');
+    searchQuery, setSearchQuery, setSelectedEmployee, filteredEmployeesList,
+  } = useEmployees();
 
   function onChange(evt) {
-    setValue(evt.target.value);
+    setSearchQuery(evt.target.value);
   }
 
-  function onSearch(searchTermInput) {
-    setValue(searchTermInput);
-    setSearchTerm(searchTermInput);
-    filterEmployees(searchTerm);
+  function onSearch(searchTerm) {
+    setSelectedEmployee(searchTerm);
+    setSearchQuery(searchTerm);
   }
 
-  function onClick() {
-    setValue('');
-    setFilteredEmployeesList(employeesList);
-  }
+  useEffect(() => {
+    setSearchQuery('');
+    setSelectedEmployee(null);
+  }, []);
 
   return (
     <>
       <div className='search'>
         <div className='search__container'>
-          <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={value} onClick={onClick} onChange={onChange} />
+          <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={searchQuery} onChange={onChange} />
         </div>
         <div className='search__dropdown'>
-          {employeesList.filter((item) => {
-            const searchTermInput = value.toLowerCase();
+          {filteredEmployeesList.filter((item) => {
+            const searchTermInput = searchQuery.toLowerCase();
             const name = item.name.toLowerCase();
             return searchTermInput && name.startsWith(searchTermInput) && name !== searchTermInput;
           })

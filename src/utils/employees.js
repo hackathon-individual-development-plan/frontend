@@ -3,7 +3,7 @@ import pic2 from '../images/avatar-2.jpg';
 import pic3 from '../images/avatar-3.jpg';
 import pic4 from '../images/avatar-4.jpg';
 
-const employees = [
+const employeesDB = [
   {
     id: 1,
     name: 'Артемьев Олег Игоревич',
@@ -57,4 +57,4 @@ const seniors = [
   },
 ];
 
-export { employees, seniors };
+export { employeesDB, seniors };
