@@ -1,11 +1,11 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { Tabs, Tab } from '@alfalab/core-components/tabs';
-import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
+import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import './TabsPrimary.css';
 
 export default function TabsPrimary() {
-  const { filterEmployees } = usePlan();
+  const { filterEmployees, setSearchQuery, setSelectedEmployee } = useEmployees();
 
   const TABS = [
     { title: 'Все', id: 'Все' },
@@ -22,6 +22,8 @@ export default function TabsPrimary() {
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
     filterEmployees(selectedId);
+    setSearchQuery('');
+    setSelectedEmployee(null);
   };
 
   return (
