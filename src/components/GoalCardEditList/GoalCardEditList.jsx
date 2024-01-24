@@ -8,7 +8,7 @@ export default function GoalCardEditList({ listOfGoals }) {
     <>
       <ButtonAddGoal />
       <ul className="target-card-list">
-        {listOfGoals.map((item) => (
+        {listOfGoals?.map((item) => (
           <GoalCardEdit
             key={item.id}
             card={item}

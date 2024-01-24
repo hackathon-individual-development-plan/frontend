@@ -1,19 +1,13 @@
-// Здесь создается компонент TargetProvider, который использует useState
-// для хранения состояния targetList. Функции initialize, edit, add,
-// и remove используют setTargetList для обновления состояния. Затем
-// создается объект value, который содержит эти функции и targetList.
-// Этот объект передается в провайдер контекста, который обертывает
-// дочерние компоненты и предоставляет им доступ к значениям контекста.
-
 /* eslint-disable no-unused-vars */
 
 import { useState, useEffect } from 'react';
 import PlanProviderContext from './PlanProvider.context';
-import planFromDB from '../../utils/planFromDB';
+// import planFromDB from '../../utils/planFromDB';
+import { readPlan } from '../../utils/planFromDB';
 import { employees } from '../../utils/employees';
 
 const PlanProvider = ({ children }) => {
-  const [plan, setPlan] = useState(planFromDB);
+  const [plan, setPlan] = useState(null);
   const [employeesList, setEmployeesList] = useState(employees);
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -25,14 +19,13 @@ const PlanProvider = ({ children }) => {
   //   }, [plansFromDB]);
   // };
 
-  const initialize = () => {
-    useEffect(() => {
-      setPlan(planFromDB);
-    }, [planFromDB]);
-  };
+  const initialize = () => readPlan(1);
+  // useEffect(() => {
+  //   readPlan(1).then((p) => setPlan(p));
+  // }, []);
 
   const toggleEditMode = () => {
-    setIsEditMode(!isEditMode); // Инвертируем текущее состояние режима редактирования
+    setIsEditMode(!isEditMode);
   };
 
   const addNewGoal = (element) => {
@@ -67,7 +60,7 @@ const PlanProvider = ({ children }) => {
     edit,
     add,
     remove,
-    planFromDB,
+    plan,
     employeesList,
     isEditMode,
     goalsComponent,

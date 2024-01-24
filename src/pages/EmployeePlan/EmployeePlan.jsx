@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './EmployeePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
@@ -13,36 +13,39 @@ import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
 
 function EmployeePlan() {
-  const { initialize, planFromDB, isEditMode } = usePlan();
+  const [currentPlan, setCurrentPlan] = useState({});
+  const { initialize, isEditMode } = usePlan();
 
-  initialize();
+  useEffect(() => {
+    initialize().then((p) => setCurrentPlan(p));
+  }, []);
+  // initialize();
 
   // switch a goal card mode
   const renderCardOrEditForm = () => {
-    const goalsList = planFromDB.listOfGoals;
+    const goalsList = currentPlan?.goals;
 
     if (isEditMode) {
       return <GoalCardEditList listOfGoals={goalsList} />;
     }
-
     return <GoalCardList listOfGoals={goalsList} />;
   };
 
   // switch a title mode
   const renderTitleOrEdit = () => {
-    const title = planFromDB.planTitle;
+    const planTitle = currentPlan?.title;
 
     if (isEditMode) {
-      return <PlanTitle titleOfPlan={title} />;
+      return <PlanTitle titleOfPlan={planTitle} />;
     }
-    return <PlanTitle titleOfPlan={title} />;
+    return <PlanTitle titleOfPlan={planTitle} />;
   };
 
   // switch a plan status mode
   const renderModeOfPlanStatus = () => {
     // add extra class for small dropdown button
     const smallSizeClass = 'dropdown-button_small';
-    const statusName = planFromDB.planStatus;
+    const statusName = currentPlan?.status;
 
     if (isEditMode) {
       return <DropdownButton className={smallSizeClass} />;
@@ -52,7 +55,6 @@ function EmployeePlan() {
 
   return (
     <>
-      {/* <PlanTitle /> */}
       {renderTitleOrEdit()}
       <div className="content">
         <section className="content__left-part">
@@ -64,10 +66,6 @@ function EmployeePlan() {
               <p className="plan__status-title">Статус ИПР:</p>
               {renderModeOfPlanStatus()}
             </div>
-            {/* <div className="plan__newtarget">
-            <button className="plan__add-newtarget-button"></button>
-            <p className="plan__add-newtarget-title">Добавить цель</p>
-          </div> */}
             {renderCardOrEditForm()}
             <section className="plan__content-buttons">
               <ButtonConfirmation />

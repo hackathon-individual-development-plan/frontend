@@ -4,7 +4,7 @@
 import { createContext } from 'react';
 
 export default createContext({
-  initialize: () => [],
+  initialize: () => Promise,
   toggleEditMode: () => { },
   addNewGoal: () => { },
   edit: () => { },
