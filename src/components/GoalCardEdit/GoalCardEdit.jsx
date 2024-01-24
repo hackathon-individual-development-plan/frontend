@@ -80,7 +80,7 @@ function GoalCardEdit({ card, uniqueId }) {
         <section className="card__condition">
           <p className="card__field-name">Дедлайн:</p>
           <p className="card__field-name">Статус:</p>
-          <DateInput />
+          <DateInput deadlineData={card.deadline} />
           <DropdownButton />
         </section>
         <section className="card__discription">
