@@ -22,7 +22,7 @@ function Menu() {
             </NavLink>
           </li>
           <li className='menu__element'>
-            <NavLink to='/my-idp/senior' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+            <NavLink to='/my-idp' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
               <img src='/images/pages-menu.svg' className='menu__img' alt='Документ' />Мой ИПР
             </NavLink>
           </li>
