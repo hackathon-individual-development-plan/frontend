@@ -11,16 +11,12 @@ import { useState, useEffect } from 'react';
 import PlanProviderContext from './PlanProvider.context';
 // import planFromDB from '../../utils/planFromDB';
 import { readPlan, updatePlan } from '../../utils/planFromDB';
-import { employees } from '../../utils/employees';
 
 const PlanProvider = ({ children }) => {
   // state for current plan (at first is null)
   const [plan, setPlan] = useState(null);
-  const [employeesList, setEmployeesList] = useState(employees);
-  const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
   const [isEditMode, setIsEditMode] = useState(false);
   const [goalsComponent, setGoalsComponent] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
 
   // initialize plan from server (readPlan - API function. (1) - plan id from BD)
   const initialize = () => readPlan(1).then((currentPlan) => {
@@ -70,6 +66,8 @@ const PlanProvider = ({ children }) => {
     setFilteredEmployeesList(filteredList);
   };
 
+  const edit = () => {};
+
   const add = () => {
     // setTargetList();
   };
@@ -87,15 +85,9 @@ const PlanProvider = ({ children }) => {
     add,
     remove,
     plan,
-    employeesList,
     isEditMode,
     goalsComponent,
-    searchTerm,
-    setSearchTerm,
     setGoalsComponent,
-    setFilteredEmployeesList,
-    filterEmployees,
-    filteredEmployeesList,
   };
 
   return <PlanProviderContext.Provider value={value}>{children}</PlanProviderContext.Provider>;

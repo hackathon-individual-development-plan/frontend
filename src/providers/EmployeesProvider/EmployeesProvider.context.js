@@ -5,13 +5,9 @@ import { createContext } from 'react';
 
 export default createContext({
   initialize: () => Promise,
-  toggleEditMode: () => { },
-  addNewGoal: () => { },
-  deleteEmptyGoal: () => { },
-  edit: () => { },
-  add: () => { },
-  remove: () => { },
-  targetList: [],
-  isEditMode: false,
-  goalsComponent: [],
+  filterEmployees: () => { },
+  employeesList: [],
+  filteredEmployeesList: [],
+  searchQuery: '',
+  selectedEmployee: null,
 });

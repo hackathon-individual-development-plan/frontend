@@ -12,7 +12,7 @@ export default function PageTitle({ content }) {
     title = content;
   } else if (pathname === '/matrix') {
     title = 'Матрица компетенций';
-  } else if (pathname === '/my-idp/senior') {
+  } else if (pathname === '/my-idp') {
     title = 'Индивидуальный план развития';
   } else if (pathname === '/employee-plan') {
     title = content;
