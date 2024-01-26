@@ -18,48 +18,7 @@ function App() {
     getUserRole, currentUserRole, setUserToken, userToken, isSenior,
   } = useCurrentUser();
 
-  // eslint-disable-next-line no-unused-vars
   const [localStorageData, setLocalStorageData] = useState('');
-
-  // const handleStorageChange = () => {
-  //   const tokenFromStorage = localStorage.getItem('jwt');
-  //   setLocalStorageData(tokenFromStorage);
-  //   setUserToken(tokenFromStorage);
-  //   getUserRole('jwt');
-  // };
-
-  // useEffect(() => {
-  //   // Установка и слушание события storage при монтировании компонента
-  //   window.addEventListener('storage', handleStorageChange);
-
-  //   // Инициализация токена и получение роли при монтировании компонента
-  //   const initialToken = USER_ROLES[0].senior.jwt;
-  //   localStorage.setItem('jwt', initialToken);
-  //   setLocalStorageData(initialToken);
-  //   setUserToken(initialToken);
-  //   getUserRole('jwt');
-
-  //   // Отписка от события storage при размонтировании компонента
-  //   return () => {
-  //     window.removeEventListener('storage', handleStorageChange);
-  //   };
-  // }, [getUserRole, setUserToken]);
-
-  // useEffect(() => {
-  //   // Обработка изменений после получения данных о пользователе
-  //   setLocalStorageData(localStorage.getItem('jwt'));
-  //   getUserRole('jwt');
-  //   setLocalStorageData(localStorage.getItem('jwt'));
-
-  //   if (currentUserRole === 'senior') {
-  //     navigate('/employees', { replace: true });
-  //   } else if (currentUserRole === 'employee') {
-  //     navigate('/my-idp', { replace: true });
-  //   }
-  //   console.log(userToken);
-  //   console.log(currentUserRole);
-  //   console.log(isSenior);
-  // }, [currentUserRole, navigate]);
 
   const handleStorageChange = () => {
     const tokenFromStorage = localStorage.getItem('jwt');
