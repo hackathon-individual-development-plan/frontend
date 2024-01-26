@@ -18,7 +18,7 @@ function App() {
             <Route path='/' element={<Employees />} />
             <Route path='/create-target' element={<CreatePlan />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/my-idp/senior' element={<MyPlanSenior />} />
+            <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/employee-plan' element={<EmployeePlan />} />
           </Route>
         </Routes>
