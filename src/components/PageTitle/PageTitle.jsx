@@ -6,7 +6,7 @@ export default function PageTitle({ content }) {
   const { pathname } = useLocation();
   let title = '';
 
-  if (pathname === '/') {
+  if (pathname === '/employees') {
     title = 'Индивидуальный план развития';
   } else if (pathname === '/create-target') {
     title = content;

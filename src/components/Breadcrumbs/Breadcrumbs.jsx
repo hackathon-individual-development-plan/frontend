@@ -17,13 +17,13 @@ function Breadcrumbs() {
       <p className='breadcrumbs__link'>Сервисы</p>
       <img src='/images/chevron-right.svg' className='breadcrumbs__image' alt='Стрелка, указывающая путь' />
       <p className='breadcrumbs__link'>Индивидуальный план развития</p>
-      {pathname === '/' && renderNavLink('/', 'Сотрудники')}
+      {pathname === '/employees' && renderNavLink('/', 'Сотрудники')}
       {pathname === '/create-target' && renderNavLink('/create-target', 'Карточка сотрудника')}
       {pathname === '/matrix' && renderNavLink('/matrix', 'Матрица')}
       {pathname === '/my-idp' && renderNavLink('/my-idp', 'Мой ИПР')}
       {pathname === '/employee-plan' && (
         <>
-          {renderNavLink('/', 'Сотрудники')}
+          {renderNavLink('/employees', 'Сотрудники')}
           {renderNavLink('/employee-plan', 'Карточка сотрудника')}
         </>
       )}
