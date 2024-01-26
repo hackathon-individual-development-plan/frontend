@@ -10,7 +10,7 @@
 import { useState, useEffect } from 'react';
 import PlanProviderContext from './PlanProvider.context';
 // import planFromDB from '../../utils/planFromDB';
-import { readPlan } from '../../utils/planFromDB';
+import { readPlan, updatePlan } from '../../utils/planFromDB';
 import { employees } from '../../utils/employees';
 
 const PlanProvider = ({ children }) => {
@@ -22,8 +22,13 @@ const PlanProvider = ({ children }) => {
   const [goalsComponent, setGoalsComponent] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // initialize plan from server
+  // initialize plan from server (readPlan - API function. (1) - plan id from BD)
   const initialize = () => readPlan(1).then((currentPlan) => {
+    setPlan(currentPlan);
+  });
+
+  // edit plan
+  const edit = (data) => updatePlan(data).then((currentPlan) => {
     setPlan(currentPlan);
   });
 
@@ -64,8 +69,6 @@ const PlanProvider = ({ children }) => {
     }
     setFilteredEmployeesList(filteredList);
   };
-
-  const edit = () => {};
 
   const add = () => {
     // setTargetList();
