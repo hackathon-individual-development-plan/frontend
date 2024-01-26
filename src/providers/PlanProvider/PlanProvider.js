@@ -4,10 +4,9 @@
 // создается объект value, который содержит эти функции и targetList.
 // Этот объект передается в провайдер контекста, который обертывает
 // дочерние компоненты и предоставляет им доступ к значениям контекста.
-
 /* eslint-disable no-unused-vars */
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PlanProviderContext from './PlanProvider.context';
 // import planFromDB from '../../utils/planFromDB';
 import { readPlan, updatePlan } from '../../utils/planFromDB';
@@ -51,22 +50,22 @@ const PlanProvider = ({ children }) => {
   //   setFilteredEmployeesList(filteredList);
   // };
 
-  const filterEmployees = (selectedId) => {
-    // Фильтрация по статусу
-    let filteredList = employeesList;
-    if (selectedId !== 'Все') {
-      filteredList = employeesList.filter((employee) => employee.status === selectedId);
-    }
-    // Фильтрация по поисковому термину
-    if (searchTerm) {
-      const lowerCaseSearchTerm = searchTerm.toLowerCase();
-      filteredList = employeesList.filter((employee) => employee.name.toLowerCase()
-      === lowerCaseSearchTerm);
-    }
-    setFilteredEmployeesList(filteredList);
-  };
+  // const filterEmployees = (selectedId) => {
+  //   // Фильтрация по статусу
+  //   let filteredList = employeesList;
+  //   if (selectedId !== 'Все') {
+  //     filteredList = employeesList.filter((employee) => employee.status === selectedId);
+  //   }
+  //   // Фильтрация по поисковому термину
+  //   if (searchTerm) {
+  //     const lowerCaseSearchTerm = searchTerm.toLowerCase();
+  //     filteredList = employeesList.filter((employee) => employee.name.toLowerCase()
+  //     === lowerCaseSearchTerm);
+  //   }
+  //   setFilteredEmployeesList(filteredList);
+  // };
 
-  const edit = () => {};
+  const edit1 = () => {};
 
   const add = () => {
     // setTargetList();
