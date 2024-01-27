@@ -13,9 +13,9 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: hackathon_11_frontend
-  REP_OWNER: hackathon_11
-  DEPLOY_PATH: hackathon_11/
+  IMAGE_NAME: frontend
+  REP_OWNER: hackathon-individual-development-plan
+#  DEPLOY_PATH: hackathon_11/
 
 defaults:
   run:
