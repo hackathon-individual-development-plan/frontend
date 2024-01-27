@@ -6,7 +6,9 @@ import './EmployeesCardList.css';
 export default function EmployeesCardList() {
   const { filteredEmployeesList, selectedEmployee } = useEmployees();
 
-  const searchedEmployee = filteredEmployeesList.find((item) => item.name === selectedEmployee);
+  const searchedEmployee = filteredEmployeesList.find(
+    (item) => item.employee.fio === selectedEmployee,
+  );
 
   return (
     <section className='employees-list'>
@@ -20,7 +22,7 @@ export default function EmployeesCardList() {
         <ul className="employees-list__items">
           {filteredEmployeesList.map((item) => (
             <EmployeesCard
-              key={item.id}
+              key={item.employee.id}
               employee={item}
               employeeId={item.id}
             />

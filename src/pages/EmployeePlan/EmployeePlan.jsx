@@ -92,7 +92,12 @@ function EmployeePlan({ employeeId }) {
             <BriefInfoCard />
           </section>
         </div>
+          <section className="content__right-part">
+            <BriefInfoCard />
+          </section>
+        </div>
       </form>
+    </FormProvider>
     </FormProvider>
   );
 }

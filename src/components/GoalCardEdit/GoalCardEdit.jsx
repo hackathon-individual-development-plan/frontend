@@ -173,12 +173,14 @@ function GoalCardEdit({ cardIndex }) {
           </ol>
           <div className="card__list-edit-add">
             <button onClick={() => onAddNewTask()} type="button" className="card__list-edit-add-button"></button>
+            <button onClick={() => onAddNewTask()} type="button" className="card__list-edit-add-button"></button>
             <input
               type="text"
               minLength="1"
               maxLength="30"
               className="card__input card__input_white card__input_border-none"
               onChange={(e) => setNewTaskValue(e.target.value)}
+            />
             />
           </div>
         </div>
