@@ -37,7 +37,7 @@ const PlanProvider = ({ children }) => {
       .filter((element) => element.props.uniqueId !== uniqueId));
   };
 
-  const edit = () => {};
+  const edit = () => { };
 
   const add = () => {
     // setTargetList();

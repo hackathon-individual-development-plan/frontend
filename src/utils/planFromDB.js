@@ -85,7 +85,7 @@ export const updatePlan = (planRecord) => new Promise((resolve) => {
   // const updatedPlan = [...planFromDB., planRecord];
   resolve(planFromDB);
 });
-export const createPlan = () => {};
+export const createPlan = () => { };
 // eslint-disable-next-line no-unused-vars
 export const readPlan = (id) => new Promise((resolve) => {
   resolve(planFromDB);

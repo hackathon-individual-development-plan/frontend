@@ -1,7 +1,15 @@
 // import React from 'react';
-// import { Select } from '@alfalab/core-components/select';
+// import { Select, useSelectWithApply } from '@alfalab/core-components/select';
+// import { useFormContext } from 'react-hook-form';
 
 // function PickerStatusButton() {
+//   const [valueStatus, setValueStatus] = useState('');
+//   const { register } = useFormContext();
+//   const [serialized, setSerialized] = React.useState();
+//   const [selected, setSelected] = React.useState([]);
+//   const handleChange = (ddlContext) => {
+//     setSelected(ddlContext.selected.key);
+//   };
 //   const OPTIONS = [
 //     { key: '1', content: '-' },
 //     { key: '2', content: 'В работе' },
@@ -13,11 +21,15 @@
 //   return (
 //     <div style={{ width: 194 }}>
 //       <Select
-//         allowUnselect={true}
-//         block={true}
-//         size="s"
-//         options={OPTIONS}
-//       />
+//       allowUnselect={false}
+//       block={true}
+//       size="s"
+//       selected={selected}
+//       {...useSelectWithApply({
+//         OPTIONS,
+//         selected,
+//         onChange: handleChange,
+//       })}/>
 //     </div>
 //   );
 // }
@@ -26,54 +38,86 @@
 
 // PickerStatusButton.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+// import { useFormContext } from 'react-hook-form';
 import './DropdownButton.css';
 
-function DropdownButton(props) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState('');
-
-  const items = {
-    text1: 'В работе',
-    text2: 'Выполнен',
-    text3: 'Не выполнен',
-    text4: 'Отсутствует',
+// eslint-disable-next-line no-unused-vars
+function DropdownButton({ cardIndex, status }) {
+  const options = {
+    'In progress': 'В работе',
+    'Work done': 'Выполнен',
+    'Not done': 'Не выполнен',
+    Empty: 'Отсутствует',
   };
+  const [isOpen, setIsOpen] = useState(false);
+  const [valueLabelStatus, setValueLabelStatus] = useState('Отсутствует');
+  const [valueCodeStatus, setValueCodeStatus] = useState('Empty');
+  // const { register } = useFormContext();
+  useEffect(() => {
+    setValueCodeStatus(status);
+    setValueLabelStatus(options[status]);
+  }, [status]);
+  // const options = [
+  //   { key: 'In progress', label: 'В работе' },
+  //   { key: 'Work done', label: 'Выполнен' },
+  //   { key: 'Not done', label: 'Не выполнен' },
+  //   { key: 'Empty', label: 'Отсутствует' },
+  // ];
 
   function onClick() {
     setIsOpen(!isOpen);
   }
 
-  function onChange(evt) {
-    setValue(evt.target.value);
-  }
+  // function onChange(evt) {
+  //   setValueCodeStatus(evt.target.value);
+  // }
 
-  function onClickItem(term) {
-    setValue(term);
+  // eslint-disable-next-line no-unused-vars
+  function onClickItem(code, label) {
+    setValueCodeStatus(code);
+    setValueLabelStatus(label);
     setIsOpen(false);
   }
 
   return (
     <div className="dropdown-button-container">
       <input
+        type='hidden'
+        // defaultValue={valueCodeStatus}
+        value={valueCodeStatus}
+      // {...register(`goals.${cardIndex}.status2`)}
+      />
+      <input
         placeholder="–"
-        value={value}
+        // value={valueStatus}
         onClick={onClick}
-        onChange={onChange}
-        className={`dropdown-button ${props.className}`}
+        // onChange={valueLabelStatus}
+        // defaultValue={valueLabelStatus}
+        value={valueLabelStatus}
+        className={'dropdown-button'}
+      // {...register(`goals.${cardIndex}.status`, {
+      //   required: {
+      //     value: false,
+      //   },
+      // })}
       />
       <ul className={`dropdown-button__list ${isOpen ? 'active' : ''}`}>
-        <li className="dropdown-button__item dropdown-button__item_blue" onClick={() => onClickItem(items.text1)}>
-          {items.text1}
+        <li className="dropdown-button__item dropdown-button__item_blue"
+          onClick={() => onClickItem('In progress', options['In progress'])}>
+          {options['In progress']}
         </li>
-        <li className="dropdown-button__item dropdown-button__item_green" onClick={() => onClickItem(items.text2)}>
-          {items.text2}
+        <li className="dropdown-button__item dropdown-button__item_green"
+          onClick={() => onClickItem('Work done', options['Work done'])}>
+          {options['Work done']}
         </li>
-        <li className="dropdown-button__item dropdown-button__item_red" onClick={() => onClickItem(items.text3)}>
-          {items.text3}
+        <li className="dropdown-button__item dropdown-button__item_red"
+          onClick={() => onClickItem('Not done', options['Not done'])}>
+          {options['Not done']}
         </li>
-        <li className="dropdown-button__item dropdown-button__item_grey" onClick={() => onClickItem(items.text4)}>
-          {items.text4}
+        <li className="dropdown-button__item dropdown-button__item_grey"
+          onClick={() => onClickItem('Empty', options.Empty)}>
+          {options.Empty}
         </li>
       </ul>
     </div>
