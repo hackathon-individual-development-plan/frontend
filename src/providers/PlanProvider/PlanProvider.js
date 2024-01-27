@@ -65,7 +65,7 @@ const PlanProvider = ({ children }) => {
   //   setFilteredEmployeesList(filteredList);
   // };
 
-  const edit1 = () => {};
+  const edit1 = () => { };
 
   const add = () => {
     // setTargetList();

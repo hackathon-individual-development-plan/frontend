@@ -83,40 +83,40 @@ function DropdownButton({ cardIndex, status }) {
   return (
     <div className="dropdown-button-container">
       <input
-      type='hidden'
-      // defaultValue={valueCodeStatus}
-      value={valueCodeStatus}
+        type='hidden'
+        // defaultValue={valueCodeStatus}
+        value={valueCodeStatus}
       // {...register(`goals.${cardIndex}.status2`)}
       />
       <input
-      placeholder="–"
+        placeholder="–"
         // value={valueStatus}
         onClick={onClick}
         // onChange={valueLabelStatus}
         // defaultValue={valueLabelStatus}
-      value={valueLabelStatus}
-      className={'dropdown-button'}
-        // {...register(`goals.${cardIndex}.status`, {
-        //   required: {
-        //     value: false,
-        //   },
-        // })}
+        value={valueLabelStatus}
+        className={'dropdown-button'}
+      // {...register(`goals.${cardIndex}.status`, {
+      //   required: {
+      //     value: false,
+      //   },
+      // })}
       />
       <ul className={`dropdown-button__list ${isOpen ? 'active' : ''}`}>
         <li className="dropdown-button__item dropdown-button__item_blue"
-onClick={() => onClickItem('In progress', options['In progress'])}>
+          onClick={() => onClickItem('In progress', options['In progress'])}>
           {options['In progress']}
         </li>
         <li className="dropdown-button__item dropdown-button__item_green"
-onClick={() => onClickItem('Work done', options['Work done'])}>
+          onClick={() => onClickItem('Work done', options['Work done'])}>
           {options['Work done']}
         </li>
         <li className="dropdown-button__item dropdown-button__item_red"
-onClick={() => onClickItem('Not done', options['Not done'])}>
+          onClick={() => onClickItem('Not done', options['Not done'])}>
           {options['Not done']}
         </li>
         <li className="dropdown-button__item dropdown-button__item_grey"
-onClick={() => onClickItem('Empty', options.Empty)}>
+          onClick={() => onClickItem('Empty', options.Empty)}>
           {options.Empty}
         </li>
       </ul>
