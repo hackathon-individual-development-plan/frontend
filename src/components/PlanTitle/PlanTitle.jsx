@@ -1,13 +1,14 @@
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 import PageTitle from '../PageTitle/PageTitle.jsx';
 import './PlanTitle.css';
-import useGoals from '../../providers/PlanProvider/PlanProvider.hook';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 
 // eslint-disable-next-line no-unused-vars
 export default function PlanTitle() {
   const {
-    toggleEditMode, isEditMode, plan, edit,
-  } = useGoals();
+    toggleEditMode, isEditMode, plan,
+  } = usePlan();
 
   function handlEditClick() {
     toggleEditMode();
@@ -15,27 +16,43 @@ export default function PlanTitle() {
 
   // change title input
   // eslint-disable-next-line no-unused-vars
-  const handleInputChange = (event) => {
-    edit();
-    // setEditedTitle(event.target.value);
-  };
-  const handleInputBlur = () => {
-    toggleEditMode();
-  };
+  // const handleInputChange = (event) => {
+  //   edit();
+  //   // setEditedTitle(event.target.value);
+  // };
+  // const handleInputBlur = () => {
+  //   toggleEditMode();
+  // };
 
   const toogleTitleType = () => {
+    // FORM
+    const { register } = useFormContext();
+
     if (!isEditMode) {
       return <h1 className="headline-plan__title">{plan?.title}</h1>;
     }
     return (
-      <input
-        className="headline-plan__title-edit"
-        type="text"
-        name="input-plan-name"
-        value={plan?.title}
-        onChange={handleInputChange}
-        onBlur={handleInputBlur}
-      />
+      <input type='text'
+          className="headline-plan__title-edit"
+          defaultValue={plan?.title}
+          {...register('title', {
+            required: {
+              value: false,
+            },
+          })}/>
+    // <input
+    //   className="headline-plan__title-edit"
+    //   type="text"
+    //   name="title"
+    //   defaultValue={plan?.title}
+    //   // onChange={handleInputChange}
+    //   // onBlur={handleInputBlur}
+    //   {...register('title', {
+    //     required: {
+    //       value: false,
+    //     },
+    //   })}
+    // />
     );
   };
 
@@ -45,7 +62,7 @@ export default function PlanTitle() {
         content={
           <div className="headline-plan__container">
             {toogleTitleType()}
-            <button className="headline-plan__edit" onClick={handlEditClick}></button>
+            <a className="headline-plan__edit" onClick={handlEditClick}></a>
           </div>
         }
       />

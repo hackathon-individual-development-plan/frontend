@@ -20,7 +20,7 @@ const EmployeesProvider = ({ children }) => {
   const filterEmployees = (selectedId) => {
     let filteredList = employeesList;
     if (selectedId !== 'Все') {
-      filteredList = employeesList.filter((employee) => employee.status === selectedId);
+      filteredList = employeesList.filter((employee) => employee.idp[0].status === selectedId);
     }
     setFilteredEmployeesList(filteredList);
   };

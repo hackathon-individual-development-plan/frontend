@@ -31,45 +31,32 @@ function CreatePlan() {
 
   return (
     <>
-      <PageTitle content={<input
-        className="content__input-title"
-        type="text"
-        name="input-plan-name"
-        placeholder={placeholderName}
-        onFocus={handlePlaceholderFocus}
-        onBlur={handlePlaceholderBlur}
-      />} />
-      <div className="content">
-        <section className="content__left-part">
-          <Menu />
-        </section>
-
-        <section className="content__middle-part">
-          {/* <input
+      <PageTitle
+        content={
+          <input
             className="content__input-title"
             type="text"
             name="input-plan-name"
             placeholder={placeholderName}
             onFocus={handlePlaceholderFocus}
             onBlur={handlePlaceholderBlur}
-          /> */}
+          />
+        }
+      />
+      <div className="content">
+        <section className="content__left-part">
+          <Menu />
+        </section>
+        <section className="content__middle-part">
           <SearchInput />
           <section className="plan">
             <div className="plan__status">
               <p className="plan__status-title">Статус ИПР:</p>
             </div>
-            {/* <div className="plan__newtarget">
-              <button className="plan__add-newtarget-button"></button>
-              <p className="plan__add-newtarget-title">Добавить цель</p>
-            </div> */}
             <ButtonAddGoal />
             {cardsTarget.map((item) => (
-              <GoalCardEdit
-                key={item.id}
-                cardTarget={item}
-              />
-            ))
-            }
+              <GoalCardEdit key={item.id} cardTarget={item} />
+            ))}
             <section className="plan__content-buttons">
               <ButtonConfirmation />
               <ButtonCancellation />

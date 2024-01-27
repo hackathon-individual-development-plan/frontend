@@ -5,7 +5,7 @@ import GoalCard from '../GoalCard/GoalCard.jsx';
 export default function GoalCardList({ listOfGoals }) {
   return (
     <ul className="target-card-list">
-      {listOfGoals?.map((item) => (
+      {listOfGoals && listOfGoals?.map((item) => (
         <GoalCard
           key={item.id}
           title={item.title}

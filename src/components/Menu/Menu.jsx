@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import './Menu.css';
 
 function Menu() {
+  const { isSenior } = useCurrentUser();
+
   const onClick = (evt) => {
     evt.preventDefault();
   };
@@ -11,18 +14,21 @@ function Menu() {
     <section className='menu'>
       <nav className='menu__group'>
         <ul className='menu__list'>
+          {isSenior
+            ? <>
+              <li className='menu__element'>
+                <NavLink to='/employees' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+                  <img src='/images/multiple-users.svg' className='menu__img' alt='Сотрудники' />Сотрудники
+                </NavLink>
+              </li>
+              <li className='menu__element'>
+                <NavLink to='/create-target' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+                  <img src='/images/add__menu.svg' className='menu__img' alt='Плюс' />Создать ИПР
+                </NavLink>
+              </li>
+            </> : <></>}
           <li className='menu__element'>
-            <NavLink to='/' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
-              <img src='/images/multiple-users.svg' className='menu__img' alt='Сотрудники' />Сотрудники
-            </NavLink>
-          </li>
-          <li className='menu__element'>
-            <NavLink to='/create-target' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
-              <img src='/images/add__menu.svg' className='menu__img' alt='Плюс' />Создать ИПР
-            </NavLink>
-          </li>
-          <li className='menu__element'>
-            <NavLink to='/my-idp/senior' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+            <NavLink to='/my-idp' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
               <img src='/images/pages-menu.svg' className='menu__img' alt='Документ' />Мой ИПР
             </NavLink>
           </li>

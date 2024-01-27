@@ -15,10 +15,11 @@ export default function GoalCardEditList({ listOfGoals }) {
     <>
       <ButtonAddGoal />
       <ul className="target-card-list">
-        {listOfGoals?.map((item) => (
+        {listOfGoals && listOfGoals?.map((item, index) => (
           <GoalCardEdit
             key={item.id}
             card={item}
+            cardIndex={index}
           />
         ))}
       </ul>
