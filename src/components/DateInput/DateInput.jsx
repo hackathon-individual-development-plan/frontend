@@ -32,7 +32,7 @@ function DateInput({ deadlineData }) {
         e.stopPropagation();
         setValue('');
       }}
-      // {...register('data', { value: '' })}
+    // {...register('data', { value: '' })}
     />
   );
 }

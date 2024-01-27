@@ -33,26 +33,13 @@ export default function PlanTitle() {
     }
     return (
       <input type='text'
-          className="headline-plan__title-edit"
-          defaultValue={plan?.title}
-          {...register('title', {
-            required: {
-              value: false,
-            },
-          })}/>
-    // <input
-    //   className="headline-plan__title-edit"
-    //   type="text"
-    //   name="title"
-    //   defaultValue={plan?.title}
-    //   // onChange={handleInputChange}
-    //   // onBlur={handleInputBlur}
-    //   {...register('title', {
-    //     required: {
-    //       value: false,
-    //     },
-    //   })}
-    // />
+        className="headline-plan__title-edit"
+        defaultValue={plan?.title}
+        {...register('title', {
+          required: {
+            value: false,
+          },
+        })} />
     );
   };
 

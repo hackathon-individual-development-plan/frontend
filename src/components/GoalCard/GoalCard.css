@@ -62,9 +62,11 @@
 
 .card__description-text {
   margin: var(--gap-xs) 0 0 0;
+  padding: 0;
 }
 
 .card__list {
+  margin: 0;
   margin-bottom: var(--gap-l);
 }
 
@@ -75,22 +77,53 @@
   border-bottom: 1px solid #d2d3d9;
 }
 
+.card__field-title {
+  margin: 0 0 0 14px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
+}
+
 .card__list-button {
-  background: url('/public/images/chevron-down-icon.svg');
+  background: url('/public/images/chevron-right.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 24px;
   height: 24px;
   border: none;
   cursor: pointer;
-  margin-right: 14px;
+}
+
+.card__list-button_active {
+  background: url('/public/images/chevron-down-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.card__list-tasks {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__list-tasks_active {
+  margin-top: var(--gap-s);
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
 }
 
 .card__list-items {
+  max-width: 370px;
   display: flex;
   flex-direction: column;
   counter-reset: list-counter;
   list-style-type: none;
   margin: 0;
-  margin-top: var(--gap-s);
   padding: 0 0 0 40px;
 }
 
@@ -118,18 +151,32 @@
   margin-right: var(--gap-2xs);
 }
 
+.card__list-messages {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card__list-messages_active {
+  margin-top: var(--gap-s);
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
 .card__message-list {
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin-top: var(--gap-xs);
+  gap: var(--gap-m);
 }
 
 .card__message-item {
   display: flex;
   align-items: center;
   margin: 0;
-  margin-top: var(--gap-m);
 }
 
 .card__message-photo {

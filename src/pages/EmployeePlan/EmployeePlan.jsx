@@ -76,33 +76,33 @@ function EmployeePlan() {
 
   return (
     <FormProvider {...formMethods}>
-    <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-      {renderTitleOrEdit()}
-      <div className="content">
-        <section className="content__left-part">
-          <Menu />
-        </section>
-        <section className="content__middle-part">
-          <section className="plan">
-            <div className="plan__status">
-              <p className="plan__status-title">Статус ИПР:</p>
-              {renderModeOfPlanStatus()}
-            </div>
-            {renderCardOrEditForm()}
-            <section className="plan__content-buttons">
-            <button disabled={!formMethods.formState.isValid} type='submit'>Button</button>
-              {/* <ButtonConfirmation isValid={formMethods.formState.isValid} /> */}
-              <ButtonCancellation />
+      <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+        {renderTitleOrEdit()}
+        <div className="content">
+          <section className="content__left-part">
+            <Menu />
+          </section>
+          <section className="content__middle-part">
+            <section className="plan">
+              <div className="plan__status">
+                <p className="plan__status-title">Статус ИПР:</p>
+                {renderModeOfPlanStatus()}
+              </div>
+              {renderCardOrEditForm()}
+              <section className="plan__content-buttons">
+                <button disabled={!formMethods.formState.isValid} type='submit'>Button</button>
+                {/* <ButtonConfirmation isValid={formMethods.formState.isValid} /> */}
+                <ButtonCancellation />
+              </section>
             </section>
           </section>
-        </section>
 
-        <section className="content__right-part">
-          <BriefInfoCard />
-        </section>
-      </div>
+          <section className="content__right-part">
+            <BriefInfoCard />
+          </section>
+        </div>
       </form>
-      </FormProvider>
+    </FormProvider>
   );
 }
 

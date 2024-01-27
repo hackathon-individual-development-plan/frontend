@@ -71,7 +71,7 @@ function GoalCardEdit({ card, uniqueId, cardIndex }) {
         >
           <ul className="card__message-edit-list">
             {card?.comments
-            && card?.comments.map((item, index) => (
+              && card?.comments.map((item, index) => (
                 <li className="card__message-edit-item" key={index}>
                   <img className="card__message-edit-photo" src={item.photo} />
                   <div className="card__message-edit-info">
@@ -79,7 +79,7 @@ function GoalCardEdit({ card, uniqueId, cardIndex }) {
                     <p className="card__message-edit-text">{item.message}</p>
                   </div>
                 </li>
-            ))}
+              ))}
           </ul>
         </div>
       </section>
@@ -109,7 +109,7 @@ function GoalCardEdit({ card, uniqueId, cardIndex }) {
         <p className="card__field-name">Статус:</p>
         <DateInput deadlineData={card?.deadline} />
         {/* <PickerStatusButton /> */}
-        <DropdownButton cardIndex={cardIndex} status={card?.status}/>
+        <DropdownButton cardIndex={cardIndex} status={card?.status} />
       </section>
       <section className="card__discription">
         <p className="card__field-name">Описание:</p>
@@ -154,12 +154,12 @@ function GoalCardEdit({ card, uniqueId, cardIndex }) {
 
           </ol>
           <div className="card__list-edit-add">
-          <button onClick={() => onAddNewTask()} type="button" className="card__list-edit-add-button"></button>
+            <button onClick={() => onAddNewTask()} type="button" className="card__list-edit-add-button"></button>
             <input
               type="text"
               className="card__input card__input_white card__input_border-none"
               onChange={(e) => setNewTaskValue(e.target.value)}
-              />
+            />
           </div>
         </div>
       </section>
