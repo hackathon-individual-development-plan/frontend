@@ -95,11 +95,10 @@ function EmployeePlan({ employeeId }) {
           <section className="content__right-part">
             <BriefInfoCard />
           </section>
-        </div>
+        {/* </div> */}
       </form>
     </FormProvider>
-    </FormProvider>
+    // </FormProvider>
   );
 }
-
 export default EmployeePlan;

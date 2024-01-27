@@ -67,7 +67,7 @@ function App() {
             <Route path='/create-target'
               element={
                 <ProtectedRoute
-                  element={CreatePlan}
+                  // element={CreatePlan}
                 />
               } />
             <Route path='/employees'

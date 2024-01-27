@@ -120,30 +120,6 @@ function GoalCardEdit({ cardIndex }) {
             },
           })}
         />
-        {/* <input
-          type="text"
-          className="card__discription-input"
-          defaultValue={card?.description}
-          placeholder="Добавить комментарий"
-          {...register(`goals.${cardIndex}.description`, {
-            required: {
-              value: true,
-              message: 'Поле обязательное для заполнения',
-            },
-            minLength: {
-              value: 1,
-              message: 'Минимальная длина 1 символ',
-            },
-            maxLength: {
-              value: 100,
-              message: 'Минимальная длина 100 символов',
-            },
-            pattern: {
-              value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,
-              message: 'Пожалуйста введите валидные значения',
-            },
-          })}
-        /> */}
         {errors?.goals?.[cardIndex]?.description && (
           <div className="message__error">{errors.goals[cardIndex].description.message}</div>
         )}
@@ -173,14 +149,12 @@ function GoalCardEdit({ cardIndex }) {
           </ol>
           <div className="card__list-edit-add">
             <button onClick={() => onAddNewTask()} type="button" className="card__list-edit-add-button"></button>
-            <button onClick={() => onAddNewTask()} type="button" className="card__list-edit-add-button"></button>
             <input
               type="text"
               minLength="1"
               maxLength="30"
               className="card__input card__input_white card__input_border-none"
               onChange={(e) => setNewTaskValue(e.target.value)}
-            />
             />
           </div>
         </div>
