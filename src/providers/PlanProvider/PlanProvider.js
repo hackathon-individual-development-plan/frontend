@@ -18,9 +18,20 @@ const PlanProvider = ({ children }) => {
   const [goalsComponent, setGoalsComponent] = useState([]);
 
   // initialize plan from server (readPlan - API function. (1) - plan id from BD)
-  const initialize = () => readPlan(1).then((currentPlan) => {
-    setPlan(currentPlan);
-  });
+  const initialize = (employeeId) => {
+    if (employeeId) {
+      readPlan(employeeId).then((currentPlan) => {
+        setPlan(currentPlan);
+      });
+    } else {
+      setPlan({
+        id: null,
+        title: 'New plan',
+        status: 'В работе',
+        goals: [],
+      });
+    }
+  };
 
   // edit plan
   const edit = (data) => updatePlan(data).then((currentPlan) => {
@@ -31,14 +42,25 @@ const PlanProvider = ({ children }) => {
     setIsEditMode(!isEditMode);
   };
 
-  const addNewGoal = (element) => {
-    const newGoal = element;
-    setGoalsComponent((prevGoalsComponent) => [...prevGoalsComponent, newGoal]);
+  const addNewGoal = () => {
+    const newGoal = {
+      id: 100,
+      title: '',
+      description: '',
+      tasks: [],
+      status: 'Отсутсвует',
+      created_at: Date.now(),
+      comments: [],
+    };
+    const updPlan = { ...plan };
+    updPlan.goals.push(newGoal);
+    setPlan(updPlan);
   };
 
-  const deleteEmptyGoal = (uniqueId) => {
-    setGoalsComponent((prevGoalsComponent) => prevGoalsComponent
-      .filter((element) => element.props.uniqueId !== uniqueId));
+  const deleteGoalByIndex = (cardIndex) => {
+    const updPlan = { ...plan };
+    updPlan.goals.splice(cardIndex, 1); // Удаляем 1 элемент по заданному индексу
+    setPlan(updPlan);
   };
 
   // const filterEmployees = (selectedId) => {
@@ -65,8 +87,6 @@ const PlanProvider = ({ children }) => {
   //   setFilteredEmployeesList(filteredList);
   // };
 
-  const edit1 = () => { };
-
   const add = () => {
     // setTargetList();
   };
@@ -79,11 +99,12 @@ const PlanProvider = ({ children }) => {
     initialize,
     toggleEditMode,
     addNewGoal,
-    deleteEmptyGoal,
+    deleteGoalByIndex,
     edit,
     add,
     remove,
     plan,
+    setPlan,
     isEditMode,
     goalsComponent,
     setGoalsComponent,

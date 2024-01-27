@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.jsx';
-import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
+// import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
 import Employees from '../../pages/Employees/Employees.jsx';
 import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
@@ -63,11 +63,11 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/employee-plan' element={<EmployeePlan />} />
+            <Route path='/employee-plan' element={<EmployeePlan employeeId={1}/>} />
             <Route path='/create-target'
               element={
                 <ProtectedRoute
-                  element={CreatePlan}
+                  // element={CreatePlan}
                 />
               } />
             <Route path='/employees'

@@ -1,11 +1,18 @@
 import React from 'react';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './GoalCardList.css';
 import GoalCard from '../GoalCard/GoalCard.jsx';
 
-export default function GoalCardList({ listOfGoals }) {
+export default function GoalCardList() {
+  const {
+    plan,
+  } = usePlan();
+
+  const goalsList = plan?.goals;
+
   return (
     <ul className="target-card-list">
-      {listOfGoals && listOfGoals?.map((item) => (
+      {goalsList && goalsList?.map((item, index) => (
         <GoalCard
           key={item.id}
           title={item.title}
@@ -14,6 +21,7 @@ export default function GoalCardList({ listOfGoals }) {
           description={item.description}
           tasks={item.tasks}
           comments={item.comments}
+          cardIndex={index}
         />
       ))}
     </ul>

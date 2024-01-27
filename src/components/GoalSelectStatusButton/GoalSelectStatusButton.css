@@ -33,7 +33,7 @@
     background: var(--Status-Gray, #E7E8EA);
   }
    */
-
+/* 
   .dropdown-button-container {
     position: relative;
   }
@@ -112,4 +112,13 @@
   .dropdown-button__item_grey {
     background-color: var(--Status-Gray, #e7e8ea);
     color: var(--Status-Grey, #6a6a74);
-  }
+  } */
+
+.dropdown-button-big {
+  width: 194px;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  border: 1px solid var(--Gray-80, #d2d3d9);
+  padding-left: 7px;
+}

@@ -16,13 +16,15 @@ export default function EmployeesCardList() {
         <EmployeesCard
           key={searchedEmployee.id}
           employee={searchedEmployee}
-        />
+          employeeId={searchedEmployee.id}
+          />
       ) : (
         <ul className="employees-list__items">
           {filteredEmployeesList.map((item) => (
             <EmployeesCard
               key={item.employee.id}
               employee={item}
+              employeeId={item.id}
             />
           ))
           }

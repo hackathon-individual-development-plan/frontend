@@ -1,19 +1,21 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import { UniversalDateInput } from '@alfalab/core-components/universal-date-input';
 import { Calendar } from '@alfalab/core-components/calendar';
-// import { useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
-function DateInput({ deadlineData }) {
-  const [value, setValue] = React.useState(deadlineData);
+function DateInput({ deadlineData, cardIndex }) {
+  const [value, setValue] = useState(deadlineData);
 
   // USEFORM HOOK
-  // const { register } = useFormContext();
+  const { register } = useFormContext();
 
   // eslint-disable-next-line no-shadow
   const handleChange = (_, { value }) => {
     setValue(value);
   };
   return (
+    <div>
     <UniversalDateInput
       block={true}
       view="date"
@@ -32,8 +34,14 @@ function DateInput({ deadlineData }) {
         e.stopPropagation();
         setValue('');
       }}
-    // {...register('data', { value: '' })}
+      // {...register(`goals.${cardIndex}.deadline`)}
+      />
+      <input
+      type='hidden'
+      value={value}
+      {...register(`goals.${cardIndex}.deadline`)}
     />
+    </div>
   );
 }
 
