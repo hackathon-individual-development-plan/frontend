@@ -2,13 +2,12 @@ import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import PageTitle from '../PageTitle/PageTitle.jsx';
 import './PlanTitle.css';
+import '../MessageError/MessageError.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 
 // eslint-disable-next-line no-unused-vars
 export default function PlanTitle() {
-  const {
-    toggleEditMode, isEditMode, plan,
-  } = usePlan();
+  const { toggleEditMode, isEditMode, plan } = usePlan();
 
   function handlEditClick() {
     toggleEditMode();
@@ -26,33 +25,41 @@ export default function PlanTitle() {
 
   const toogleTitleType = () => {
     // FORM
-    const { register } = useFormContext();
+    const {
+      register,
+      formState: { errors },
+    } = useFormContext();
 
     if (!isEditMode) {
       return <h1 className="headline-plan__title">{plan?.title}</h1>;
     }
     return (
-      <input type='text'
+      <div>
+        <input
+          type="text"
           className="headline-plan__title-edit"
           defaultValue={plan?.title}
           {...register('title', {
             required: {
-              value: false,
+              value: true,
+              message: 'Поле обязательное для заполнения',
             },
-          })}/>
-    // <input
-    //   className="headline-plan__title-edit"
-    //   type="text"
-    //   name="title"
-    //   defaultValue={plan?.title}
-    //   // onChange={handleInputChange}
-    //   // onBlur={handleInputBlur}
-    //   {...register('title', {
-    //     required: {
-    //       value: false,
-    //     },
-    //   })}
-    // />
+            minLength: {
+              value: 1,
+              message: 'Минимальная длина 1 символ',
+            },
+            maxLength: {
+              value: 30,
+              message: 'Минимальная длина 30 символов',
+            },
+            pattern: {
+              value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,
+              message: 'Пожалуйста введите валидные значения',
+            },
+          })}
+        />
+        {errors?.title && <div className="message__error">{errors.title.message}</div>}
+      </div>
     );
   };
 
@@ -62,7 +69,9 @@ export default function PlanTitle() {
         content={
           <div className="headline-plan__container">
             {toogleTitleType()}
-            <a className="headline-plan__edit" onClick={handlEditClick}></a>
+            {!isEditMode ? (
+                <a className="headline-plan__edit" onClick={handlEditClick}></a>
+            ) : null}
           </div>
         }
       />

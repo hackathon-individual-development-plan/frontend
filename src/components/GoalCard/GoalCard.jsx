@@ -1,7 +1,14 @@
 import React from 'react';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './GoalCard.css';
 
-function GoalCard(card) {
+function GoalCard({ cardIndex }) {
+  const {
+    plan,
+  } = usePlan();
+
+  const card = plan.goals[cardIndex];
+
   return (
     <div className="card">
       <p className="card__title">Цель: {card.title}</p>
@@ -21,7 +28,7 @@ function GoalCard(card) {
         <div className="card__list-header">
           <button className="card__list-button"></button>
           <p className="card__field-name">
-            Задачи <span>{card.tasks.length}</span>
+            Задачи <span>{card?.tasks?.length}</span>
           </p>
         </div>
         <ol className="card__list-items">
@@ -37,7 +44,7 @@ function GoalCard(card) {
         <div className="card__list-header">
           <button className="card__list-button"></button>
           <p className="card__field-name">
-            Комментарии <span>{card.comments.length}</span>
+            Комментарии <span>{card?.comments?.length}</span>
           </p>
         </div>
         <ul className="card__message-list">

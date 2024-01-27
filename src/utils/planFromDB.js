@@ -6,7 +6,7 @@ import pic3 from '../images/avatar-3.jpg';
 let planFromDB = {
   id: 1,
   title: 'От Junior к Middle',
-  status: 'In progress',
+  status: 'В работе',
   goals: [
     {
       id: 1,
@@ -23,9 +23,9 @@ let planFromDB = {
           text: 'Прочитать книгу «Качество кода»',
         },
       ],
-      status: 'In progress',
+      status: 'Не выполнен',
       created_at: '2019-08-24T14:15:22Z',
-      deadline: '28.04.2024',
+      deadline: '01.01.2030',
       comments: [
         {
           id: 250,
@@ -43,7 +43,7 @@ let planFromDB = {
     },
     {
       id: 1,
-      title: 'Java программирование',
+      title: 'Лидерские качества',
       description:
         'Необходимо улучшить навыки и скорость программирования на языке Java, соответствующие уровню Middle.',
       tasks: [
@@ -56,7 +56,7 @@ let planFromDB = {
           text: 'Прочитать книгу «Качество кода»',
         },
       ],
-      status: 'In progress',
+      status: 'Отсутсвует',
       created_at: '2019-08-24T14:15:22Z',
       deadline: '01.04.2024',
       comments: [

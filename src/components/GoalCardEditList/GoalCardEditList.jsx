@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './GoalCardEditList.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import ButtonAddGoal from '../ButtonAddGoal/ButtonAddGoal.jsx';
 import GoalCardEdit from '../GoalCardEdit/GoalCardEdit.jsx';
 
-export default function GoalCardEditList({ listOfGoals }) {
-  const { setGoalsComponent } = usePlan();
+export default function GoalCardEditList() {
+  const {
+    plan,
+  } = usePlan();
 
-  useEffect(() => {
-    setGoalsComponent([]);
-  }, []);
+  const goalsList = plan?.goals;
 
   return (
     <>
       <ButtonAddGoal />
       <ul className="target-card-list">
-        {listOfGoals && listOfGoals?.map((item, index) => (
+        {goalsList && goalsList?.map((item, index) => (
           <GoalCardEdit
             key={item.id}
-            card={item}
+            // card={item}
             cardIndex={index}
           />
         ))}

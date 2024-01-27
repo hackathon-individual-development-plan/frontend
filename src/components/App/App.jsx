@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
+// import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
 import Employees from '../../pages/Employees/Employees.jsx';
 import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
@@ -16,10 +16,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route path='/' element={<Employees />} />
-            <Route path='/create-target' element={<CreatePlan />} />
+            {/* <Route path='/create-target' element={<CreatePlan />} /> */}
+            <Route path='/create-target' element={<EmployeePlan />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
             <Route path='/my-idp' element={<MyPlanSenior />} />
-            <Route path='/employee-plan' element={<EmployeePlan />} />
+            <Route path='/employee-plan' element={<EmployeePlan employeeId={1}/>} />
           </Route>
         </Routes>
       </div>

@@ -5,7 +5,7 @@ function ButtonConfirmation(isValid) {
   const title = 'Сохранить';
   return (
     <div style={{ minwidth: 128, marginRight: 14 }}>
-      <ButtonDesktop disabled={!isValid} view="accent" size="s">
+      <ButtonDesktop disabled={!isValid} view="accent" size="s" type='submit'>
         {title}
       </ButtonDesktop>
     </div>
