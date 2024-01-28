@@ -17,7 +17,7 @@ export default function EmployeesCardList() {
           key={searchedEmployee.id}
           employee={searchedEmployee}
           employeeId={searchedEmployee.id}
-          />
+        />
       ) : (
         <ul className="employees-list__items">
           {filteredEmployeesList.map((item) => (
