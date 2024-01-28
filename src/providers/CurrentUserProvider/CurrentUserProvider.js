@@ -18,10 +18,10 @@ const CurrentUserProvider = ({ children }) => {
 
   const getUserRole = (jwt) => {
     setUserToken(localStorage.getItem(jwt));
-    if (userToken === 'token_jwt_senior') {
+    if (userToken === USER_ROLES[0].senior.jwt) {
       setCurrentUserRole(USER_ROLES[0].senior.role);
       setIsSenior(true);
-    } else if (userToken === 'token_jwt_employee') {
+    } else if (userToken === USER_ROLES[1].employee.jwt) {
       setCurrentUserRole(USER_ROLES[1].employee.role);
       setIsSenior(false);
     }
