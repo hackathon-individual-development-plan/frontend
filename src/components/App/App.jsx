@@ -63,11 +63,11 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/employee-plan' element={<EmployeePlan employeeId={1}/>} />
+            <Route path='/employee-plan' element={<EmployeePlan employeeId={1} />} />
             <Route path='/create-target'
               element={
                 <ProtectedRoute
-                  // element={CreatePlan}
+                // element={CreatePlan}
                 />
               } />
             <Route path='/employees'

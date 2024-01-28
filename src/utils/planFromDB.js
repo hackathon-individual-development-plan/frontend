@@ -56,7 +56,7 @@ let planFromDB = {
           text: 'Прочитать книгу «Качество кода»',
         },
       ],
-      status: 'Отсутсвует',
+      status: 'Отсутствует',
       created_at: '2019-08-24T14:15:22Z',
       deadline: '01.04.2024',
       comments: [

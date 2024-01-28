@@ -16,31 +16,31 @@ function DateInput({ deadlineData, cardIndex }) {
   };
   return (
     <div>
-    <UniversalDateInput
-      block={true}
-      view="date"
-      placeholder="ДД.ММ.ГГГГ"
-      size="s"
-      value={value}
-      onChange={handleChange}
-      disableUserInput={false}
-      picker={true}
-      Calendar={Calendar}
-      calendarProps={{
-        selectorView: 'month-only',
-      }}
-      clear={true}
-      onClear={(e) => {
-        e.stopPropagation();
-        setValue('');
-      }}
+      <UniversalDateInput
+        block={true}
+        view="date"
+        placeholder="ДД.ММ.ГГГГ"
+        size="s"
+        value={value}
+        onChange={handleChange}
+        disableUserInput={false}
+        picker={true}
+        Calendar={Calendar}
+        calendarProps={{
+          selectorView: 'month-only',
+        }}
+        clear={true}
+        onClear={(e) => {
+          e.stopPropagation();
+          setValue('');
+        }}
       // {...register(`goals.${cardIndex}.deadline`)}
       />
       <input
-      type='hidden'
-      value={value}
-      {...register(`goals.${cardIndex}.deadline`)}
-    />
+        type='hidden'
+        value={value}
+        {...register(`goals.${cardIndex}.deadline`)}
+      />
     </div>
   );
 }

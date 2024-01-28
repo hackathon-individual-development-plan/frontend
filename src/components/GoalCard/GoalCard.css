@@ -22,12 +22,14 @@
   margin: 0 0 var(--gap-xl) 0;
 }
 
-.card__field-name {
+.card__subtitle {
+  margin: 0 var(--gap-xs) 0 0;
+  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
+  font-family: Roboto;
   font-size: 16px;
+  font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
-  margin: 0 var(--gap-xs) 0 0;
 }
 
 .card__deadline {
@@ -37,6 +39,8 @@
 
 .card__deadline__date {
   margin: 0;
+  color: var(--Text-Black, #0E0E0E);
+  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -45,6 +49,35 @@
 
 .card__status__type {
   margin: 0;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-align: center;
+  /* Web L 16pt Medium Roboto */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.card__status__type.blue {
+  background: var(--Status-Blue, #D8EAFF);
+  color: var(--Status-Blue, #2A77EF);
+}
+
+.card__status__type.green {
+  background: var(--Status-Green, #D1F1D7);
+  color: var(--Status-Green, #0A9336);
+}
+
+.card__status__type.red {
+  background: var(--Status-Red, #FFDFDF);
+  color: var(--Status-Red, #EC2E13);
+}
+
+.card__status__type.grey {
+  background: var(--Status-Gray, #E7E8EA);
+  color: var(--Status-Grey, #6A6A74);
 }
 
 .card__status {
@@ -63,6 +96,12 @@
 .card__description-text {
   margin: var(--gap-xs) 0 0 0;
   padding: 0;
+  color: var(--Text-Black, #0E0E0E);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 .card__list {
@@ -94,6 +133,7 @@
   height: 24px;
   border: none;
   cursor: pointer;
+  margin-right: 14px;
 }
 
 .card__list-button_active {
@@ -140,10 +180,13 @@
 }
 
 .card__list-item-name {
+  margin: 0;
+  color: var(--Text-Black, #0E0E0E);
+  font-family: Roboto;
   font-size: 16px;
+  font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  margin: 0;
 }
 
 .card__list-item-name::before {
