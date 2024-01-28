@@ -70,7 +70,7 @@ export default function PlanTitle() {
           <div className="headline-plan__container">
             {toogleTitleType()}
             {!isEditMode ? (
-                <a className="headline-plan__edit" onClick={handlEditClick}></a>
+              <a className="headline-plan__edit" onClick={handlEditClick}></a>
             ) : null}
           </div>
         }

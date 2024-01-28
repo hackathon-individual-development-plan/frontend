@@ -9,7 +9,7 @@ import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
-import USER_ROLES from '../../utils/constants'; // для демо удалить строку
+import { USER_ROLES } from '../../utils/constants'; // для демо удалить строку
 
 function App() {
   const navigate = useNavigate();
@@ -63,7 +63,7 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/employee-plan' element={<EmployeePlan employeeId={1}/>} />
+            <Route path='/employee-plan' element={<EmployeePlan employeeId={1} />} />
             <Route path='/create-target'
               element={
                 <ProtectedRoute

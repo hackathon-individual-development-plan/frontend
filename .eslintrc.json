@@ -38,7 +38,8 @@
         "react/jsx-uses-vars": "error",
         "react/prop-types": [
             0
-        ]
+        ],
+        "camelcase": ["error", {"allow": ["idp_id", "goal_id", "created_at", "job_title"]}]
         // "linebreak-style": [
         //     "error",
         //     "windows"

@@ -9,7 +9,7 @@
 
 import { useState } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
-import USER_ROLES from '../../utils/constants';
+import { USER_ROLES } from '../../utils/constants';
 
 const CurrentUserProvider = ({ children }) => {
   const [userToken, setUserToken] = useState('');
