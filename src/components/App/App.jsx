@@ -9,7 +9,7 @@ import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
-import USER_ROLES from '../../utils/constants'; // для демо удалить строку
+import { USER_ROLES } from '../../utils/constants'; // для демо удалить строку
 
 function App() {
   const navigate = useNavigate();

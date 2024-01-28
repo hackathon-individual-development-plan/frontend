@@ -7,7 +7,7 @@ export default function EmployeesCard({ employee }) {
   const navigate = useNavigate();
 
   function openEmployeePlan() {
-    if (employee.idp.status !== 'Отсутствует') {
+    if (employee.idp[0].status !== 'Отсутствует') {
       navigate('/employee-plan');
     }
   }
