@@ -57,7 +57,15 @@ function EmployeePlan({ employeeId }) {
   // Form field change handler:
   const onSubmit = (data) => {
     // eslint-disable-next-line no-unused-vars
-    const localFrms = formMethods;
+
+    const idsToKeep = new Set(plan.goals.map((item) => item.id.toString()));
+
+    // Filter the first array based on the presence of ids in the second array
+    const filteredArray = data.goals.filter((item) => idsToKeep.has(item.id.toString()));
+    // eslint-disable-next-line no-param-reassign
+    data.goals = filteredArray;
+    // eslint-disable-next-line no-unused-vars
+    const fd = formMethods;
     edit(data);
     toggleEditMode();
   };
