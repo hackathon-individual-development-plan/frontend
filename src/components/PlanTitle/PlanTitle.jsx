@@ -50,7 +50,7 @@ export default function PlanTitle() {
             },
             maxLength: {
               value: 30,
-              message: 'Минимальная длина 30 символов',
+              message: 'Максимальная длина 30 символов',
             },
             pattern: {
               value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,

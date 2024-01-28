@@ -25,7 +25,7 @@ let planFromDB = {
       ],
       status: 'Не выполнен',
       created_at: '2019-08-24T14:15:22Z',
-      deadline: '01.01.2030',
+      deadline: '2024-01-01',
       comments: [
         {
           id: 250,
@@ -42,7 +42,7 @@ let planFromDB = {
       ],
     },
     {
-      id: 1,
+      id: 2,
       title: 'Лидерские качества',
       description:
         'Необходимо улучшить навыки и скорость программирования на языке Java, соответствующие уровню Middle.',
@@ -58,7 +58,7 @@ let planFromDB = {
       ],
       status: 'Отсутствует',
       created_at: '2019-08-24T14:15:22Z',
-      deadline: '01.04.2024',
+      deadline: '2025-02-02',
       comments: [
         {
           id: 250,

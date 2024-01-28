@@ -61,6 +61,11 @@ function GoalCardEdit({ cardIndex }) {
           <button type="button" className="card__trash" onClick={onDeleteGoal} />
         </div>
         <input
+        type='hidden'
+        value={card.id}
+        {...register(`goals.${cardIndex}.id`)}
+        ></input>
+        <input
           type="text"
           className="card__input"
           defaultValue={card?.title}
@@ -75,7 +80,7 @@ function GoalCardEdit({ cardIndex }) {
             },
             maxLength: {
               value: 30,
-              message: 'Минимальная длина 30 символов',
+              message: 'Максимальная длина 30 символов',
             },
             pattern: {
               value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,
@@ -112,7 +117,7 @@ function GoalCardEdit({ cardIndex }) {
             },
             maxLength: {
               value: 100,
-              message: 'Минимальная длина 100 символов',
+              message: 'Максимальная длина 100 символов',
             },
             pattern: {
               value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,

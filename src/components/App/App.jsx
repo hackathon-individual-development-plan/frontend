@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.jsx';
-// import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
+import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
 import Employees from '../../pages/Employees/Employees.jsx';
 import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
@@ -67,7 +67,7 @@ function App() {
             <Route path='/create-target'
               element={
                 <ProtectedRoute
-                // element={CreatePlan}
+                  element={CreatePlan}
                 />
               } />
             <Route path='/employees'
