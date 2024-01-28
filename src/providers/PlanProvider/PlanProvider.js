@@ -59,7 +59,7 @@ const PlanProvider = ({ children }) => {
 
   const deleteGoalByIndex = (cardIndex) => {
     const updPlan = { ...plan };
-    updPlan.goals.splice(cardIndex, 1); // Удаляем 1 элемент по заданному индексу
+    updPlan.goals.splice(cardIndex, 1);
     setPlan(updPlan);
   };
 

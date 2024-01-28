@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './GoalCardEdit.css';
 import '../MessageError/MessageError.css';
 import { useFormContext } from 'react-hook-form';
@@ -33,6 +34,7 @@ function GoalCardEdit({ cardIndex }) {
   }, card?.tasks);
   // state for new task value
   const [newTaskValue, setNewTaskValue] = useState('');
+  const newTaskRef = useRef();
   const onAddNewTask = () => {
     // Проверка, чтобы избежать добавления пустого таска
     if (newTaskValue.trim() !== '') {
@@ -40,17 +42,15 @@ function GoalCardEdit({ cardIndex }) {
       const newTask = {
         text: newTaskValue.trim(),
       };
-
       // Обновление состояния с добавлением нового таска
       setCurrentTasks((prevTasks) => [...prevTasks, newTask]);
-
-      // Очистка значения newTaskValue после добавления таска
-      setNewTaskValue('');
     }
+    newTaskRef.current.value = null;
   };
-  const onDeleteTask = (index) => {
+  const onDeleteTask = (event, index) => {
+    event.preventDefault();
     // Фильтрация массива задач для удаления задачи с указанным индексом
-    setCurrentTasks((prevTasks) => prevTasks.filter((task, i) => i !== index));
+    setCurrentTasks(currentTasks.filter((task, i) => i !== index));
   };
 
   return (
@@ -142,7 +142,7 @@ function GoalCardEdit({ cardIndex }) {
             {currentTasks?.map((item, index) => (
               <li className="card__list-edit-item" key={index}>
                 <p className="card__list-edit-item-name">{item.text}</p>
-                <button className="card__list-edit-item-delete" onClick={() => onDeleteTask(index)}></button>
+                <button className="card__list-edit-item-delete" onClick={(event) => onDeleteTask(event, index)}></button>
                 <input type="hidden" defaultValue={item.text} {...register(`goals.${cardIndex}.tasks.${index}.text`)} />
               </li>
             ))}
@@ -155,6 +155,7 @@ function GoalCardEdit({ cardIndex }) {
               maxLength="30"
               className="card__input card__input_white card__input_border-none"
               onChange={(e) => setNewTaskValue(e.target.value)}
+              ref={newTaskRef}
             />
           </div>
         </div>
