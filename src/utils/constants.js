@@ -1,4 +1,4 @@
-// const BASE_URL = '';
+const BASE_URL = '/api/v1';
 
 const USER_ROLES = [
   {
@@ -17,4 +17,7 @@ const USER_ROLES = [
   },
 ];
 
-export default USER_ROLES;
+export {
+  BASE_URL,
+  USER_ROLES,
+};
