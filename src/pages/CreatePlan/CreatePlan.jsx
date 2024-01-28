@@ -32,10 +32,10 @@ function CreatePlan() {
   const employeeId = 3;
 
   return (
-    <div>
+    <>
       <SearchInput />
       <EmployeePlan employeeId={employeeId} />
-    </div>
+    </>
   );
 
   // placeholder
@@ -51,37 +51,44 @@ function CreatePlan() {
   // //   setGoalsComponent([]);
   // // }, []);
 
-  //   return (
-  //     <>
-  //       {/* <PageTitle /> */}
-  //       <div className="content">
-  //         <section className="content__left-part">
-  //           <Menu />
-  //         </section>
-  //         <section className="content__middle-part">
-  //           <SearchInput />
-  //           <section className="plan">
-  //             <div className="plan__status">
-  //               <p className="plan__status-title">Статус ИПР:</p>
-  //             </div>
-  //             <ButtonAddGoal />
-  //             {/* {cardsTarget.map((item) => (
-  //               <GoalCardEdit key={item.id} cardTarget={item} />
-  //             ))} */}
-  //             <section className="plan__content-buttons">
-  //               <ButtonConfirmation />
-  //               <ButtonCancellation />
-  //             </section>
+  // return (
+  //   <>
+  //     <div className="content">
+  //       <section className="content__left-part">
+  //         <Menu />
+  //       </section>
+  //       <section className="content__middle-part">
+  //       <PageTitle content={<input
+  //         className="content__input-title"
+  //         type="text"
+  //         name="input-plan-name"
+  //         placeholder={placeholderName}
+  //         onFocus={handlePlaceholderFocus}
+  //         onBlur={handlePlaceholderBlur}
+  //       />} />
+  //         <SearchInput />
+  //         <section className="plan">
+  //           <div className="plan__status">
+  //             <p className="plan__status-title">Статус ИПР:</p>
+  //           </div>
+  //           <ButtonAddGoal />
+  //           {/* {cardsTarget.map((item) => (
+  //             <GoalCardEdit key={item.id} cardTarget={item} />
+  //           ))} */}
+  //           <section className="plan__content-buttons">
+  //             <ButtonConfirmation />
+  //             <ButtonCancellation />
   //           </section>
   //         </section>
+  //       </section>
 
-//         {/* <section className="content__right-part">
-//         <BriefInfoCard />
-//         <Calendar />
-//       </section> */}
-//       </div>
-//     </>
-//   );
+  //     {/* <section className="content__right-part">
+  //     <BriefInfoCard />
+  //     <Calendar />
+  //   </section> */}
+  //   </div>
+  // </>
+  // );
 }
 
 export default CreatePlan;

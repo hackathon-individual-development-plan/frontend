@@ -26,7 +26,7 @@
 .content__middle-part {
   display: flex;
   flex-direction: column;
-  width: 456px;
+  width: 500px;
   color: var(--Text-Gray-58, rgba(14, 14, 14, 0.58));
 }
 
@@ -34,6 +34,7 @@
   display: flex;
   flex-direction: column;
   margin-left: auto;
+  margin-top: 78px;
   align-items: flex-end;
 }
 

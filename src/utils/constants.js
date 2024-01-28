@@ -4,14 +4,14 @@ const USER_ROLES = [
   {
     senior:
     {
-      jwt: 'token_jwt_senior',
+      jwt: 'e570bf68f51996d377a7d8b07dd6606932046db8',
       role: 'senior',
     },
   },
   {
     employee:
     {
-      jwt: 'token_jwt_employee',
+      jwt: '242bf5ba694512b66d1288f7e7fb7bd22fe35cb6',
       role: 'employee',
     },
   },
