@@ -47,3 +47,18 @@
     height: 24px;
     flex-shrink: 0;
 }
+
+.nav-button {
+    margin: 0;
+    margin-top: var(--gap-2xs);
+    margin-bottom: var(--gap-4xl);
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/images/menu__exit.svg');
+    border: 0;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 7px 0;
+    cursor: pointer;
+}

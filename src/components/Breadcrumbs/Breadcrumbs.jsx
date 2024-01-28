@@ -19,7 +19,7 @@ function Breadcrumbs() {
       <p className='breadcrumbs__link'>Индивидуальный план развития</p>
       {pathname === '/employees' && renderNavLink('/', 'Сотрудники')}
       {pathname === '/create-target' && renderNavLink('/create-target', 'Карточка сотрудника')}
-      {pathname === '/matrix' && renderNavLink('/matrix', 'Матрица')}
+      {pathname === '/matrix' && renderNavLink('/matrix', 'Матрица компетенций')}
       {pathname === '/my-idp' && renderNavLink('/my-idp', 'Мой ИПР')}
       {pathname === '/employee-plan' && (
         <>
