@@ -1,15 +1,13 @@
 name: Build and deploy to stage server
 
-# on:
-#   pull_request:
-#     branches:
-#       - develop
-#     types: [closed]
-
 on:
   push:
     branches:
-      - feature/workflow
+      - develop
+  pull_request:
+    branches:
+      - develop
+    types: [closed]
 
 env:
   REGISTRY: ghcr.io
