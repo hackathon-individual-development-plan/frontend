@@ -103,6 +103,8 @@ function GoalCardEdit({ cardIndex }) {
         <p className="card__field-name">Описание:</p>
         <textarea
           type="text"
+          // cols='10'
+          rows='15'
           className="card__discription-input"
           defaultValue={card?.description}
           placeholder="Добавить комментарий"
