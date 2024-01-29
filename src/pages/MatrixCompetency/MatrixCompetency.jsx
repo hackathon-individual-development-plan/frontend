@@ -9,21 +9,21 @@ import Matrix from '../../components/Matrix/Matrix.jsx';
 
 function MatrixCompetency() {
   return (
-      <div className="content">
-        <section className="content__left-part">
-          <Menu />
-        </section>
+    <div className="content">
+      <section className="content__left-part">
+        <Menu />
+      </section>
 
-        <section className="content__middle-part">
-          <PageTitle />
-          <Matrix />
-        </section>
+      <section className="content__middle-part">
+        <PageTitle />
+        <Matrix />
+      </section>
 
-        <section className="content__right-part">
-          <BriefInfoCard />
-          <Calendar />
-        </section>
-      </div>
+      <section className="content__right-part">
+        <BriefInfoCard />
+        <Calendar />
+      </section>
+    </div>
   );
 }
 

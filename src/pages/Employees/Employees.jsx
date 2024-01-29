@@ -9,23 +9,23 @@ import Menu from '../../components/Menu/Menu.jsx';
 
 function Employees() {
   return (
-      <div className="content">
-        <section className="content__left-part">
-          <Menu />
-        </section>
+    <div className="content">
+      <section className="content__left-part">
+        <Menu />
+      </section>
 
-        <section className="content__middle-part">
-          <PageTitle />
-          <SearchInput />
-          <section className="employees">
-            <EmployeesCardList />
-          </section>
+      <section className="content__middle-part">
+        <PageTitle />
+        <SearchInput />
+        <section className="employees">
+          <EmployeesCardList />
         </section>
+      </section>
 
-        <section className="content__right-part">
-          <FilterEmployeesBar />
-        </section>
-      </div>
+      <section className="content__right-part">
+        <FilterEmployeesBar />
+      </section>
+    </div>
   );
 }
 
