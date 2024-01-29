@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     padding-top: 54px;
+    margin-right: 50.77px;
 }
 
 .matrix__round-1 {
@@ -118,7 +119,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 71.623px;
 }
 
 .matrix__text:nth-child(1) {
