@@ -9,13 +9,13 @@ import Menu from '../../components/Menu/Menu.jsx';
 
 function Employees() {
   return (
-    <>
-      <PageTitle />
       <div className="content">
-        <section className="content__left-part"><Menu /></section>
+        <section className="content__left-part">
+          <Menu />
+        </section>
 
         <section className="content__middle-part">
-          {/* <h1 className="content__title">Индивидуальный план развития</h1> */}
+          <PageTitle />
           <SearchInput />
           <section className="employees">
             <EmployeesCardList />
@@ -26,7 +26,6 @@ function Employees() {
           <FilterEmployeesBar />
         </section>
       </div>
-    </>
   );
 }
 

@@ -71,14 +71,14 @@ function EmployeePlan({ employeeId }) {
   };
 
   return (
-    <FormProvider {...formMethods}>
-      <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-        {renderTitleOrEdit()}
-        <div className="content">
-          <section className="content__left-part">
-            <Menu />
-          </section>
+    <div className="content">
+      <section className="content__left-part">
+        <Menu />
+      </section>
+      <FormProvider {...formMethods}>
+        <form onSubmit={formMethods.handleSubmit(onSubmit)}>
           <section className="content__middle-part">
+            {renderTitleOrEdit()}
             <section className="plan">
               <div className="plan__status">
                 <p className="plan__status-title">Статус ИПР:</p>
@@ -95,18 +95,13 @@ function EmployeePlan({ employeeId }) {
               </section>
             </section>
           </section>
+        </form >
+      </FormProvider >
 
-          <section className="content__right-part">
-            <BriefInfoCard />
-          </section>
-        </div>
-        <section className="content__right-part">
-          <BriefInfoCard />
-        </section>
-        {/* </div> */}
-      </form>
-    </FormProvider>
-    // </FormProvider>
+      <section className="content__right-part">
+        <BriefInfoCard />
+      </section>
+    </div >
   );
 }
 export default EmployeePlan;

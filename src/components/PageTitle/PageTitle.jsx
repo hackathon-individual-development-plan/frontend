@@ -19,9 +19,8 @@ export default function PageTitle({ content }) {
   }
 
   return (
-    <section className='headline'>
-      <button type='button' className='headline__button'></button>
+    <>
       {title && <h1 className="headline__title">{title}</h1>}
-    </section>
+    </>
   );
 }

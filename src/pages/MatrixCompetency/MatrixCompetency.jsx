@@ -9,15 +9,13 @@ import Matrix from '../../components/Matrix/Matrix.jsx';
 
 function MatrixCompetency() {
   return (
-    <>
-      <PageTitle />
       <div className="content">
         <section className="content__left-part">
           <Menu />
         </section>
 
         <section className="content__middle-part">
-          {/* <h1 className="content__title">Матрица компетенций</h1> */}
+          <PageTitle />
           <Matrix />
         </section>
 
@@ -26,7 +24,6 @@ function MatrixCompetency() {
           <Calendar />
         </section>
       </div>
-    </>
   );
 }
 

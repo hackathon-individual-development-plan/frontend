@@ -16,12 +16,12 @@ const CurrentUserProvider = ({ children }) => {
   const [currentUserRole, setCurrentUserRole] = useState('');
   const [isSenior, setIsSenior] = useState(false);
 
-  const getUserRole = (jwt) => {
-    setUserToken(localStorage.getItem(jwt));
-    if (userToken === 'token_jwt_senior') {
+  const getUserRole = (token) => {
+    setUserToken(localStorage.getItem(token));
+    if (userToken === USER_ROLES[0].senior.token) {
       setCurrentUserRole(USER_ROLES[0].senior.role);
       setIsSenior(true);
-    } else if (userToken === 'token_jwt_employee') {
+    } else if (userToken === USER_ROLES[1].employee.token) {
       setCurrentUserRole(USER_ROLES[1].employee.role);
       setIsSenior(false);
     }

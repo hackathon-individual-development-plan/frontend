@@ -21,21 +21,21 @@ function App() {
   const [localStorageData, setLocalStorageData] = useState('');
 
   const handleStorageChange = () => {
-    const tokenFromStorage = localStorage.getItem('jwt');
+    const tokenFromStorage = localStorage.getItem('token');
     setLocalStorageData(tokenFromStorage);
     setUserToken(tokenFromStorage);
-    getUserRole('jwt');
+    getUserRole('token');
   };
 
   useEffect(() => {
-    setLocalStorageData(localStorage.getItem('jwt'));
+    setLocalStorageData(localStorage.getItem('token'));
 
     window.addEventListener('storage', handleStorageChange);
 
-    const initialToken = USER_ROLES[0].senior.jwt;
-    localStorage.setItem('jwt', initialToken);
+    const initialToken = USER_ROLES[0].senior.token;
+    localStorage.setItem('token', initialToken);
     setLocalStorageData(initialToken);
-    getUserRole('jwt');
+    getUserRole('token');
     setUserToken(localStorageData);
 
     return () => {
@@ -45,8 +45,8 @@ function App() {
 
   useEffect(() => {
     setUserToken(localStorageData);
-    getUserRole('jwt');
-    setLocalStorageData(localStorage.getItem('jwt'));
+    getUserRole('token');
+    setLocalStorageData(localStorage.getItem('token'));
     if (currentUserRole === 'senior') {
       navigate('/employees', { replace: true });
     } else if (currentUserRole === 'employee') {

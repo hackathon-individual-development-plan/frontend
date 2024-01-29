@@ -8,13 +8,13 @@ import Calendar from '../../components/Calendar/Calendar.jsx';
 function MyPlanSenior() {
   return (
     <>
-      <PageTitle />
       <div className="content">
         <section className="content__left-part">
           <Menu />
         </section>
 
         <section className="content__middle-part">
+          <PageTitle />
           <p className='my-plan'>Ещё не назначен</p>
         </section>
 
