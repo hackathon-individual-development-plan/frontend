@@ -22,7 +22,7 @@ export const getEmployees = () => request('/employees', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,
+    'Authorization': `${TOKEN}`,
   },
 });
 
@@ -30,7 +30,7 @@ export const getIdpInfo = () => request('/employee/my-idp', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,
+    'Authorization': `${TOKEN}`,
   },
 });
 
@@ -38,7 +38,7 @@ export const createEmployeeIpd = (data) => request('/idps', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,
+    'Authorization': `${TOKEN}`,
   },
   body: JSON.stringify(data),
 });
@@ -47,7 +47,7 @@ export const getEmployeeIdp = (id) => request(`/idps/${id}`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,
+    'Authorization': `${TOKEN}`,
   },
 });
 
@@ -55,7 +55,7 @@ export const editEmployeeIdp = (data, id) => request(`/idps/${id}`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,
+    'Authorization': `${TOKEN}`,
   },
   body: JSON.stringify(data),
 });
@@ -64,7 +64,7 @@ export const createComments = (data, idp_id, goal_id) => request(`/idps/${idp_id
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${TOKEN}`,
+    'Authorization': `${TOKEN}`,
   },
   body: JSON.stringify(data),
 });
