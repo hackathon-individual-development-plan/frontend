@@ -1,7 +1,7 @@
 /* eslint-disable quote-props */
 import { BASE_URL } from './constants';
 
-export const TOKEN = () => localStorage.getItem('jwt');
+export const TOKEN = localStorage.getItem('token');
 
 export function checkResponse(res) {
   if (res.ok) {
