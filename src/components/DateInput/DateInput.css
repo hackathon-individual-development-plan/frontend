@@ -1,8 +1,32 @@
 .date-input {
-  height: 46px;
-  width: 187px;
+  margin: 0; 
+  display: block; 
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  width: 194px;
+  height: 48px;
   border: none;
   border-radius: 8px;
   border: 1px solid var(--Gray-80, #d2d3d9);
-  padding-left: 7px;
+  padding: 8px 16px; 
+  box-sizing: border-box; 
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff; 
+  
+  
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  display: block;
+  background: url('../../../public/images/calendar.svg');
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  background-position: right 0 top 50%, 0 0;
 }

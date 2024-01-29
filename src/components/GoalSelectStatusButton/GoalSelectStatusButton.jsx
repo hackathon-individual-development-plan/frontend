@@ -65,7 +65,6 @@ import './GoalSelectStatusButton.css';
 function GoalSelectStatusButton({ status, cardIndex }) {
   const [statusState, setStatusState] = useState(status);
   const { register } = useFormContext();
-
   return (
     <div>
       <select className='dropdown-button-big'
