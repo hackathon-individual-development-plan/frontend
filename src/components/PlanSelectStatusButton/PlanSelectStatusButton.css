@@ -1,8 +1,24 @@
 .dropdown-button {
+  margin: 0; 
+  display: block; 
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
   width: 194px;
   height: 36px;
   border: none;
   border-radius: 8px;
   border: 1px solid var(--Gray-80, #d2d3d9);
-  padding-left: 7px;
+  padding: 8px 16px; 
+  box-sizing: border-box; 
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff; 
+  background-image: url('../../../public/images/chevron-down-icon.svg'); 
+  background-repeat: no-repeat, repeat;
+  background-position: right 16px top 50%, 0 0;
+  background-size: 20px;
 }

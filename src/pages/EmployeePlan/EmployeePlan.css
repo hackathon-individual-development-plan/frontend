@@ -60,10 +60,32 @@ margin: 0;
 }
 
 .plan__status-type {
+  margin: 0;
+  border-radius: 8px;
+  padding: 4px 10px;
   text-align: center;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  margin: 0;
+}
+
+.plan__status-type.blue {
+  background: var(--Status-Blue, #D8EAFF);
+  color: var(--Status-Blue, #2A77EF);
+}
+
+.plan__status-type.green {
+  background: var(--Status-Green, #D1F1D7);
+  color: var(--Status-Green, #0A9336);
+}
+
+.plan__status-type.red {
+  background: var(--Status-Red, #FFDFDF);
+  color: var(--Status-Red, #EC2E13);
+}
+
+.plan__status-type.grey {
+  background: var(--Status-Gray, #E7E8EA);
+  color: var(--Status-Grey, #6A6A74);
 }
