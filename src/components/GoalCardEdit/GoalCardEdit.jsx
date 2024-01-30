@@ -66,6 +66,11 @@ function GoalCardEdit({ cardIndex }) {
           {...register(`goals.${cardIndex}.id`)}
         ></input>
         <input
+        type='hidden'
+        value={card.isNew}
+        {...register(`goals.${cardIndex}.isNew`)}
+        ></input>
+        <input
           type="text"
           className="card__input"
           defaultValue={card?.title}
@@ -83,7 +88,7 @@ function GoalCardEdit({ cardIndex }) {
               message: 'Максимальная длина 30 символов',
             },
             pattern: {
-              value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,
+              value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()№_+{}[\]:;<>,.?~\\/=%&/()=?+!@"§$]+$/,
               message: 'Пожалуйста введите валидные значения',
             },
           })}
@@ -122,7 +127,7 @@ function GoalCardEdit({ cardIndex }) {
               message: 'Максимальная длина 100 символов',
             },
             pattern: {
-              value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()_+{}[\]:;<>,.?~\\/]+$/,
+              value: /^[a-zA-Zа-яА-Я0-9\s!@#$%^&*()№_+{}[\]:;<>,.?~\\/=%&/()=?+!@"§$]+$/,
               message: 'Пожалуйста введите валидные значения',
             },
           })}
@@ -167,7 +172,7 @@ function GoalCardEdit({ cardIndex }) {
           </div>
         </div>
       </section>
-      {!card || !card?.comments ? (
+      {/* {!card || !card?.comments ? (
         <></>
       ) : (
         <section className="card__list-edit card__list-edit-padding-none">
@@ -202,7 +207,45 @@ function GoalCardEdit({ cardIndex }) {
             </ul>
           </div>
         </section>
-      )}
+      )} */}
+
+{!card || !card?.comments ? (
+        <></>
+) : (
+        <section className="card__list-edit card__list-edit-padding-none">
+          <div className="card__list-edit-header">
+            <button
+              type="button"
+              onClick={() => setActiveMessages(!isActiveMessages)}
+              className={
+                isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'
+              }
+            ></button>
+            <p className="card__list-edit-title">
+              Комментарии <span>{card?.comments?.length}</span>
+            </p>
+          </div>
+          <div
+            className={
+              isActiveMessages ? 'card__list-edit-messages card__list-edit-messages_active' : 'card__list-edit-messages'
+            }
+          >
+            <ul className="card__message-edit-list">
+              {card?.comments
+                && card?.comments.map((item, index) => (
+                  <li className="card__message-edit-item" key={index}>
+                    <img className="card__message-edit-photo" src={item.photo} />
+                    <div className="card__message-edit-info">
+                      <p className="card__message-edit-name">{item.user.fio}</p>
+                      <p className="card__message-edit-text">{item.comment_text}</p>
+                    </div>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </section>
+)}
+
     </div>
   );
 }

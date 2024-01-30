@@ -59,7 +59,7 @@ export const getEmployeeIdp = (id) => request(`/idps/${id}`, {
   },
 });
 
-export const editEmployeeIdp = (data, id) => request(`/idps/${id}`, {
+export const editEmployeeIdp = (data, id) => request(`/idps/${id}/`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',

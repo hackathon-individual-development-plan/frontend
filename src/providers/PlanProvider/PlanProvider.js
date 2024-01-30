@@ -8,6 +8,7 @@
 
 import { useState } from 'react';
 import PlanProviderContext from './PlanProvider.context';
+import * as api from '../../utils/api';
 // import planFromDB from '../../utils/planFromDB';
 import { readPlan, updatePlan } from '../../utils/planFromDB';
 
@@ -17,12 +18,14 @@ const PlanProvider = ({ children }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [goalsComponent, setGoalsComponent] = useState([]);
 
-  // initialize plan from server (readPlan - API function. (1) - plan id from BD)
+  // render curent plan
   const initialize = (employeeId) => {
     if (employeeId) {
-      readPlan(employeeId).then((currentPlan) => {
-        setPlan(currentPlan);
-      });
+      api
+        .getEmployeeIdp(employeeId)
+        .then((currentPlan) => {
+          setPlan(currentPlan);
+        });
     } else {
       setPlan({
         id: null,
@@ -34,9 +37,16 @@ const PlanProvider = ({ children }) => {
   };
 
   // edit plan
-  const edit = (data) => updatePlan(data).then((currentPlan) => {
-    setPlan(currentPlan);
-  });
+  // const edit = (data) => updatePlan(data).then((currentPlan) => {
+  //   setPlan(currentPlan);
+  // });
+  const edit = (data, id) => {
+    api
+      .editEmployeeIdp(data, id)
+      .then((currentPlan) => {
+        setPlan(currentPlan);
+      });
+  };
 
   const toggleEditMode = () => {
     setIsEditMode(!isEditMode);
@@ -44,7 +54,8 @@ const PlanProvider = ({ children }) => {
 
   const addNewGoal = () => {
     const newGoal = {
-      id: 100,
+      id: 11000,
+      isNew: true,
       title: '',
       description: '',
       tasks: [],

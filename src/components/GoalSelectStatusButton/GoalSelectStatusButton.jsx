@@ -1,65 +1,6 @@
-// import React from 'react';
-// import { Select, useSelectWithApply } from '@alfalab/core-components/select';
-// import { useFormContext } from 'react-hook-form';
-
-// function PickerStatusButton() {
-//   const [valueStatus, setValueStatus] = useState('');
-//   const { register } = useFormContext();
-//   const [serialized, setSerialized] = React.useState();
-//   const [selected, setSelected] = React.useState([]);
-//   const handleChange = (ddlContext) => {
-//     setSelected(ddlContext.selected.key);
-//   };
-//   const OPTIONS = [
-//     { key: '1', content: '-' },
-//     { key: '2', content: 'В работе' },
-//     { key: '3', content: 'Выполнен' },
-//     { key: '4', content: 'Не выполнен' },
-//     { key: '5', content: 'Отсутствует' },
-//   ];
-
-//   return (
-//     <div style={{ width: 194 }}>
-//       <Select
-//       allowUnselect={false}
-//       block={true}
-//       size="s"
-//       selected={selected}
-//       {...useSelectWithApply({
-//         OPTIONS,
-//         selected,
-//         onChange: handleChange,
-//       })}/>
-//     </div>
-//   );
-// }
-
-// export default PickerStatusButton;
-
-// PickerStatusButton.js
-
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import './GoalSelectStatusButton.css';
-
-// const options = [
-//   {
-//     id: 'InProgress',
-//     name: 'В работе',
-//   },
-//   {
-//     id: 'WorkDone',
-//     name: 'Выполнен',
-//   },
-//   {
-//     id: 'NotDone',
-//     name: 'Не выполнен',
-//   },
-//   {
-//     id: 'Empty',
-//     name: 'Отсутствует',
-//   },
-// ];
 
 // eslint-disable-next-line no-unused-vars
 function GoalSelectStatusButton({ status, cardIndex }) {
@@ -67,7 +8,8 @@ function GoalSelectStatusButton({ status, cardIndex }) {
   const { register } = useFormContext();
   return (
     <div>
-      <select className='dropdown-button-big'
+      <select
+        className="dropdown-button-big"
         defaultValue={statusState}
         onChange={(e) => {
           const selectedStatus = e.target.value;
@@ -75,12 +17,15 @@ function GoalSelectStatusButton({ status, cardIndex }) {
         }}
         {...register(`goals.${cardIndex}.status`)}
       >
+        {/* <option value="In progress">В работе</option>
+        <option value="Work done">Выполнен</option>
+        <option value="Not done">Не выполнен</option>
+        <option value="Empty">Отсутсвует</option> */}
         <option value="В работе">В работе</option>
         <option value="Выполнен">Выполнен</option>
         <option value="Не выполнен">Не выполнен</option>
         <option value="Отсутсвует">Отсутсвует</option>
       </select>
-      {/* {statusState} */}
     </div>
   );
 }

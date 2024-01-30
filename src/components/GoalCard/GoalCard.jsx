@@ -38,7 +38,10 @@ function GoalCard({ cardIndex }) {
       <p className="card__title">Цель: {card.title}</p>
       <div className="card__deadline">
         <p className="card__subtitle">Дедлайн:</p>
-        <p className="card__deadline__date">{card.deadline}</p>
+        {/* <p className="card__deadline__date">
+        {(new Date(card.deadline)).toLocaleDateString()}</p> */}
+        <p className="card__deadline__date">{(new Date(card.deadline)).toLocaleDateString('en-GB', { year: 'numeric', month: 'numeric', day: 'numeric' }).split('/').join('/')}</p>
+
       </div>
       <div className="card__status">
         <p className="card__subtitle">Статус:</p>
@@ -87,10 +90,10 @@ function GoalCard({ cardIndex }) {
           <ul className="card__message-list">
             {currentComments?.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.photo} />
+                <img className="card__message-photo" src={item.id} />
                 <div className="card__message-info">
-                  <p className="card__message-name">{item.fio}</p>
-                  <p className="card__message-text">{item.message}</p>
+                  <p className="card__message-name">{item.user.fio}</p>
+                  <p className="card__message-text">{item.comment_text}</p>
                 </div>
               </li>
             ))}
