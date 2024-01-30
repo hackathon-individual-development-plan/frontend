@@ -7,8 +7,7 @@ export default function EmployeesCard({ employee, onCardClick }) {
   const navigate = useNavigate();
 
   function openEmployeePlan() {
-    onCardClick(employee.employee.id);
-    console.log(employee.employee.id);
+    onCardClick(employee.idp[0].id);
     if (employee.idp[0].status !== 'Empty') {
       navigate('/employee-plan');
     }
