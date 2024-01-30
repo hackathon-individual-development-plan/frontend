@@ -16,7 +16,7 @@ import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList
 
 function EmployeePlan({ employeeId }) {
   const {
-    initialize, isEditMode, plan, edit, toggleEditMode,
+    initialize, isEditMode, plan, edit, toggleEditMode, createPlan,
   } = usePlan();
 
   useEffect(() => {
@@ -76,7 +76,8 @@ function EmployeePlan({ employeeId }) {
     }
     // eslint-disable-next-line no-unused-vars
     const fd = formMethods;
-    edit(data, plan.id);
+    if (plan.id) edit(data, plan.id);
+    else createPlan(data);
     toggleEditMode();
   };
 

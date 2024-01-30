@@ -119,6 +119,7 @@ const PlanProvider = ({ children }) => {
     isEditMode,
     goalsComponent,
     setGoalsComponent,
+    setIsEditMode,
   };
 
   return <PlanProviderContext.Provider value={value}>{children}</PlanProviderContext.Provider>;
