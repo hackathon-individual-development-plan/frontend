@@ -61,9 +61,9 @@ function GoalCardEdit({ cardIndex }) {
           <button type="button" className="card__trash" onClick={onDeleteGoal} />
         </div>
         <input
-        type='hidden'
-        value={card.id}
-        {...register(`goals.${cardIndex}.id`)}
+          type='hidden'
+          value={card.id}
+          {...register(`goals.${cardIndex}.id`)}
         ></input>
         <input
         type='hidden'

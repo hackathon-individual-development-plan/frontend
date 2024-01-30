@@ -1,8 +1,11 @@
 import React from 'react';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
+import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import './Header.css';
 
 function Header() {
+  const { currentUser } = useCurrentUser();
+
   return (
     <header className="header">
       <div className='header__menu'>
@@ -21,7 +24,7 @@ function Header() {
         <ButtonDesktop view='primary' shape='rectangular' size='xxs' className='header__button' >
           Альфа-рубли: 5000
         </ButtonDesktop>
-        <img src='/images/Avatar.svg' className='header__avatar' alt='Аватар' />
+        <img src={currentUser.photo} className='header__avatar' alt='Аватар' />
       </div>
     </header>
   );

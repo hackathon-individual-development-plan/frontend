@@ -9,7 +9,7 @@ import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
-import { USER_ROLES } from '../../utils/constants'; // для демо удалить строку
+import { USER_ROLES } from '../../utils/constants';
 
 function App() {
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ function App() {
   } = useCurrentUser();
 
   const [localStorageData, setLocalStorageData] = useState('');
+  const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
 
   const handleStorageChange = () => {
     const tokenFromStorage = localStorage.getItem('token');
@@ -56,6 +57,10 @@ function App() {
     console.log(isSenior);
   }, [currentUserRole, localStorageData, userToken]);
 
+  const handleEmployeeCardClick = (employeeId) => {
+    setSelectedEmployeeCard(employeeId);
+  };
+
   return (
     <div className='body'>
       <div className="page">
@@ -63,7 +68,7 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/employee-plan' element={<EmployeePlan employeeId={1} />} />
+            <Route path='/employee-plan' element={<EmployeePlan employeeId={selectedEmployeeCard} />} />
             <Route path='/create-target'
               element={
                 <ProtectedRoute
@@ -74,6 +79,7 @@ function App() {
               element={
                 <ProtectedRoute
                   element={Employees}
+                  onCardClick={handleEmployeeCardClick}
                 />
               } />
           </Route>

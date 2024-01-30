@@ -18,6 +18,14 @@ export function request(endpoint, options) {
     .then((res) => checkResponse(res));
 }
 
+export const getUserInfo = () => request('/user-info/current-user', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `${TOKEN}`,
+  },
+});
+
 export const getEmployees = () => request('/employees', {
   method: 'GET',
   headers: {
