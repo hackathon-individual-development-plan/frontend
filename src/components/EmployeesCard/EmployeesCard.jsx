@@ -9,7 +9,7 @@ export default function EmployeesCard({ employee, onCardClick }) {
   function openEmployeePlan() {
     onCardClick(employee.employee.id);
     console.log(employee.employee.id);
-    if (employee.idp[0].status !== 'Отсутствует') {
+    if (employee.idp[0].status !== 'Empty') {
       navigate('/employee-plan');
     }
   }
@@ -21,7 +21,7 @@ export default function EmployeesCard({ employee, onCardClick }) {
       classNameTitleStatus = 'employees-card__status-value employees-card__status-value_in-progress';
       text = 'В работе';
       break;
-    case 'Done':
+    case 'Work done':
       classNameTitleStatus = 'employees-card__status-value employees-card__status-value_done';
       text = 'Выполнен';
       break;
@@ -36,7 +36,7 @@ export default function EmployeesCard({ employee, onCardClick }) {
   }
 
   return (
-    <div onClick={openEmployeePlan} className={`employees-card ${(!employee.idp[0].status) ? 'employees-card_inactive' : ''}`}>
+    <div onClick={openEmployeePlan} className={`employees-card ${(employee.idp[0].status === 'Empty') ? 'employees-card_inactive' : ''}`}>
       <ul className='employees-card__list'>
         <li className='employees-card__element'>
           <p className='employees-card__title'>Сотрудник:<span className='employees-card__value'>{employee.employee.fio}</span></p>
