@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
@@ -45,7 +46,7 @@ function EmployeePlan({ employeeId }) {
     const statusName = plan?.status;
 
     if (isEditMode) {
-      return <PlanSelectStatusButton />;
+      return <PlanSelectStatusButton status={statusName} />;
     }
     return <p className="plan__status-type">{statusName}</p>;
   };
@@ -58,15 +59,22 @@ function EmployeePlan({ employeeId }) {
   const onSubmit = (data) => {
     // eslint-disable-next-line no-unused-vars
 
-    const idsToKeep = new Set(plan.goals.map((item) => item.id.toString()));
+    const idsToKeep = new Set(plan.goals.map((item) => item.id?.toString()));
 
     // Filter the first array based on the presence of ids in the second array
     const filteredArray = data.goals.filter((item) => idsToKeep.has(item.id.toString()));
     // eslint-disable-next-line no-param-reassign
     data.goals = filteredArray;
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < data.goals.length; i++) {
+      if (data.goals[i].isNew) {
+        delete data.goals[i].id;
+      }
+      delete data.goals[i].isNew;
+    }
     // eslint-disable-next-line no-unused-vars
     const fd = formMethods;
-    edit(data);
+    edit(data, plan.id);
     toggleEditMode();
   };
 

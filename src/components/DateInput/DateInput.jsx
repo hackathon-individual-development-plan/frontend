@@ -4,7 +4,17 @@ import './DateInput.css';
 
 const DateInput = ({ deadlineData, cardIndex }) => {
   // Состояние для хранения значения даты
-  const [selectedDate, setSelectedDate] = useState(deadlineData);
+  // const [selectedDate, setSelectedDate] = useState(new Date(deadlineData));
+  // const [selectedDate, setSelectedDate] =
+  // useState(new Date(deadlineData).toLocaleDateString('ru-RU',
+  // { year: 'numeric', month: '2-digit', day: '2-digit' }));
+  const [selectedDate, setSelectedDate] = useState(
+    new Date(deadlineData).toLocaleDateString('en-GB', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    }).split('/').join('-'),
+  );
 
   // USEFORM HOOK
   const { register } = useFormContext();

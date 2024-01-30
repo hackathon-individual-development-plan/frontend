@@ -8,7 +8,8 @@ function PlanSelectStatusButton({ status }) {
 
   return (
     <div>
-      <select className='dropdown-button'
+      <select
+        className="dropdown-button"
         defaultValue={statusState}
         onChange={(e) => {
           const selectedStatus = e.target.value;
@@ -16,10 +17,10 @@ function PlanSelectStatusButton({ status }) {
         }}
         {...register('status')}
       >
-        <option value="В работе">В работе</option>
-        <option value="Выполнен">Выполнен</option>
-        <option value="Не выполнен">Не выполнен</option>
-        <option value="Отсутсвует">Отсутсвует</option>
+        <option value="In progress">В работе</option>
+        <option value="Work done">Выполнен</option>
+        <option value="Not done">Не выполнен</option>
+        <option value="Empty">Отсутсвует</option>
       </select>
     </div>
   );
