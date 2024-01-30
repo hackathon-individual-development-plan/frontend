@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import './Menu.css';
 
 function Menu() {
   const { isSenior } = useCurrentUser();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const onClick = (evt) => {
     evt.preventDefault();
@@ -20,7 +21,7 @@ function Menu() {
             {isSenior
               ? <>
                 <li className='menu__element'>
-                  <NavLink to='/employees' className={({ isActive }) => `menu__link ${isActive ? 'menu__link_is_active' : ''}`}>
+                  <NavLink to='/employees' className={({ isActive }) => `menu__link ${isActive || pathname === '/employee-plan' || pathname === 'create-target' ? 'menu__link_is_active' : ''}`}>
                     <img src='/images/multiple-users.svg' className='menu__img' alt='Сотрудники' />Сотрудники
                   </NavLink>
                 </li>

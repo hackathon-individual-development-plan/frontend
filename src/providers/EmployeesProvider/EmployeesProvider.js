@@ -7,15 +7,30 @@
 // Этот объект передается в провайдер контекста, который обертывает
 // дочерние компоненты и предоставляет им доступ к значениям контекста.
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EmployeesProviderContext from './EmployeesProvider.context';
-import { employeesDB } from '../../utils/employees';
+import { getEmployees } from '../../utils/api';
 
 const EmployeesProvider = ({ children }) => {
-  const [employeesList, setEmployeesList] = useState(employeesDB);
+  const [employeesList, setEmployeesList] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
+
+  const initialize = () => {
+    getEmployees()
+      .then((data) => {
+        setEmployeesList(data);
+        setFilteredEmployeesList(data);
+      })
+      .catch((err) => {
+        console.error(`Произошла ошибка: ${err}`);
+      });
+  };
+
+  useEffect(() => {
+    initialize(); // Вызов функции initialize при монтировании компонента
+  }, []);
 
   const filterEmployees = (selectedId) => {
     let filteredList = employeesList;
@@ -26,10 +41,13 @@ const EmployeesProvider = ({ children }) => {
   };
 
   const value = {
+    initialize,
     employeesList,
     searchQuery,
     setSearchQuery,
     setSelectedEmployee,
+    setEmployeesList,
+    setFilteredEmployeesList,
     filteredEmployeesList,
     filterEmployees,
     selectedEmployee,

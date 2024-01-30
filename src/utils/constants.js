@@ -4,14 +4,14 @@ const USER_ROLES = [
   {
     senior:
     {
-      token: 'Token 4473df2581911a611505a79251cd0d219247d556b8',
+      token: 'Token 8e9361528a15b9a61dc4ee1dc40d41525080d9de',
       role: 'senior',
     },
   },
   {
     employee:
     {
-      token: 'Token c80abc34207efa5882fb606a59e9d804fe9861356',
+      token: 'Token d384e150fc0ee5abb00336f69ed509438e8e9249',
       role: 'employee',
     },
   },

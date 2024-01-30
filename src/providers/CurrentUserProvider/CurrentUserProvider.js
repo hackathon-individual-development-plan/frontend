@@ -7,14 +7,30 @@
 // Этот объект передается в провайдер контекста, который обертывает
 // дочерние компоненты и предоставляет им доступ к значениям контекста.
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
 import { USER_ROLES } from '../../utils/constants';
+import { getUserInfo } from '../../utils/api';
 
 const CurrentUserProvider = ({ children }) => {
   const [userToken, setUserToken] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
   const [currentUserRole, setCurrentUserRole] = useState('');
   const [isSenior, setIsSenior] = useState(false);
+
+  const initialize = () => {
+    getUserInfo()
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch((err) => {
+        console.error(`Произошла ошибка: ${err}`);
+      });
+  };
+
+  useEffect(() => {
+    initialize();
+  }, []);
 
   const getUserRole = (token) => {
     setUserToken(localStorage.getItem(token));
@@ -28,6 +44,7 @@ const CurrentUserProvider = ({ children }) => {
   };
 
   const value = {
+    currentUser,
     currentUserRole,
     userToken,
     isSenior,
