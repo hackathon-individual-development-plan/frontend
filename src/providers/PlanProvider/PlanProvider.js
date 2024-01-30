@@ -29,20 +29,24 @@ const PlanProvider = ({ children }) => {
     } else {
       setPlan({
         id: null,
-        title: 'New plan',
+        title: 'Введите название ИПР',
         status: 'В работе',
         goals: [],
       });
     }
   };
 
-  // edit plan
-  // const edit = (data) => updatePlan(data).then((currentPlan) => {
-  //   setPlan(currentPlan);
-  // });
   const edit = (data, id) => {
     api
       .editEmployeeIdp(data, id)
+      .then((currentPlan) => {
+        setPlan(currentPlan);
+      });
+  };
+
+  const createPlan = (data) => {
+    api
+      .createEmployeeIpd(data)
       .then((currentPlan) => {
         setPlan(currentPlan);
       });
@@ -98,10 +102,6 @@ const PlanProvider = ({ children }) => {
   //   setFilteredEmployeesList(filteredList);
   // };
 
-  const add = () => {
-    // setTargetList();
-  };
-
   const remove = () => {
     // setTargetList();
   };
@@ -112,7 +112,7 @@ const PlanProvider = ({ children }) => {
     addNewGoal,
     deleteGoalByIndex,
     edit,
-    add,
+    createPlan,
     remove,
     plan,
     setPlan,

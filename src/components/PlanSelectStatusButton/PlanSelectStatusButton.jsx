@@ -17,10 +17,10 @@ function PlanSelectStatusButton({ status }) {
         }}
         {...register('status')}
       >
-        <option value="In progress">В работе</option>
-        <option value="Work done">Выполнен</option>
-        <option value="Not done">Не выполнен</option>
-        <option value="Empty">Отсутсвует</option>
+        <option value="In progress">In progress</option>
+        <option value="Work done">Work done</option>
+        <option value="Not done">Not done</option>
+        <option value="Empty">Empty</option>
       </select>
     </div>
   );

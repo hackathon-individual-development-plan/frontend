@@ -3,23 +3,18 @@ import { useFormContext } from 'react-hook-form';
 import './DateInput.css';
 
 const DateInput = ({ deadlineData, cardIndex }) => {
-  // Состояние для хранения значения даты
-  // const [selectedDate, setSelectedDate] = useState(new Date(deadlineData));
-  // const [selectedDate, setSelectedDate] =
-  // useState(new Date(deadlineData).toLocaleDateString('ru-RU',
-  // { year: 'numeric', month: '2-digit', day: '2-digit' }));
-  const [selectedDate, setSelectedDate] = useState(
-    new Date(deadlineData).toLocaleDateString('en-GB', {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    }).split('/').join('-'),
-  );
+  const dateObject = new Date(deadlineData);
+
+  const year = dateObject.getFullYear();
+  const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+  const day = dateObject.getDate().toString().padStart(2, '0');
+  const formattedDeadline = `${year}-${month}-${day}`;
+
+  const [selectedDate, setSelectedDate] = useState(formattedDeadline);
 
   // USEFORM HOOK
   const { register } = useFormContext();
 
-  // Обработчик изменения значения в поле ввода
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
   };
