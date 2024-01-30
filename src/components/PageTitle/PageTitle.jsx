@@ -4,18 +4,28 @@ import './PageTitle.css';
 
 export default function PageTitle({ content }) {
   const { pathname } = useLocation();
+
   let title = '';
 
-  if (pathname === '/employees') {
-    title = 'Индивидуальный план развития';
-  } else if (pathname === '/create-target') {
-    title = content;
-  } else if (pathname === '/matrix') {
-    title = 'Матрица компетенций';
-  } else if (pathname === '/my-idp') {
-    title = 'Индивидуальный план развития';
-  } else if (pathname === '/employee-plan') {
-    title = content;
+  switch (pathname) {
+    case '/employees':
+      title = 'Индивидуальный план развития';
+      break;
+    case '/create-target':
+      title = content;
+      break;
+    case '/matrix':
+      title = 'Матрица компетенций';
+      break;
+    case '/my-idp':
+      title = 'Индивидуальный план развития';
+      break;
+    case '/employee-plan':
+      title = content;
+      break;
+    default:
+      title = '';
+      break;
   }
 
   return (

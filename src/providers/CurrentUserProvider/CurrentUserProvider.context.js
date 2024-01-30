@@ -5,6 +5,7 @@ import { createContext } from 'react';
 
 export default createContext({
   initialize: () => Promise,
+  currentUser: {},
   currentUserRole: '',
   isSenior: false,
   userToken: '',
