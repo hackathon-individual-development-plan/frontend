@@ -10,7 +10,7 @@ export default createContext({
   deleteGoalByIndex: () => { },
   // deleteEmptyGoal: () => { },
   edit: () => { },
-  add: () => { },
+  createPlan: () => { },
   remove: () => { },
   setPlan: () => { },
   targetList: [],
