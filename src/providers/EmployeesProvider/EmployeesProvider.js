@@ -20,8 +20,17 @@ const EmployeesProvider = ({ children }) => {
   const initialize = () => {
     getEmployees()
       .then((data) => {
-        setEmployeesList(data);
-        setFilteredEmployeesList(data);
+        const employeesWithStatus = data.map((employee) => {
+          if (employee.idp.length === 0) {
+            employee.idp.push({ status: 'Empty' }); // Добавляем статус "Empty" для пустого массива idp
+          }
+          return employee;
+        });
+
+        setEmployeesList(employeesWithStatus);
+        setFilteredEmployeesList(employeesWithStatus);
+        console.log(data);
+        console.log(employeesWithStatus);
       })
       .catch((err) => {
         console.error(`Произошла ошибка: ${err}`);
