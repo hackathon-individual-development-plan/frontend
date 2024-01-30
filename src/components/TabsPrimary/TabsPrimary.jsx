@@ -9,10 +9,10 @@ export default function TabsPrimary() {
 
   const TABS = [
     { title: 'Все', id: 'Все' },
-    { title: 'В работе', id: 'В работе' },
-    { title: 'Выполнен', id: 'Выполнен' },
-    { title: 'Не выполнен', id: 'Не выполнен' },
-    { title: 'Отсутствует', id: 'Отсутствует' },
+    { title: 'В работе', id: 'In progress' },
+    { title: 'Выполнен', id: 'Work done' },
+    { title: 'Не выполнен', id: 'Not done' },
+    { title: 'Отсутствует', id: 'Empty' },
   ];
 
   const IS_MOBILE = document.body.clientWidth < 450;
