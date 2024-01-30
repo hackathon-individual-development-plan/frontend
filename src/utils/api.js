@@ -42,7 +42,7 @@ export const getIdpInfo = () => request('/employee/my-idp', {
   },
 });
 
-export const createEmployeeIpd = (data) => request('/idps', {
+export const createEmployeeIpd = (data) => request('/idps/', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

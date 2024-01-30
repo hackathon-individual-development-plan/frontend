@@ -13,16 +13,6 @@ export default function PlanTitle() {
     toggleEditMode();
   }
 
-  // change title input
-  // eslint-disable-next-line no-unused-vars
-  // const handleInputChange = (event) => {
-  //   edit();
-  //   // setEditedTitle(event.target.value);
-  // };
-  // const handleInputBlur = () => {
-  //   toggleEditMode();
-  // };
-
   const toogleTitleType = () => {
     // FORM
     const {
@@ -35,6 +25,7 @@ export default function PlanTitle() {
     }
     return (
       <div>
+        <input type="hidden" value={plan.employee} {...register('employee')} />
         <input
           type="text"
           className="headline-plan__title-edit"
@@ -69,19 +60,10 @@ export default function PlanTitle() {
         content={
           <div className="headline-plan__container">
             {toogleTitleType()}
-            {!isEditMode ? (
-              <a className="headline-plan__edit" onClick={handlEditClick}></a>
-            ) : null}
+            {!isEditMode ? <a className="headline-plan__edit" onClick={handlEditClick}></a> : null}
           </div>
         }
       />
     </>
-    /* <section className="headline">
-      <button type="button" className="headline__button"></button>
-      <div className="headline__container">
-        <h1 className="headline__title">От Junior к Middle</h1>
-        <button className="headline__edit" onClick={handlEditClick}></button>
-      </div>
-    </section> */
   );
 }

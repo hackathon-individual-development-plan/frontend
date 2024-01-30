@@ -31,7 +31,7 @@ function GoalCardEdit({ cardIndex }) {
   const [currentTasks, setCurrentTasks] = useState([]);
   useEffect(() => {
     setCurrentTasks(card?.tasks);
-  }, card?.tasks);
+  }, [card, card?.tasks]);
   // state for new task value
   const [newTaskValue, setNewTaskValue] = useState('');
   const newTaskRef = useRef();
