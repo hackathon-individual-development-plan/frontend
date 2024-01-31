@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './GoalCard.css';
 
@@ -6,16 +7,20 @@ function GoalCard({ cardIndex }) {
   const {
     plan,
   } = usePlan();
+  const [count, setCount] = useState('');
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
   const card = plan.goals[cardIndex];
+  const newCommentRef = useRef();
 
   // COMMENTS SECTION
   // state for current goal messages
   const [currentComments, setCurrentComments] = useState([]);
+  console.log('currentComments', currentComments);
+
   useEffect(() => {
     setCurrentComments(card?.comments);
-  }, card?.comments);
+  }, [card?.comments]);
   // state for new comment value
   const [newCommentValue, setNewCommentValue] = useState('');
   const onAddNewComment = () => {
@@ -23,7 +28,8 @@ function GoalCard({ cardIndex }) {
     if (newCommentValue.trim() !== '') {
       // Создание нового комментария
       const newComment = {
-        message: newCommentValue.trim(),
+        // eslint-disable-next-line camelcase
+        comment_text: newCommentValue.trim(),
       };
 
       // Обновление состояния с добавлением нового комментария
@@ -32,7 +38,13 @@ function GoalCard({ cardIndex }) {
       // Очистка значения newCommentValue после добавления комментария
       setNewCommentValue('');
     }
+    newCommentRef.current.value = null;
   };
+
+  function handleTextChange(e) {
+    setNewCommentValue(e.target.value);
+    setCount(e.target.value);
+  }
   return (
     <div className="card">
       <p className="card__title">Цель: {card.title}</p>
@@ -90,7 +102,7 @@ function GoalCard({ cardIndex }) {
           <ul className="card__message-list">
             {currentComments?.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.id} />
+                <img className="card__message-photo" src={item.photo} />
                 <div className="card__message-info">
                   <p className="card__message-name">{item.user.fio}</p>
                   <p className="card__message-text">{item.comment_text}</p>
@@ -100,8 +112,11 @@ function GoalCard({ cardIndex }) {
           </ul>
         </div>
         <section className="card__textarea">
-          <input type='text' onChange={(e) => setNewCommentValue(e.target.value)} className="card__textarea-field" placeholder="Добавьте комментарий"></input>
-          <button type='button' onClick={() => onAddNewComment()} className="card__textarea-button"></button>
+          <input ref={newCommentRef} value={count} onChange={handleTextChange} maxLength='400' type='text' className="card__textarea-field" placeholder="Добавьте комментарий"></input>
+          <p className='card__counter'>{count.length}/400</p>
+          <ButtonDesktop className="card__textarea-button" onClick={() => onAddNewComment()} size='xxs' shape='rectangular' view='primary'>
+            Отправить
+          </ButtonDesktop>
         </section>
       </section>
     </div>

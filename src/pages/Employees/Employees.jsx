@@ -18,7 +18,7 @@ function Employees({ onCardClick }) {
         <PageTitle />
         <SearchInput />
         <section className="employees">
-          <EmployeesCardList onCardClick={onCardClick}/>
+          <EmployeesCardList onCardClick={onCardClick} />
         </section>
       </section>
 
