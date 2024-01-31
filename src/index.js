@@ -5,7 +5,7 @@ import App from './components/App/App.jsx';
 import '@alfalab/core-components/vars/gaps.css';
 import CurrentUserProvider from './providers/CurrentUserProvider/CurrentUserProvider';
 import EmployeesProvider from './providers/EmployeesProvider/EmployeesProvider';
-import PlanProvider from './providers/PlanProvider/PlanProvider';
+// import PlanProvider from './providers/PlanProvider/PlanProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,9 +13,9 @@ root.render(
     <BrowserRouter>
       <CurrentUserProvider>
         <EmployeesProvider>
-          <PlanProvider>
+          {/* <PlanProvider> */}
             <App />
-          </PlanProvider>
+          {/* </PlanProvider> */}
         </EmployeesProvider>
       </CurrentUserProvider>
     </BrowserRouter>

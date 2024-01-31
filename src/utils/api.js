@@ -59,7 +59,7 @@ export const getEmployeesWithoutIdp = () => request('/employees-without-idp/', {
   },
 });
 
-export const getEmployeeIdp = (id) => request(`/idps/${id}`, {
+export const getEmployeeIdp = (id) => request(`/idps/${id}/`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
