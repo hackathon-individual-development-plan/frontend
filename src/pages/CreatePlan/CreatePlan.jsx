@@ -16,8 +16,8 @@ function CreatePlan() {
     console.log(selectedEmployeeId);
   }, [selectedEmployeeId]);
 
-  const emolID = selectedEmployeeId;
-  // const emolID = 7;
+  // const emolID = selectedEmployeeId;
+  const emolID = 7;
   useEffect(() => {
     const newPlan = {
       title: 'Введите название ИПР',

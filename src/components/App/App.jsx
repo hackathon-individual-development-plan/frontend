@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
@@ -10,54 +10,50 @@ import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
-import { USER_ROLES } from '../../utils/constants';
+// import { USER_ROLES } from '../../utils/constants';
 import PlanProvider from '../../providers/PlanProvider/PlanProvider';
 
 function App() {
   const navigate = useNavigate();
 
   const {
-    getUserRole, currentUserRole, setUserToken, userToken, isSenior,
+    isSenior,
   } = useCurrentUser();
 
-  const [localStorageData, setLocalStorageData] = useState('');
+  // const [localStorageData, setLocalStorageData] = useState('');
   // const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
 
-  const handleStorageChange = () => {
-    const tokenFromStorage = localStorage.getItem('token');
-    setLocalStorageData(tokenFromStorage);
-    setUserToken(tokenFromStorage);
-    getUserRole('token');
-  };
+  // const handleStorageChange = () => {
+  //   const tokenFromStorage = localStorage.getItem('token');
+  //   setLocalStorageData(tokenFromStorage);
+  //   setUserToken(tokenFromStorage);
+  //   getUserRole('token');
+  // };
+
+  // useEffect(() => {
+  //   // setLocalStorageData(localStorage.getItem('token'));
+
+  //   // window.addEventListener('storage', handleStorageChange);
+
+  //   const initialToken = USER_ROLES[0].senior.token;
+  //   localStorage.setItem('token', initialToken);
+  //   setLocalStorageData(initialToken);
+  //   getUserRole('token');
+  //   setUserToken(localStorageData);
+
+  //   return () => {
+  //     window.removeEventListener('storage', handleStorageChange);
+  //   };
+  // }, []);
 
   useEffect(() => {
-    setLocalStorageData(localStorage.getItem('token'));
-
-    window.addEventListener('storage', handleStorageChange);
-
-    const initialToken = USER_ROLES[0].senior.token;
-    localStorage.setItem('token', initialToken);
-    setLocalStorageData(initialToken);
-    getUserRole('token');
-    setUserToken(localStorageData);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    setUserToken(localStorageData);
-    getUserRole('token');
-    setLocalStorageData(localStorage.getItem('token'));
-    if (currentUserRole === 'senior') {
+    if (isSenior) {
       navigate('/employees', { replace: true });
-    } else if (currentUserRole === 'employee') {
+    } else {
       navigate('/my-idp', { replace: true });
     }
-    console.log(currentUserRole);
     console.log(isSenior);
-  }, [currentUserRole, localStorageData, userToken]);
+  }, [isSenior]);
 
   // const handleEmployeeCardClick = (employeeId) => {
   //   setSelectedEmployeeCard(employeeId);

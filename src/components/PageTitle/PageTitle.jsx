@@ -31,8 +31,8 @@ export default function PageTitle({ content }) {
 
   return (
     <>
-      {/* {title && <h1 className="headline__title">{title}</h1>} */}
-      {<h1 className="headline__title">{content}</h1>}
+      {title && <h1 className="headline__title">{title}</h1>}
+      {!title && <h1 className="headline__title">{content}</h1>}
     </>
   );
 }
