@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect } from 'react';
 import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
-import SearchInputA from '../SearchInput/SearchInput.jsx';
+import SearchInput from '../SearchInput/SearchInput.jsx';
 
 export default function SearchInputAllEmployees() {
   const {
@@ -24,7 +24,7 @@ export default function SearchInputAllEmployees() {
 
   return (
     <>
-      <SearchInputA
+      <SearchInput
         searchQuery={searchQuery}
         onChange={onChange}
         array={filteredEmployeesList}

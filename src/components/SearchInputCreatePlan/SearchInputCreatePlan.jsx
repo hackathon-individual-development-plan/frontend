@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
-import SearchInputA from '../SearchInput/SearchInput.jsx';
+import SearchInput from '../SearchInput/SearchInput.jsx';
 import { getEmployeesWithoutIdp } from '../../utils/api';
 
 export default function SearchInputCreatePlan({ setSelectedEmployeeId }) {
@@ -35,7 +35,7 @@ export default function SearchInputCreatePlan({ setSelectedEmployeeId }) {
 
   return (
     <>
-      <SearchInputA
+      <SearchInput
         searchQuery={searchQuery}
         onChange={onChange}
         array={EmployeesWithoutIdp}

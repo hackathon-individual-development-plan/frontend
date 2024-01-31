@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchInput.css';
 
-export default function SearchInputA({
+export default function SearchInput({
   searchQuery, onChange, array, onSearch,
 }) {
   return (
