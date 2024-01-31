@@ -2,6 +2,7 @@
 import React from 'react';
 import { Tabs, Tab } from '@alfalab/core-components/tabs';
 import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
+
 import './TabsPrimary.css';
 
 export default function TabsPrimary() {
@@ -9,10 +10,10 @@ export default function TabsPrimary() {
 
   const TABS = [
     { title: 'Все', id: 'Все' },
-    { title: 'В работе', id: 'In progress' },
-    { title: 'Выполнен', id: 'Work done' },
-    { title: 'Не выполнен', id: 'Not done' },
-    { title: 'Отсутствует', id: 'Empty' },
+    { title: 'В работе', id: 'В работе' },
+    { title: 'Выполнен', id: 'Выполнен' },
+    { title: 'Не выполнен', id: 'Не выполнен' },
+    { title: 'Отсутствует', id: 'Отсутствует' },
   ];
 
   const IS_MOBILE = document.body.clientWidth < 450;
