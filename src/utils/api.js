@@ -76,7 +76,7 @@ export const editEmployeeIdp = (data, id) => request(`/idps/${id}/`, {
   body: JSON.stringify(data),
 });
 
-export const createComments = (data, idp_id, goal_id) => request(`/idps/${idp_id}/goals/${goal_id}/comments`, {
+export const createComments = (data, goal_id) => request(`/goals/${goal_id}/comments`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

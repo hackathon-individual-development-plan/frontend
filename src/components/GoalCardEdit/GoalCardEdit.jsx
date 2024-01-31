@@ -66,9 +66,9 @@ function GoalCardEdit({ cardIndex }) {
           {...register(`goals.${cardIndex}.id`)}
         ></input>
         <input
-        type='hidden'
-        value={card.isNew}
-        {...register(`goals.${cardIndex}.isNew`)}
+          type='hidden'
+          value={card.isNew}
+          {...register(`goals.${cardIndex}.isNew`)}
         ></input>
         <input
           type="text"
@@ -209,9 +209,9 @@ function GoalCardEdit({ cardIndex }) {
         </section>
       )} */}
 
-{!card || !card?.comments ? (
+      {!card || !card?.comments ? (
         <></>
-) : (
+      ) : (
         <section className="card__list-edit card__list-edit-padding-none">
           <div className="card__list-edit-header">
             <button
@@ -244,7 +244,7 @@ function GoalCardEdit({ cardIndex }) {
             </ul>
           </div>
         </section>
-)}
+      )}
 
     </div>
   );
