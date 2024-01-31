@@ -10,6 +10,7 @@
 import { useState, useEffect } from 'react';
 import EmployeesProviderContext from './EmployeesProvider.context';
 import { getEmployees } from '../../utils/api';
+import { IPD_STATUS } from '../../utils/constants';
 
 const EmployeesProvider = ({ children }) => {
   const [employeesList, setEmployeesList] = useState([]);
@@ -20,9 +21,10 @@ const EmployeesProvider = ({ children }) => {
   const initialize = () => {
     getEmployees()
       .then((data) => {
+        console.log(data);
         const employeesWithStatus = data.map((employee) => {
           if (employee.idp.length === 0) {
-            employee.idp.push({ status: 'Empty' }); // Добавляем статус "Empty" для пустого массива idp
+            employee.idp.push({ status: IPD_STATUS.EMPTY }); // Добавляем статус "Отсутствует" для пустого массива idp
           }
           return employee;
         });
