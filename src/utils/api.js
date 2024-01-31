@@ -1,7 +1,7 @@
 /* eslint-disable quote-props */
 import { BASE_URL } from './constants';
 
-export const TOKEN = localStorage.getItem('token');
+export const TOKEN = localStorage.getItem('AlfaIprProjectToken');
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -18,11 +18,11 @@ export function request(endpoint, options) {
     .then((res) => checkResponse(res));
 }
 
-export const getUserInfo = () => request('/user-info/current-user', {
+export const getUserInfo = (authToken) => request('/user-info/current-user', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `${TOKEN}`,
+    'Authorization': `${authToken}`,
   },
 });
 
