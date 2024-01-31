@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './EmployeePlan.css';
@@ -14,7 +15,9 @@ import PlanSelectStatusButton from '../../components/PlanSelectStatusButton/Plan
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
 
-function EmployeePlan({ employeeId }) {
+// function EmployeePlan({ employeeId }) {
+function EmployeePlan() {
+  const { employeeId } = useParams();
   const {
     initialize, isEditMode, plan, edit, toggleEditMode, createPlan,
   } = usePlan();

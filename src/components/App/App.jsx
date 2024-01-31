@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
@@ -10,6 +11,7 @@ import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
 import { USER_ROLES } from '../../utils/constants';
+import PlanProvider from '../../providers/PlanProvider/PlanProvider';
 
 function App() {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ function App() {
   } = useCurrentUser();
 
   const [localStorageData, setLocalStorageData] = useState('');
-  const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
+  // const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
 
   const handleStorageChange = () => {
     const tokenFromStorage = localStorage.getItem('token');
@@ -57,9 +59,9 @@ function App() {
     console.log(isSenior);
   }, [currentUserRole, localStorageData, userToken]);
 
-  const handleEmployeeCardClick = (employeeId) => {
-    setSelectedEmployeeCard(employeeId);
-  };
+  // const handleEmployeeCardClick = (employeeId) => {
+  //   setSelectedEmployeeCard(employeeId);
+  // };
 
   return (
     <div className='body'>
@@ -68,18 +70,29 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/employee-plan' element={<EmployeePlan employeeId={selectedEmployeeCard} />} />
+            {/* <Route path='/employee-plan' element={<EmployeePlan employeeId={selectedEmployeeCard} />} /> */}
+
+            {/* <Route path='/employee-plan/:employeeId' element={<EmployeePlan />} /> */}
+            {/* Wrap EmployeePlan with PlanProvider */}
+            <Route path='/employee-plan/:employeeId' element={
+              <PlanProvider>
+                <EmployeePlan />
+              </PlanProvider>
+            } />
+
             <Route path='/create-target'
               element={
+                <PlanProvider>
                 <ProtectedRoute
                   element={CreatePlan}
                 />
+                </PlanProvider>
               } />
             <Route path='/employees'
               element={
                 <ProtectedRoute
                   element={Employees}
-                  onCardClick={handleEmployeeCardClick}
+                  // onCardClick={handleEmployeeCardClick}
                 />
               } />
           </Route>
