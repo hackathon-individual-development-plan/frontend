@@ -1,13 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
-import SearchInput from '../../components/SearchInput/SearchInput.jsx';
+import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
 import EmployeePlan from '../EmployeePlan/EmployeePlan.jsx';
 // import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 
 function CreatePlan() {
   const { setPlan, setIsEditMode } = usePlan();
+
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
+
+  useEffect(() => {
+    console.log(selectedEmployeeId);
+  }, [selectedEmployeeId]);
 
   // const { selectedEmployee } = useEmployees();
 
@@ -54,7 +60,7 @@ function CreatePlan() {
 
   return (
   <>
-    <SearchInput />
+    <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
     <EmployeePlan />
   </>
   );
