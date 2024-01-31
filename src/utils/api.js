@@ -42,13 +42,21 @@ export const getIdpInfo = () => request('/employee/my-idp', {
   },
 });
 
-export const createEmployeeIpd = (data) => request('/idps', {
+export const createEmployeeIpd = (data) => request('/idps/', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
     'Authorization': `${TOKEN}`,
   },
   body: JSON.stringify(data),
+});
+
+export const getEmployeesWithoutIdp = () => request('/employees-without-idp/', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `${TOKEN}`,
+  },
 });
 
 export const getEmployeeIdp = (id) => request(`/idps/${id}`, {

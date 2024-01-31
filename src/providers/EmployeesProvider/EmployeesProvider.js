@@ -29,7 +29,6 @@ const EmployeesProvider = ({ children }) => {
 
         setEmployeesList(employeesWithStatus);
         setFilteredEmployeesList(employeesWithStatus);
-        console.log(data);
         console.log(employeesWithStatus);
       })
       .catch((err) => {

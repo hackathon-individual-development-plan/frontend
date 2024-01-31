@@ -1,7 +1,7 @@
 import React from 'react';
 import './Employees.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
-import SearchInput from '../../components/SearchInput/SearchInput.jsx';
+import SearchInputAllEmployees from '../../components/SearchInputAllEmployees/SearchInputAllEmployees.jsx';
 import EmployeesCardList from '../../components/EmployeesCardList/EmployeesCardList.jsx';
 import FilterEmployeesBar from '../../components/FilterEmployeesBar/FilterEmployeesBar.jsx';
 import PageTitle from '../../components/PageTitle/PageTitle.jsx';
@@ -16,7 +16,7 @@ function Employees({ onCardClick }) {
 
       <section className="content__middle-part">
         <PageTitle />
-        <SearchInput />
+        <SearchInputAllEmployees />
         <section className="employees">
           <EmployeesCardList onCardClick={onCardClick} />
         </section>
