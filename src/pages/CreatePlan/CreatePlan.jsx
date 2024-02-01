@@ -15,7 +15,7 @@ function CreatePlan() {
 
   useEffect(() => {
     console.log(selectedEmployeeId);
-  }, []);
+  }, [selectedEmployeeId]);
 
   // const emolID = selectedEmployeeId;
   const emolID = 7;
@@ -35,10 +35,9 @@ function CreatePlan() {
       employee: emolID,
     };
     const updPlan = { ...newPlan };
-    updPlan.employee = selectedEmployeeId;
     setPlan(updPlan);
     setIsEditMode(true);
-  }, [emolID, setPlan, setIsEditMode]);
+  }, [emolID]);
 
   return (
   <>
