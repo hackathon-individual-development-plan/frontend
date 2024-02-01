@@ -73,6 +73,12 @@ export default function EmployeesCard({ employee }) {
   //   }
   // }
 
+  function onClick(evt) {
+    if (employee.idp[0].status === IPD_STATUS.EMPTY) {
+      evt.preventDefault();
+    }
+  }
+
   let classNameTitleStatus;
 
   switch (employee.idp[0].status) {
@@ -91,24 +97,24 @@ export default function EmployeesCard({ employee }) {
   }
 
   return (
-    <Link className='employees-card__link' to={`/employee-plan/${employee.idp[0].id}`}>
-    <div className={`employees-card ${(employee.idp[0].status === IPD_STATUS.EMPTY) ? 'employees-card_inactive' : ''}`}>
-      <ul className='employees-card__list'>
-        <li className='employees-card__element'>
-          <p className='employees-card__title'>Сотрудник:<span className='employees-card__value'>{employee.employee.fio}</span></p>
-        </li>
-        <li className='employees-card__element'>
-          <p className='employees-card__title'>Должность:<span className='employees-card__value'>{employee.employee.job_title}</span></p>
-        </li>
-        <li className='employees-card__element'>
-          <p className='employees-card__title'>Название ИПР:<span className='employees-card__value'>{employee.idp[0].title}</span></p>
-        </li>
-        <li className='employees-card__element'>
-          <p className='employees-card__title'>Статус:<span className={classNameTitleStatus}>{employee.idp[0].status}</span></p>
-        </li>
-      </ul>
-      <img className='employees-card__avatar' src={employee.employee.photo} alt={employee.employee.fio} />
-    </div>
+    <Link className='employees-card__link' to={`/employee-plan/${employee.idp[0].id}`} onClick={(evt) => onClick(evt)}>
+      <div className={`employees-card ${(employee.idp[0].status === IPD_STATUS.EMPTY) ? 'employees-card_inactive' : ''}`}>
+        <ul className='employees-card__list'>
+          <li className='employees-card__element'>
+            <p className='employees-card__title'>Сотрудник:<span className='employees-card__value'>{employee.employee.fio}</span></p>
+          </li>
+          <li className='employees-card__element'>
+            <p className='employees-card__title'>Должность:<span className='employees-card__value'>{employee.employee.job_title}</span></p>
+          </li>
+          <li className='employees-card__element'>
+            <p className='employees-card__title'>Название ИПР:<span className='employees-card__value'>{employee.idp[0].title}</span></p>
+          </li>
+          <li className='employees-card__element'>
+            <p className='employees-card__title'>Статус:<span className={classNameTitleStatus}>{employee.idp[0].status}</span></p>
+          </li>
+        </ul>
+        <img className='employees-card__avatar' src={employee.employee.photo} alt={employee.employee.fio} />
+      </div>
     </Link>
   );
 }
