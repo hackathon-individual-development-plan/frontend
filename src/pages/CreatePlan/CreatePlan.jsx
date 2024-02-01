@@ -59,10 +59,10 @@ function CreatePlan() {
   }, [emolID]);
 
   return (
-  <>
-    <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
-    <EmployeePlan />
-  </>
+    <>
+      <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />
+      <EmployeePlan />
+    </>
   );
 }
 export default CreatePlan;

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './GoalCard.css';
+import { createComments } from '../../utils/api';
 
 function GoalCard({ cardIndex }) {
   const {
@@ -16,30 +17,73 @@ function GoalCard({ cardIndex }) {
   // COMMENTS SECTION
   // state for current goal messages
   const [currentComments, setCurrentComments] = useState([]);
+  const [newCommentValue, setNewCommentValue] = useState('');
   console.log('currentComments', currentComments);
 
+  // в этом коде ошибка 404 goal_id = undefined
   useEffect(() => {
     setCurrentComments(card?.comments);
-  }, [card?.comments]);
-  // state for new comment value
-  const [newCommentValue, setNewCommentValue] = useState('');
-  const onAddNewComment = () => {
-    // Проверка, чтобы избежать добавления пустого комментария
-    if (newCommentValue.trim() !== '') {
-      // Создание нового комментария
-      const newComment = {
-        // eslint-disable-next-line camelcase
-        comment_text: newCommentValue.trim(),
-      };
-
-      // Обновление состояния с добавлением нового комментария
-      setCurrentComments((prevComments) => [...prevComments, newComment]);
-
-      // Очистка значения newCommentValue после добавления комментария
-      setNewCommentValue('');
-    }
-    newCommentRef.current.value = null;
+  }, [card, card?.comments]);
+  const onAddNewComment = (data, goal_id) => {
+    createComments(data, goal_id)
+      .then((comment) => {
+        const newComment = {
+          id: comment.id,
+          user: {
+            id: comment.user.id,
+            fio: comment.user.fio,
+            photo: comment.user.photo,
+          },
+          // eslint-disable-next-line camelcase
+          comment_text: newCommentValue,
+        };
+        setCurrentComments((prevComments) => [...prevComments, newComment]);
+      });
   };
+
+  /* в этом коде ошибка 500 goal_id = id цели и выводится номером
+  useEffect(() => {
+    setCurrentComments(card?.comments);
+  }, [card, card?.comments]);
+  const goalID = card.id;
+  const onAddNewComment = (data) => {
+    createComments(data, goalID)
+      .then((comment) => {
+        const newComment = {
+          id: comment.id,
+          user: {
+            id: comment.user.id,
+            fio: comment.user.fio,
+            photo: comment.user.photo,
+          },
+          // eslint-disable-next-line camelcase
+          comment_text: newCommentValue,
+        };
+        setCurrentComments((prevComments) => [...prevComments, newComment]);
+      });
+  }; */
+
+  /* в этом коде комментарии добавляются, но по 2-3 штуки и выплывает ошибка 404
+const onAddNewComment = (data, goal_id) => {
+  currentComments.filter((comment) => {
+    const newComment = {
+      id: comment.id,
+      user: {
+        id: comment.user.id,
+        fio: comment.user.fio,
+        photo: comment.user.photo,
+      },
+      // eslint-disable-next-line camelcase
+      comment_text: newCommentValue,
+    };
+    createComments(data, goal_id)
+      .then(() => {
+        setNewCommentValue('');
+        setCurrentComments(data);
+      });
+    return setCurrentComments((prevComments) => [...prevComments, newComment]);
+  });
+}; */
 
   function handleTextChange(e) {
     setNewCommentValue(e.target.value);
@@ -100,9 +144,9 @@ function GoalCard({ cardIndex }) {
           }
         >
           <ul className="card__message-list">
-            {currentComments?.map((item, index) => (
+            {currentComments.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.photo} />
+                <img className="card__message-photo" src={item.user.photo} />
                 <div className="card__message-info">
                   <p className="card__message-name">{item.user.fio}</p>
                   <p className="card__message-text">{item.comment_text}</p>
