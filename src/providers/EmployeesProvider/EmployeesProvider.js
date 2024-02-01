@@ -9,7 +9,9 @@
 
 import { useState, useEffect } from 'react';
 import EmployeesProviderContext from './EmployeesProvider.context';
+import useCurrentUser from '../CurrentUserProvider/CurrentUserProvider.hook';
 import { getEmployees } from '../../utils/api';
+import { IPD_STATUS } from '../../utils/constants';
 
 const EmployeesProvider = ({ children }) => {
   const [employeesList, setEmployeesList] = useState([]);
@@ -17,28 +19,33 @@ const EmployeesProvider = ({ children }) => {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [filteredEmployeesList, setFilteredEmployeesList] = useState(employeesList);
 
-  const initialize = () => {
-    getEmployees()
-      .then((data) => {
-        const employeesWithStatus = data.map((employee) => {
-          if (employee.idp.length === 0) {
-            employee.idp.push({ status: 'Empty' }); // Добавляем статус "Empty" для пустого массива idp
-          }
-          return employee;
-        });
+  const { isSenior } = useCurrentUser();
 
-        setEmployeesList(employeesWithStatus);
-        setFilteredEmployeesList(employeesWithStatus);
-        console.log(employeesWithStatus);
-      })
-      .catch((err) => {
-        console.error(`Произошла ошибка: ${err}`);
-      });
+  const initialize = () => {
+    if (isSenior) {
+      getEmployees()
+        .then((data) => {
+          console.log(data);
+          const employeesWithStatus = data.map((employee) => {
+            if (employee.idp.length === 0) {
+              employee.idp.push({ status: IPD_STATUS.EMPTY }); // Добавляем статус "Отсутствует" для пустого массива idp
+            }
+            return employee;
+          });
+
+          setEmployeesList(employeesWithStatus);
+          setFilteredEmployeesList(employeesWithStatus);
+          console.log(employeesWithStatus);
+        })
+        .catch((err) => {
+          console.error(`Произошла ошибка: ${err}`);
+        });
+    }
   };
 
   useEffect(() => {
     initialize(); // Вызов функции initialize при монтировании компонента
-  }, []);
+  }, [isSenior]);
 
   const filterEmployees = (selectedId) => {
     let filteredList = employeesList;

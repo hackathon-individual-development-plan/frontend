@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './EmployeePlan.css';
@@ -14,9 +14,11 @@ import Menu from '../../components/Menu/Menu.jsx';
 import PlanSelectStatusButton from '../../components/PlanSelectStatusButton/PlanSelectStatusButton.jsx';
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
+import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
 
 // function EmployeePlan({ employeeId }) {
-function EmployeePlan() {
+function EmployeePlan({ setSelectedEmployeeId }) {
+  const { pathname } = useLocation();
   const { employeeId } = useParams();
   const {
     // eslint-disable-next-line no-unused-vars
@@ -40,7 +42,10 @@ function EmployeePlan() {
     const planTitle = plan?.title;
 
     if (isEditMode) {
-      return <PlanTitle titleOfPlan={planTitle} />;
+      return <>
+      <PlanTitle titleOfPlan={planTitle} />
+      {pathname === '/create-target' && <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />}
+      </>;
     }
     return <PlanTitle titleOfPlan={planTitle} />;
   };

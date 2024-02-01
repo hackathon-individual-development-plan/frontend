@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
-import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
+// import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
 import EmployeePlan from '../EmployeePlan/EmployeePlan.jsx';
 
 function CreatePlan() {
@@ -38,7 +38,7 @@ function CreatePlan() {
 
   return (
   <>
-    <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
+    {/* <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/> */}
     <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
   </>
   );
