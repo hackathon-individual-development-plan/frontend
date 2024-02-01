@@ -25,6 +25,11 @@ export default function BriefInfoCard() {
       job = plan?.employee.job_title;
       name = plan?.employee.fio;
       break;
+    case '/matrix':
+      avatar = currentUser.photo;
+      job = currentUser.job_title;
+      name = currentUser.fio;
+      break;
     default:
       avatar = '';
       job = '';

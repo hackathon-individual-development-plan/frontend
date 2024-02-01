@@ -1,6 +1,8 @@
 .plan {
   display: flex;
   flex-direction: column;
+  padding-right: 44px;
+  box-sizing: border-box;
 }
 
 .plan__title {
@@ -15,7 +17,6 @@ margin: 0;
 .plan__content-buttons {
   display: flex;
   align-self: flex-end;
-  margin-top: var(--gap-2xl);
 }
 
 .plan__newtarget {

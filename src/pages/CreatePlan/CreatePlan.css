@@ -6,7 +6,6 @@
 .plan__content-buttons {
   display: flex;
   align-self: flex-end;
-  margin-top: var(--gap-2xl);
 }
 
 /* .plan__newtarget {

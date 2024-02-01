@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { IPD_STATUS } from '../../utils/constants';
 import './PlanSelectStatusButton.css';
 
 function PlanSelectStatusButton({ status }) {
@@ -37,10 +38,11 @@ function PlanSelectStatusButton({ status }) {
         }}
         {...register('status')}
       >
-        <option value="В работе">В работе</option>
-        <option value="Выполнен">Выполнен</option>
-        <option value="Не выполнен">Не выполнен</option>
-        <option value="Отсутсвует">Отсутсвует</option>
+        <option value={IPD_STATUS.IN_PROGRESS}>{IPD_STATUS.IN_PROGRESS}</option>
+        <option value={IPD_STATUS.DONE}>{IPD_STATUS.DONE}</option>
+        <option value={IPD_STATUS.NOT_DONE}>{IPD_STATUS.NOT_DONE}</option>
+        <option value={IPD_STATUS.CANCELED}>{IPD_STATUS.CANCELED}</option>
+        {/* <option value="IPD_STATUS.EMPTY">IPD_STATUS.EMPTY</option> */}
       </select>
     </div>
   ) : null;
