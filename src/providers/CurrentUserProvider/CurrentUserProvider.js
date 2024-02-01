@@ -9,7 +9,6 @@
 
 import { useState, useEffect } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
-// import { USER_ROLES } from '../../utils/constants';
 import { getUserInfo } from '../../utils/api';
 
 const CurrentUserProvider = ({ children }) => {

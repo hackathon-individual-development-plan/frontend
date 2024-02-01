@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import EmployeesCard from '../EmployeesCard/EmployeesCard.jsx';
 // import { getEmployees } from '../../utils/api';
@@ -6,8 +6,12 @@ import './EmployeesCardList.css';
 
 export default function EmployeesCardList({ onCardClick }) {
   const {
-    filteredEmployeesList, selectedEmployee,
+    initialize, filteredEmployeesList, selectedEmployee,
   } = useEmployees();
+
+  useEffect(() => {
+    initialize();
+  }, []);
 
   const searchedEmployee = filteredEmployeesList.find(
     (item) => item.employee.fio === selectedEmployee,

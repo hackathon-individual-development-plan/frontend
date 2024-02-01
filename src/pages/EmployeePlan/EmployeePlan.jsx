@@ -124,9 +124,10 @@ function EmployeePlan({ setSelectedEmployeeId }) {
         </form >
       </FormProvider >
 
-      <section className="content__right-part">
+      {pathname !== '/create-target'
+      && (<section className="content__right-part">
         <BriefInfoCard />
-      </section>
+      </section>)}
     </div >
   );
 }
