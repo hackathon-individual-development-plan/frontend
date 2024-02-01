@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
-// import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
+// import SearchInputCreatePlan from
+// '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
 import EmployeePlan from '../EmployeePlan/EmployeePlan.jsx';
 
 function CreatePlan() {
@@ -17,8 +15,8 @@ function CreatePlan() {
     console.log(selectedEmployeeId);
   }, [selectedEmployeeId]);
 
-  // const emolID = selectedEmployeeId;
-  const emolID = 7;
+  const emolID = +selectedEmployeeId;
+  // const emolID = 7;
   useEffect(() => {
     const newPlan = {
       title: 'Введите название ИПР',
