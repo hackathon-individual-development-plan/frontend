@@ -19,6 +19,7 @@ import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList
 function EmployeePlan() {
   const { employeeId } = useParams();
   const {
+    // eslint-disable-next-line no-unused-vars
     initialize, isEditMode, plan, edit, toggleEditMode, createPlan,
   } = usePlan();
 
@@ -62,6 +63,8 @@ function EmployeePlan() {
   });
   // Form field change handler:
   const onSubmit = (data) => {
+    // added assignment of employee explicitelly as it is not assigned by form input
+    if (!data.employee && plan.employee) data.employee = plan.employee;
     // eslint-disable-next-line no-unused-vars
 
     const idsToKeep = new Set(plan.goals.map((item) => item.id?.toString()));
@@ -79,8 +82,11 @@ function EmployeePlan() {
     }
     // eslint-disable-next-line no-unused-vars
     const fd = formMethods;
-    if (plan.id) edit(data, plan.id);
-    else createPlan(data);
+    if (plan.id) {
+      data.employee = plan.employee;
+      edit(data, plan.id);
+    } else createPlan(data);
+
     toggleEditMode();
   };
 
@@ -91,6 +97,7 @@ function EmployeePlan() {
       </section>
       <FormProvider {...formMethods}>
         <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+        <input type="hidden" value={plan?.employee} {...formMethods.register('employee')} />
           <section className="content__middle-part">
             {renderTitleOrEdit()}
             <section className="plan">

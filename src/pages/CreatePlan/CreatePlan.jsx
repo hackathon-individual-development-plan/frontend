@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
@@ -16,8 +14,8 @@ function CreatePlan() {
     console.log(selectedEmployeeId);
   }, [selectedEmployeeId]);
 
-  // const emolID = selectedEmployeeId;
-  const emolID = 7;
+  const emolID = +selectedEmployeeId;
+  // const emolID = 7;
   useEffect(() => {
     const newPlan = {
       title: 'Введите название ИПР',
@@ -41,7 +39,7 @@ function CreatePlan() {
   return (
   <>
     <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
-    <EmployeePlan />
+    <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
   </>
   );
 }
