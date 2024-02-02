@@ -7,6 +7,9 @@ export default createContext({
   initialize: () => Promise,
   currentUser: {},
   currentUserRole: '',
+  userIpdID: '',
   isSenior: false,
-  getUserRole: () => { },
+  isUserPlan: false,
+  userIpdId: '',
+  setIsUserPlan: () => { },
 });

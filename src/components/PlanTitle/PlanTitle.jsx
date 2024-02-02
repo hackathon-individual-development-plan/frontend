@@ -4,10 +4,12 @@ import PageTitle from '../PageTitle/PageTitle.jsx';
 import './PlanTitle.css';
 import '../MessageError/MessageError.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
+import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 
 // eslint-disable-next-line no-unused-vars
 export default function PlanTitle() {
   const { isEditMode, toggleEditMode, plan } = usePlan();
+  const { isSenior } = useCurrentUser();
 
   function handlEditClick() {
     toggleEditMode();
@@ -60,7 +62,7 @@ export default function PlanTitle() {
         content={
           <div className="headline-plan__container">
             {toogleTitleType()}
-            {!isEditMode ? <a className="headline-plan__edit" onClick={handlEditClick}></a> : null}
+            {!isEditMode && isSenior ? <a className="headline-plan__edit" onClick={handlEditClick}></a> : null}
           </div>
         }
       />

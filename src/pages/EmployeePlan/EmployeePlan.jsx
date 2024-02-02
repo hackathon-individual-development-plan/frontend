@@ -19,7 +19,7 @@ import PopupSave from '../../components/Popups/PopupSave.jsx';
 import PopupCancel from '../../components/Popups/PopupCancel.jsx';
 
 // function EmployeePlan({ employeeId }) {
-function EmployeePlan({ setSelectedEmployeeId }) {
+function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
   const { pathname } = useLocation();
   const { employeeId } = useParams();
   const {
@@ -28,8 +28,16 @@ function EmployeePlan({ setSelectedEmployeeId }) {
   } = usePlan();
 
   useEffect(() => {
-    initialize(employeeId);
+    if (employeeId) {
+      initialize(employeeId);
+    }
   }, [employeeId]);
+
+  useEffect(() => {
+    if (!employeeId && userIpdId) {
+      initialize(userIpdId);
+    }
+  }, [userIpdId]);
 
   // switch a goal card mode
   const renderCardOrEditForm = () => {

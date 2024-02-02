@@ -7,7 +7,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.jsx';
 import CreatePlan from '../../pages/CreatePlan/CreatePlan.jsx';
 import Employees from '../../pages/Employees/Employees.jsx';
 import Layout from '../Layout/Layout.jsx';
-import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
+import MyPlan from '../../pages/MyPlan/MyPlan.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
 import PlanProvider from '../../providers/PlanProvider/PlanProvider';
@@ -15,9 +15,7 @@ import PlanProvider from '../../providers/PlanProvider/PlanProvider';
 function App() {
   const navigate = useNavigate();
 
-  const {
-    isSenior,
-  } = useCurrentUser();
+  const { isSenior } = useCurrentUser();
 
   // const [localStorageData, setLocalStorageData] = useState('');
   // const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
@@ -59,7 +57,11 @@ function App() {
       <div className="page">
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route path='/my-idp' element={<MyPlanSenior />} />
+            <Route path='/my-idp' element={
+              <PlanProvider>
+                <MyPlan />
+              </PlanProvider>
+            } />
             <Route path='/matrix' element={<MatrixCompetency />} />
             {/* <Route path='/employee-plan' element={<EmployeePlan employeeId={selectedEmployeeCard} />} /> */}
 
