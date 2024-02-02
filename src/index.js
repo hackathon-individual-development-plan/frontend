@@ -14,7 +14,7 @@ root.render(
       <CurrentUserProvider>
         <EmployeesProvider>
           {/* <PlanProvider> */}
-            <App />
+          <App />
           {/* </PlanProvider> */}
         </EmployeesProvider>
       </CurrentUserProvider>

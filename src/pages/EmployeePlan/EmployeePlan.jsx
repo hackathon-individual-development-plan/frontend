@@ -43,8 +43,8 @@ function EmployeePlan({ setSelectedEmployeeId }) {
 
     if (isEditMode) {
       return <>
-      <PlanTitle titleOfPlan={planTitle} />
-      {pathname === '/create-target' && <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />}
+        <PlanTitle titleOfPlan={planTitle} />
+        {pathname === '/create-target' && <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />}
       </>;
     }
     return <PlanTitle titleOfPlan={planTitle} />;
@@ -102,7 +102,7 @@ function EmployeePlan({ setSelectedEmployeeId }) {
       </section>
       <FormProvider {...formMethods}>
         <form onSubmit={formMethods.handleSubmit(onSubmit)}>
-        <input type="hidden" value={plan?.employee} {...formMethods.register('employee')} />
+          <input type="hidden" value={plan?.employee} {...formMethods.register('employee')} />
           <section className="content__middle-part">
             {renderTitleOrEdit()}
             <section className="plan">
@@ -125,9 +125,9 @@ function EmployeePlan({ setSelectedEmployeeId }) {
       </FormProvider >
 
       {pathname !== '/create-target'
-      && (<section className="content__right-part">
-        <BriefInfoCard />
-      </section>)}
+        && (<section className="content__right-part">
+          <BriefInfoCard />
+        </section>)}
     </div >
   );
 }
