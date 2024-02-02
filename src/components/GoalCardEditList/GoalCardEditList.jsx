@@ -18,6 +18,7 @@ export default function GoalCardEditList() {
         {goalsList && goalsList?.map((item, index) => (
           <GoalCardEdit
             key={item.id}
+            cardId={item.id}
             // card={item}
             cardIndex={index}
           />
