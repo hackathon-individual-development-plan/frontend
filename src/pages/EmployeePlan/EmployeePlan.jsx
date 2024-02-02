@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
@@ -15,6 +16,8 @@ import PlanSelectStatusButton from '../../components/PlanSelectStatusButton/Plan
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
 import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
+import Popup from '../../components/Popup/Popup.jsx';
+import PopupCancel from '../../components/PopupCancel/PopupCancel.jsx';
 
 // function EmployeePlan({ employeeId }) {
 function EmployeePlan({ setSelectedEmployeeId }) {
@@ -66,7 +69,8 @@ function EmployeePlan({ setSelectedEmployeeId }) {
   const formMethods = useForm({
     mode: 'onChange',
   });
-  // Form field change handler:
+
+  // Submit form:
   const onSubmit = (data) => {
     // added assignment of employee explicitelly as it is not assigned by form input
     if (!data.employee && plan.employee) data.employee = plan.employee;
@@ -95,6 +99,40 @@ function EmployeePlan({ setSelectedEmployeeId }) {
     toggleEditMode();
   };
 
+  // popup
+  const [isPopupConfirm, setIsPopupConfirm] = useState(false);
+  const [isPopupCancel, setIsPopupCancel] = useState(false);
+  // const onClickPopup = () => {
+  //   setIsPopupOpen(true);
+  // };
+  const onClickPopup = (popupType) => {
+    if (popupType === 'popupCancellation') {
+      setIsPopupCancel(true);
+    } else setIsPopupConfirm(true);
+  };
+
+  // cancel and go to edit mode
+  const handleCancel = (event) => {
+    event.preventDefault();
+    setIsPopupConfirm(false);
+    setIsPopupCancel(false);
+  };
+  // cancel changes, go to original read mode
+  const handleOriginal = (event) => {
+    event.preventDefault();
+    formMethods.reset();
+    toggleEditMode();
+    setIsPopupConfirm(false);
+    setIsPopupCancel(false);
+  };
+  // change and submit a plan
+  const submitButtonRef = useRef(null);
+  const popupSubmit = () => {
+    submitButtonRef.current.click();
+    setIsPopupConfirm(false);
+    setIsPopupCancel(false);
+  };
+
   return (
     <div className="content">
       <section className="content__left-part">
@@ -114,8 +152,11 @@ function EmployeePlan({ setSelectedEmployeeId }) {
               <section className="plan__content-buttons">
                 {isEditMode ? (
                   <>
-                    <ButtonConfirmation isValid={formMethods.formState.isValid} type="submit" onClick={onSubmit} />
-                    <ButtonCancellation />
+                    <ButtonConfirmation isValid={formMethods.formState.isValid}
+                     type="button" onClick={onClickPopup} buttonText="Сохранить" />
+                    <ButtonCancellation type="popupCancellation" onClick={() => onClickPopup('popupCancellation')}
+                    buttonText="Отменить" />
+                    <input className='plan__notvisible-input' type='submit' ref={submitButtonRef} />
                   </>
                 ) : null}
               </section>
@@ -123,10 +164,11 @@ function EmployeePlan({ setSelectedEmployeeId }) {
           </section>
         </form >
       </FormProvider >
-
       <section className="content__right-part">
         <BriefInfoCard />
       </section>
+      <Popup isOpen={isPopupConfirm} onClick={popupSubmit} popupType="popupConfirmation" handleCancel={handleCancel} />
+      <PopupCancel isOpen={isPopupCancel} onClick={handleOriginal} popupType="popupCancellation" handleCancel={handleCancel} />
     </div >
   );
 }

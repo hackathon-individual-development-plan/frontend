@@ -89,3 +89,7 @@ margin: 0;
   background: var(--Status-Gray, #E7E8EA);
   color: var(--Status-Grey, #6A6A74);
 }
+
+.plan__notvisible-input {
+  display: none;
+}

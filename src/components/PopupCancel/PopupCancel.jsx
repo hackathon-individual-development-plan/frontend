@@ -3,7 +3,7 @@ import './Popup.css';
 import ButtonConfirmation from '../ButtonConfirmation/ButtonConfirmation.jsx';
 import ButtonCancellation from '../ButtonCancellation/ButtonCancellation.jsx';
 
-function Popup({
+function PopupCancel({
   isOpen, onClick, popupType, handleCancel,
 }) {
   const popupVisibleClass = isOpen ? 'popup_is-opened' : '';
@@ -29,7 +29,7 @@ function Popup({
         <h2 className="popup__title">{popupContent.question}</h2>
         <div className="popup__buttons">
           <ButtonConfirmation
-          isValid={true} onClick={onClick} buttonText={popupContent.buttonYes} />
+          onClick={onClick} buttonText={popupContent.buttonYes} isValid={true} />
           <ButtonCancellation isValid={true}
           onClick={handleCancel} buttonText={popupContent.buttonNo} />
         </div>
@@ -38,4 +38,4 @@ function Popup({
   );
 }
 
-export default Popup;
+export default PopupCancel;
