@@ -8,23 +8,32 @@ import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import DateInput from '../DateInput/DateInput.jsx';
 import GoalSelectStatusButton from '../GoalSelectStatusButton/GoalSelectStatusButton.jsx';
 
-function GoalCardEdit({ cardIndex }) {
+function GoalCardEdit({ cardId, cardIndex }) {
   const {
     register,
     formState: { errors, isValid },
   } = useFormContext();
 
   // PLAN PROVIDER
-  const { deleteGoalByIndex, plan } = usePlan();
+  const { deleteGoalByIndex, plan, collectDeleteModeGoals } = usePlan();
   const card = plan.goals[cardIndex];
+
+  // Добавлено новое состояние isDeleted
+  const [isDeleted, setIsDeleted] = useState(false);
+  // delete goal
+  const onDeleteGoal = () => {
+    // Вместо удаления, устанавливаем флаг isDeleted в true
+    setIsDeleted(true);
+    collectDeleteModeGoals(cardIndex);
+  };
 
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
 
   // delete goal
-  const onDeleteGoal = () => {
-    deleteGoalByIndex(cardIndex);
-  };
+  // const onDeleteGoal = () => {
+  //   deleteGoalByIndex(cardIndex);
+  // };
 
   // TASKS SECTION
   // state for current goal tasks
@@ -54,13 +63,15 @@ function GoalCardEdit({ cardIndex }) {
   };
 
   return (
-    <div className="card">
-      <div className="card__target">
+     // <div className="card" key={`${cardId}_card`} >Nummer {cardId} fantas
+     <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
+     <div className="card__target" key={`${cardId}_cardtarget`}>
         <div className="card__target-header">
           <p className="card__field-name">Цель:</p>
           <button type="button" className="card__trash" onClick={onDeleteGoal} />
         </div>
         <input
+          key={`${cardId}goals.id`}
           type='hidden'
           value={card.id}
           {...register(`goals.${cardIndex}.id`)}
@@ -71,6 +82,7 @@ function GoalCardEdit({ cardIndex }) {
           {...register(`goals.${cardIndex}.isNew`)}
         ></input>
         <input
+          key={`${cardId}_goals.title`}
           type="text"
           className="card__input"
           defaultValue={card?.title}
