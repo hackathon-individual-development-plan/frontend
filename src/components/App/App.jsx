@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable max-len */
+import React, { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
@@ -9,57 +10,49 @@ import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
-import { USER_ROLES } from '../../utils/constants';
+import PlanProvider from '../../providers/PlanProvider/PlanProvider';
 
 function App() {
   const navigate = useNavigate();
 
   const {
-    getUserRole, currentUserRole, setUserToken, userToken, isSenior,
+    isSenior,
   } = useCurrentUser();
 
-  const [localStorageData, setLocalStorageData] = useState('');
-  const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
+  // const [localStorageData, setLocalStorageData] = useState('');
+  // const [selectedEmployeeCard, setSelectedEmployeeCard] = useState(null);
 
-  const handleStorageChange = () => {
-    const tokenFromStorage = localStorage.getItem('token');
-    setLocalStorageData(tokenFromStorage);
-    setUserToken(tokenFromStorage);
-    getUserRole('token');
-  };
+  // const handleStorageChange = () => {
+  //   const tokenFromStorage = localStorage.getItem('token');
+  //   setLocalStorageData(tokenFromStorage);
+  //   setUserToken(tokenFromStorage);
+  //   getUserRole('token');
+  // };
+
+  // useEffect(() => {
+  //   // setLocalStorageData(localStorage.getItem('token'));
+
+  //   // window.addEventListener('storage', handleStorageChange);
+
+  //   const initialToken = USER_ROLES[0].senior.token;
+  //   localStorage.setItem('token', initialToken);
+  //   setLocalStorageData(initialToken);
+  //   getUserRole('token');
+  //   setUserToken(localStorageData);
+
+  //   return () => {
+  //     window.removeEventListener('storage', handleStorageChange);
+  //   };
+  // }, []);
 
   useEffect(() => {
-    setLocalStorageData(localStorage.getItem('token'));
-
-    window.addEventListener('storage', handleStorageChange);
-
-    const initialToken = USER_ROLES[0].senior.token;
-    localStorage.setItem('token', initialToken);
-    setLocalStorageData(initialToken);
-    getUserRole('token');
-    setUserToken(localStorageData);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    setUserToken(localStorageData);
-    getUserRole('token');
-    setLocalStorageData(localStorage.getItem('token'));
-    if (currentUserRole === 'senior') {
+    if (isSenior) {
       navigate('/employees', { replace: true });
-    } else if (currentUserRole === 'employee') {
+    } else {
       navigate('/my-idp', { replace: true });
     }
-    console.log(currentUserRole);
     console.log(isSenior);
-  }, [currentUserRole, localStorageData, userToken]);
-
-  const handleEmployeeCardClick = (employeeId) => {
-    setSelectedEmployeeCard(employeeId);
-  };
+  }, [isSenior]);
 
   return (
     <div className='body'>
@@ -68,18 +61,28 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route path='/my-idp' element={<MyPlanSenior />} />
             <Route path='/matrix' element={<MatrixCompetency />} />
-            <Route path='/employee-plan' element={<EmployeePlan employeeId={selectedEmployeeCard} />} />
+            {/* <Route path='/employee-plan' element={<EmployeePlan employeeId={selectedEmployeeCard} />} /> */}
+
+            {/* <Route path='/employee-plan/:employeeId' element={<EmployeePlan />} /> */}
+            {/* Wrap EmployeePlan with PlanProvider */}
+            <Route path='/employee-plan/:employeeId' element={
+              <PlanProvider>
+                <EmployeePlan />
+              </PlanProvider>
+            } />
+
             <Route path='/create-target'
               element={
+                <PlanProvider>
                 <ProtectedRoute
                   element={CreatePlan}
                 />
+                </PlanProvider>
               } />
             <Route path='/employees'
               element={
                 <ProtectedRoute
                   element={Employees}
-                  onCardClick={handleEmployeeCardClick}
                 />
               } />
           </Route>

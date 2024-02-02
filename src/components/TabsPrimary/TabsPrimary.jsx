@@ -1,7 +1,9 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import { Tabs, Tab } from '@alfalab/core-components/tabs';
+import { IPD_STATUS } from '../../utils/constants';
 import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
+
 import './TabsPrimary.css';
 
 export default function TabsPrimary() {
@@ -9,10 +11,11 @@ export default function TabsPrimary() {
 
   const TABS = [
     { title: 'Все', id: 'Все' },
-    { title: 'В работе', id: 'In progress' },
-    { title: 'Выполнен', id: 'Work done' },
-    { title: 'Не выполнен', id: 'Not done' },
-    { title: 'Отсутствует', id: 'Empty' },
+    { title: IPD_STATUS.IN_PROGRESS, id: IPD_STATUS.IN_PROGRESS },
+    { title: IPD_STATUS.DONE, id: IPD_STATUS.DONE },
+    { title: IPD_STATUS.NOT_DONE, id: IPD_STATUS.NOT_DONE },
+    // { title: IPD_STATUS.CANCELED, id: IPD_STATUS.CANCELED },
+    { title: IPD_STATUS.EMPTY, id: IPD_STATUS.EMPTY },
   ];
 
   const IS_MOBILE = document.body.clientWidth < 450;

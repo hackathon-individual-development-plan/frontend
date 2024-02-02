@@ -236,7 +236,9 @@ function GoalCardEdit({ cardIndex }) {
                   <li className="card__message-edit-item" key={index}>
                     <img className="card__message-edit-photo" src={item.user.photo} />
                     <div className="card__message-edit-info">
-                      <p className="card__message-edit-name">{item.user.fio}</p>
+                      <p className="card__message-edit-name">{item.user.fio}<span>{new Date(item.created_at).toLocaleString('ru-RU', {
+                        day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+                      })}</span></p>
                       <p className="card__message-edit-text">{item.comment_text}</p>
                     </div>
                   </li>

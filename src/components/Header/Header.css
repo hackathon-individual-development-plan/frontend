@@ -69,7 +69,9 @@
 }
 
 .header__avatar {
-    margin: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50px;
     width: 40px;
     height: 40px;
 }

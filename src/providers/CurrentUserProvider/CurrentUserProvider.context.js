@@ -8,7 +8,5 @@ export default createContext({
   currentUser: {},
   currentUserRole: '',
   isSenior: false,
-  userToken: '',
-  localStorageToken: '',
   getUserRole: () => { },
 });

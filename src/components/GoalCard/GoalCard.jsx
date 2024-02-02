@@ -37,6 +37,8 @@ function GoalCard({ cardIndex }) {
         // eslint-disable-next-line camelcase
         comment_text: newCommentValue.trim(),
       };
+
+      // setCurrentComments((prevComments) => [...prevComments, newComment]);
       createComments(newComment, card.id)
         .then((data) => {
           // Обновление состояния с добавлением нового комментария

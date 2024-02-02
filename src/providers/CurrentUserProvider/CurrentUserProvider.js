@@ -9,19 +9,20 @@
 
 import { useState, useEffect } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
-import { USER_ROLES } from '../../utils/constants';
 import { getUserInfo } from '../../utils/api';
 
 const CurrentUserProvider = ({ children }) => {
-  const [userToken, setUserToken] = useState('');
+  // const [userToken, setUserToken] = useState(localStorage.getItem(token));
   const [currentUser, setCurrentUser] = useState({});
   const [currentUserRole, setCurrentUserRole] = useState('');
   const [isSenior, setIsSenior] = useState(false);
 
   const initialize = () => {
-    getUserInfo()
+    getUserInfo(localStorage.getItem('AlfaIprProjectToken'))
       .then((user) => {
         setCurrentUser(user);
+        setCurrentUserRole(user.role);
+        setIsSenior(user?.role === 'chief');
       })
       .catch((err) => {
         console.error(`Произошла ошибка: ${err}`);
@@ -32,24 +33,21 @@ const CurrentUserProvider = ({ children }) => {
     initialize();
   }, []);
 
-  const getUserRole = (token) => {
-    setUserToken(localStorage.getItem(token));
-    if (userToken === USER_ROLES[0].senior.token) {
-      setCurrentUserRole(USER_ROLES[0].senior.role);
-      setIsSenior(true);
-    } else if (userToken === USER_ROLES[1].employee.token) {
-      setCurrentUserRole(USER_ROLES[1].employee.role);
-      setIsSenior(false);
-    }
-  };
+  // const getUserRole = (token) => { // убраить и заменить на currentUserRole
+  //   setUserToken(localStorage.getItem(token));
+  //   if (userToken === USER_ROLES[0].senior.token) {
+  //     setCurrentUserRole(USER_ROLES[0].senior.role);
+  //     setIsSenior(true);
+  //   } else if (userToken === USER_ROLES[1].employee.token) {
+  //     setCurrentUserRole(USER_ROLES[1].employee.role);
+  //     setIsSenior(false);
+  //   }
+  // };
 
   const value = {
     currentUser,
     currentUserRole,
-    userToken,
     isSenior,
-    setUserToken,
-    getUserRole,
   };
 
   return <CurrentUserProviderContext.Provider value={value}>{children}</CurrentUserProviderContext.Provider>;

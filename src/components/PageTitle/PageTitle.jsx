@@ -24,6 +24,7 @@ export default function PageTitle({ content }) {
       title = content;
       break;
     default:
+      // eslint-disable-next-line no-unused-vars
       title = '';
       break;
   }
@@ -31,6 +32,7 @@ export default function PageTitle({ content }) {
   return (
     <>
       {title && <h1 className="headline__title">{title}</h1>}
+      {!title && <h1 className="headline__title">{content}</h1>}
     </>
   );
 }

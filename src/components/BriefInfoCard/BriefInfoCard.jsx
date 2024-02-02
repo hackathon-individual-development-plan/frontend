@@ -1,13 +1,16 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import ProgressBarCard from '../ProgressBarCard/ProgressBarCard.jsx';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
-import photo from '../../images/avatar-1.jpg';
+import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
+// import photo from '../../images/avatar-1.jpg';
 import './BriefInfoCard.css';
 
 export default function BriefInfoCard() {
   const { pathname } = useLocation();
   const { currentUser } = useCurrentUser();
+  const { plan } = usePlan();
+  const { employeeId } = useParams();
 
   let avatar; let job; let name;
 
@@ -17,10 +20,20 @@ export default function BriefInfoCard() {
       job = currentUser.job_title;
       name = currentUser.fio;
       break;
+    case `/employee-plan/${employeeId}`:
+      avatar = plan?.employee.photo;
+      job = plan?.employee.job_title;
+      name = plan?.employee.fio;
+      break;
+    case '/matrix':
+      avatar = currentUser.photo;
+      job = currentUser.job_title;
+      name = currentUser.fio;
+      break;
     default:
-      avatar = photo;
-      job = 'Junior Java-разработчик';
-      name = 'Артемьев Олег Игоревич';
+      avatar = '';
+      job = '';
+      name = '';
       break;
   }
 

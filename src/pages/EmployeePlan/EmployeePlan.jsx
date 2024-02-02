@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useEffect } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './EmployeePlan.css';
@@ -13,9 +14,14 @@ import Menu from '../../components/Menu/Menu.jsx';
 import PlanSelectStatusButton from '../../components/PlanSelectStatusButton/PlanSelectStatusButton.jsx';
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
+import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
 
-function EmployeePlan({ employeeId }) {
+// function EmployeePlan({ employeeId }) {
+function EmployeePlan({ setSelectedEmployeeId }) {
+  const { pathname } = useLocation();
+  const { employeeId } = useParams();
   const {
+    // eslint-disable-next-line no-unused-vars
     initialize, isEditMode, plan, edit, toggleEditMode, createPlan,
   } = usePlan();
 
@@ -36,7 +42,10 @@ function EmployeePlan({ employeeId }) {
     const planTitle = plan?.title;
 
     if (isEditMode) {
-      return <PlanTitle titleOfPlan={planTitle} />;
+      return <>
+      <PlanTitle titleOfPlan={planTitle} />
+      {pathname === '/create-target' && <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />}
+      </>;
     }
     return <PlanTitle titleOfPlan={planTitle} />;
   };
@@ -48,7 +57,7 @@ function EmployeePlan({ employeeId }) {
     if (isEditMode) {
       return <PlanSelectStatusButton status={statusName} />;
     }
-    return <p className={`plan__status-type ${statusName === 'В работе' ? 'blue' : ''} ${statusName === 'Выполнен' ? 'green' : ''} ${statusName === 'Не выполнен' ? 'red' : ''} ${statusName === 'Отсутствует' ? 'grey' : ''} `}>
+    return <p className={`plan__status-type ${statusName === 'В работе' ? 'blue' : ''} ${statusName === 'Выполнен' ? 'green' : ''} ${statusName === 'Не выполнен' ? 'red' : ''} ${statusName === 'Отменен' ? 'yellow' : ''} `}>
       {statusName}
     </p>;
   };
@@ -59,6 +68,8 @@ function EmployeePlan({ employeeId }) {
   });
   // Form field change handler:
   const onSubmit = (data) => {
+    // added assignment of employee explicitelly as it is not assigned by form input
+    if (!data.employee && plan.employee) data.employee = plan.employee;
     // eslint-disable-next-line no-unused-vars
 
     const idsToKeep = new Set(plan.goals.map((item) => item.id?.toString()));
@@ -76,8 +87,11 @@ function EmployeePlan({ employeeId }) {
     }
     // eslint-disable-next-line no-unused-vars
     const fd = formMethods;
-    if (plan.id) edit(data, plan.id);
-    else createPlan(data);
+    if (plan.id) {
+      data.employee = plan.employee;
+      edit(data, plan.id);
+    } else createPlan(data);
+
     toggleEditMode();
   };
 
@@ -88,6 +102,7 @@ function EmployeePlan({ employeeId }) {
       </section>
       <FormProvider {...formMethods}>
         <form onSubmit={formMethods.handleSubmit(onSubmit)}>
+        <input type="hidden" value={plan?.employee} {...formMethods.register('employee')} />
           <section className="content__middle-part">
             {renderTitleOrEdit()}
             <section className="plan">
@@ -109,9 +124,10 @@ function EmployeePlan({ employeeId }) {
         </form >
       </FormProvider >
 
-      <section className="content__right-part">
+      {pathname !== '/create-target'
+      && (<section className="content__right-part">
         <BriefInfoCard />
-      </section>
+      </section>)}
     </div >
   );
 }

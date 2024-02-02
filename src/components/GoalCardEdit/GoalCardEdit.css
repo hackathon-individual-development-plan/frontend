@@ -257,6 +257,9 @@
 }
 
 .card__message-edit-photo {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50px;
   width: 40px;
   height: 40px;
   margin-right: var(--gap-s);

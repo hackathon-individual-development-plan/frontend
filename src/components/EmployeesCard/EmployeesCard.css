@@ -17,6 +17,10 @@
     background: var(--Gray-10, #F3F4F6);
 }
 
+.employees-card__link {
+    text-decoration: none;
+}
+
 .employees-card__list {
     margin: 0;
     padding: 0;
@@ -77,6 +81,11 @@
 .employees-card__status-value_not-exist {
     background: var(--Status-Gray, #E7E8EA);
     color: var(--Status-Grey, #6A6A74);
+}
+
+.employees-card__status-value_canceled {
+    background: #FDE6C8;
+    color: #EA8314;
 }
 
 .employees-card__avatar {
