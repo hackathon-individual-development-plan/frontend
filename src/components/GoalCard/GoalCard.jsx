@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
+import { createComments } from '../../utils/api';
 import './GoalCard.css';
+import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 
 function GoalCard({ cardIndex }) {
   const {
     plan,
   } = usePlan();
+  const { currentUser } = useCurrentUser();
   const [count, setCount] = useState('');
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
@@ -18,11 +21,14 @@ function GoalCard({ cardIndex }) {
   const [currentComments, setCurrentComments] = useState([]);
   console.log('currentComments', currentComments);
 
-  useEffect(() => {
-    setCurrentComments(card?.comments);
-  }, [card?.comments]);
+  console.log(card);
   // state for new comment value
   const [newCommentValue, setNewCommentValue] = useState('');
+
+  useEffect(() => {
+    setCurrentComments(card?.comments);
+  }, [card?.comments, newCommentValue]);
+
   const onAddNewComment = () => {
     // Проверка, чтобы избежать добавления пустого комментария
     if (newCommentValue.trim() !== '') {
@@ -32,14 +38,23 @@ function GoalCard({ cardIndex }) {
         comment_text: newCommentValue.trim(),
       };
 
-      // Обновление состояния с добавлением нового комментария
-      setCurrentComments((prevComments) => [...prevComments, newComment]);
-
+      // setCurrentComments((prevComments) => [...prevComments, newComment]);
+      createComments(newComment, card.id)
+        .then((data) => {
+          // Обновление состояния с добавлением нового комментария
+          setCurrentComments((prevComments) => [...prevComments, data]);
+        })
+        .catch((err) => {
+          console.error(`Произошла ошибка: ${err}`);
+        });
       // Очистка значения newCommentValue после добавления комментария
       setNewCommentValue('');
+      setCount('');
     }
     newCommentRef.current.value = null;
   };
+
+  console.log(currentUser);
 
   function handleTextChange(e) {
     setNewCommentValue(e.target.value);
@@ -91,7 +106,7 @@ function GoalCard({ cardIndex }) {
             className={
               isActiveMessages ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
           <p className="card__subtitle">
-            Комментарии <span>{card?.comments?.length}</span>
+            Комментарии <span>{currentComments?.length}</span>
           </p>
         </div>
         <div
@@ -102,9 +117,12 @@ function GoalCard({ cardIndex }) {
           <ul className="card__message-list">
             {currentComments?.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.photo} />
+                <img className="card__message-photo" src={currentUser.photo} />
                 <div className="card__message-info">
-                  <p className="card__message-name">{item.user.fio}</p>
+                  <p className="card__message-name">{currentUser.fio}
+                    <span className='card__message-date'>{item.created_at && new Date(item.created_at).toLocaleString('ru-RU', {
+                      day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+                    })}</span></p>
                   <p className="card__message-text">{item.comment_text}</p>
                 </div>
               </li>
