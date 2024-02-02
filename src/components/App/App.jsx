@@ -10,7 +10,6 @@ import Layout from '../Layout/Layout.jsx';
 import MyPlanSenior from '../../pages/MyPlanSenior/MyPlanSenior.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
-// import { USER_ROLES } from '../../utils/constants';
 import PlanProvider from '../../providers/PlanProvider/PlanProvider';
 
 function App() {
@@ -55,10 +54,6 @@ function App() {
     console.log(isSenior);
   }, [isSenior]);
 
-  // const handleEmployeeCardClick = (employeeId) => {
-  //   setSelectedEmployeeCard(employeeId);
-  // };
-
   return (
     <div className='body'>
       <div className="page">
@@ -88,7 +83,6 @@ function App() {
               element={
                 <ProtectedRoute
                   element={Employees}
-                  // onCardClick={handleEmployeeCardClick}
                 />
               } />
           </Route>

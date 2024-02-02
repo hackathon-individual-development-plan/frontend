@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { IPD_STATUS } from '../../utils/constants';
 import './GoalSelectStatusButton.css';
 
 // eslint-disable-next-line no-unused-vars
 function GoalSelectStatusButton({ status, cardIndex }) {
   const [statusState, setStatusState] = useState(status);
   const { register } = useFormContext();
+
+  // const statusIpd = {
+  //   inProgress: IPD_STATUS.IN_PROGRESS,
+  //   done: IPD_STATUS.DONE,
+  //   notDone: IPD_STATUS.NOT_DONE,
+  // };
+
   return (
-    <div>
+    <>
       <select
         className="dropdown-button-big"
         defaultValue={statusState}
@@ -17,16 +25,20 @@ function GoalSelectStatusButton({ status, cardIndex }) {
         }}
         {...register(`goals.${cardIndex}.status`)}
       >
-        <option value="В работе">В работе</option>
+        <option value={IPD_STATUS.IN_PROGRESS}>{IPD_STATUS.IN_PROGRESS}</option>
+        <option value={IPD_STATUS.DONE}>{IPD_STATUS.DONE}</option>
+        <option value={IPD_STATUS.NOT_DONE}>{IPD_STATUS.NOT_DONE}</option>
+        <option value={IPD_STATUS.CANCELED}>{IPD_STATUS.CANCELED}</option>
+        {/* <option value="В работе">В работе</option>
         <option value="Выполнен">Выполнен</option>
         <option value="Не выполнен">Не выполнен</option>
-        <option value="Отсутсвует">Отсутсвует</option>
+        <option value="Отсутсвует">Отсутсвует</option> */}
         {/* <option value="In progress">In progress</option>
         <option value="Work done">Work done</option>
         <option value="Not done">Not done</option>
         <option value="Empty">Empty</option> */}
       </select>
-    </div>
+    </>
   );
 }
 

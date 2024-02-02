@@ -75,9 +75,9 @@
   color: var(--Status-Red, #EC2E13);
 }
 
-.card__status__type.grey {
-  background: var(--Status-Gray, #E7E8EA);
-  color: var(--Status-Grey, #6A6A74);
+.card__status__type.yellow {
+  background: #FDE6C8;
+  color: #EA8314;
 }
 
 .card__status {
@@ -216,6 +216,7 @@
   gap: var(--gap-m);
 }
 
+
 .card__message-item {
   display: flex;
   align-items: center;
@@ -225,6 +226,9 @@
 .card__message-photo {
   width: 40px;
   height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50px;
   margin-right: var(--gap-s);
 }
 
@@ -236,20 +240,28 @@
 }
 
 .card__message-name {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  margin: 0;
-  width: 100%;
-  height: 18px;
-  padding-bottom: 4px;
+font-size: 14px;
+font-weight: 500;
+line-height: 18px;
+margin: 0;
+width: 100%;
+height: 18px;
+padding-bottom: 4px;
 }
 
 .card__message-text {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
-  margin: 0;
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+margin: 0;
+}
+
+.card__message-date {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: #0E0E0E;
+  padding-left: 8px;
 }
 
 .card__textarea {
@@ -268,7 +280,7 @@
   border: 1px solid var(--Gray-80, #D2D3D9);
   background: var(--White, #FFF);
   justify-self: start;
-  
+
 }
 
 .card__counter {

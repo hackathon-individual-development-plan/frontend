@@ -91,6 +91,9 @@ export default function EmployeesCard({ employee }) {
     case IPD_STATUS.NOT_DONE:
       classNameTitleStatus = 'employees-card__status-value employees-card__status-value_not-done';
       break;
+    case IPD_STATUS.CANCELED:
+      classNameTitleStatus = 'employees-card__status-value employees-card__status-value_canceled';
+      break;
     default:
       classNameTitleStatus = 'employees-card__status-value employees-card__status-value_not-exist';
       break;

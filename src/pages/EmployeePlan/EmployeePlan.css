@@ -1,21 +1,22 @@
 .plan {
   display: flex;
   flex-direction: column;
+  padding-right: 44px;
+  box-sizing: border-box;
 }
 
 .plan__title {
   color: var(--Black, #0E0E0E);
-font-size: 32px;
-font-style: normal;
-font-weight: 500;
-line-height: 38px;
-margin: 0;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 38px;
+  margin: 0;
 }
 
 .plan__content-buttons {
   display: flex;
   align-self: flex-end;
-  margin-top: var(--gap-2xl);
 }
 
 .plan__newtarget {
@@ -85,9 +86,9 @@ margin: 0;
   color: var(--Status-Red, #EC2E13);
 }
 
-.plan__status-type.grey {
-  background: var(--Status-Gray, #E7E8EA);
-  color: var(--Status-Grey, #6A6A74);
+.plan__status-type.yellow {
+  background: #FDE6C8;
+  color: #EA8314;
 }
 
 .plan__notvisible-input {
