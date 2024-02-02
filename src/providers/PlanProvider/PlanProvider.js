@@ -139,10 +139,6 @@ const PlanProvider = ({ children }) => {
   //   setFilteredEmployeesList(filteredList);
   // };
 
-  const remove = () => {
-    // setTargetList();
-  };
-
   const value = {
     initialize,
     toggleEditMode,
@@ -150,7 +146,6 @@ const PlanProvider = ({ children }) => {
     deleteGoalByIndex,
     edit,
     createPlan,
-    remove,
     plan,
     setPlan,
     isEditMode,
