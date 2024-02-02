@@ -72,7 +72,7 @@ function GoalCard({ cardIndex }) {
       </div>
       <div className="card__status">
         <p className="card__subtitle">Статус:</p>
-        <p className={`card__status__type ${card.status === 'В работе' ? 'blue' : ''} ${card.status === 'Выполнен' ? 'green' : ''} ${card.status === 'Не выполнен' ? 'red' : ''} ${card.status === 'Отсутствует' ? 'grey' : ''} `}>{card.status}</p>
+        <p className={`card__status__type ${card.status === 'В работе' ? 'blue' : ''} ${card.status === 'Выполнен' ? 'green' : ''} ${card.status === 'Не выполнен' ? 'red' : ''} ${card.status === 'Отменен' ? 'yellow' : ''} `}>{card.status}</p>
       </div>
       <div className="card__description">
         <p className="card__subtitle">Описание:</p>

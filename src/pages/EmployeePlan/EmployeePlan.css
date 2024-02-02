@@ -7,11 +7,11 @@
 
 .plan__title {
   color: var(--Black, #0E0E0E);
-font-size: 32px;
-font-style: normal;
-font-weight: 500;
-line-height: 38px;
-margin: 0;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 38px;
+  margin: 0;
 }
 
 .plan__content-buttons {
@@ -86,7 +86,7 @@ margin: 0;
   color: var(--Status-Red, #EC2E13);
 }
 
-.plan__status-type.grey {
-  background: var(--Status-Gray, #E7E8EA);
-  color: var(--Status-Grey, #6A6A74);
+.plan__status-type.yellow {
+  background: #FDE6C8;
+  color: #EA8314;
 }

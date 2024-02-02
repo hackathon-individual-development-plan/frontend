@@ -57,7 +57,7 @@ function EmployeePlan({ setSelectedEmployeeId }) {
     if (isEditMode) {
       return <PlanSelectStatusButton status={statusName} />;
     }
-    return <p className={`plan__status-type ${statusName === 'В работе' ? 'blue' : ''} ${statusName === 'Выполнен' ? 'green' : ''} ${statusName === 'Не выполнен' ? 'red' : ''} ${statusName === 'Отсутствует' ? 'grey' : ''} `}>
+    return <p className={`plan__status-type ${statusName === 'В работе' ? 'blue' : ''} ${statusName === 'Выполнен' ? 'green' : ''} ${statusName === 'Не выполнен' ? 'red' : ''} ${statusName === 'Отменен' ? 'yellow' : ''} `}>
       {statusName}
     </p>;
   };

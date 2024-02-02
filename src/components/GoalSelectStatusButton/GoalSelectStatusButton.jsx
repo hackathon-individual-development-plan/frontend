@@ -15,7 +15,7 @@ function GoalSelectStatusButton({ status, cardIndex }) {
   // };
 
   return (
-    <div>
+    <>
       <select
         className="dropdown-button-big"
         defaultValue={statusState}
@@ -38,7 +38,7 @@ function GoalSelectStatusButton({ status, cardIndex }) {
         <option value="Not done">Not done</option>
         <option value="Empty">Empty</option> */}
       </select>
-    </div>
+    </>
   );
 }
 
