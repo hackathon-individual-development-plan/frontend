@@ -65,9 +65,24 @@ const PlanProvider = ({ children }) => {
     setIsEditMode(!isEditMode);
   };
 
+  // const addNewGoal = () => {
+  //   const newGoal = {
+  //     id: 11000,
+  //     isNew: true,
+  //     title: '',
+  //     description: '',
+  //     tasks: [],
+  //     status: 'Отсутсвует',
+  //     created_at: Date.now(),
+  //     comments: [],
+  //   };
+  //   const updPlan = { ...plan };
+  //   updPlan.goals.push(newGoal);
+  //   setPlan(updPlan);
+  // };
   const addNewGoal = () => {
     const newGoal = {
-      id: 11000,
+      id: plan.goals.length > 0 ? plan.goals[plan.goals.length - 1].id + 1 : 1,
       isNew: true,
       title: '',
       description: '',
@@ -89,7 +104,7 @@ const PlanProvider = ({ children }) => {
   const deleteGoalByIndex = (cardIndex) => {
     setPlan((prevPlan) => {
       const updPlan = { ...prevPlan };
-      updPlan.goals.splice(cardIndex, 1);
+      updPlan.goals = updPlan.goals.filter((gl, i) => !goalsDeleteMode.includes(i));
       return updPlan;
     });
   };

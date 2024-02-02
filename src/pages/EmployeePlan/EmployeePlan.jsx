@@ -24,7 +24,7 @@ function EmployeePlan({ setSelectedEmployeeId }) {
   const { employeeId } = useParams();
   const {
     // eslint-disable-next-line no-unused-vars
-    initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode,
+    initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode, deleteGoalByIndex,
   } = usePlan();
 
   useEffect(() => {
@@ -83,6 +83,7 @@ function EmployeePlan({ setSelectedEmployeeId }) {
     data.goals = filteredArray;
 
     data.goals = data.goals.filter((gl, i) => !goalsDeleteMode.includes(i));
+    deleteGoalByIndex();
 
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < data.goals.length; i++) {

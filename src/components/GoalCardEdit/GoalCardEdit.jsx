@@ -63,9 +63,9 @@ function GoalCardEdit({ cardId, cardIndex }) {
   };
 
   return (
-    // <div className="card" key={`${cardId}_card`} >Nummer {cardId} fantas
-    <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
-      <div className="card__target" key={`${cardId}_cardtarget`}>
+     // <div className="card" key={`${cardId}_card`} >Nummer {cardId} fantas
+     <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
+     <div className="card__target" key={`${cardId}_cardtarget`}>
         <div className="card__target-header">
           <p className="card__field-name">Цель:</p>
           <button type="button" className="card__trash" onClick={onDeleteGoal} />
@@ -104,7 +104,7 @@ function GoalCardEdit({ cardId, cardIndex }) {
               message: 'Пожалуйста введите валидные значения',
             },
           })}
-        />Avada kedavra {`${cardId}_goals.title`}
+        />
         {errors?.goals?.[cardIndex]?.title && (
           <div className="message__error">{errors.goals[cardIndex].title.message}</div>
         )}
