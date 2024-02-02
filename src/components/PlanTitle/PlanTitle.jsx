@@ -7,7 +7,7 @@ import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 
 // eslint-disable-next-line no-unused-vars
 export default function PlanTitle() {
-  const { toggleEditMode, isEditMode, plan } = usePlan();
+  const { isEditMode, toggleEditMode, plan } = usePlan();
 
   function handlEditClick() {
     toggleEditMode();
