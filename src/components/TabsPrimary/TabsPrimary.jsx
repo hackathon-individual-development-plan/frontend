@@ -25,6 +25,7 @@ export default function TabsPrimary() {
   const handleChange = (event, { selectedId }) => {
     setSelectedId(selectedId);
     filterEmployees(selectedId);
+    console.log(filterEmployees);
     setSearchQuery('');
     setSelectedEmployee(null);
   };
