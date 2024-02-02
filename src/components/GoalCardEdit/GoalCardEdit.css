@@ -307,3 +307,8 @@
   border: none;
   cursor: pointer;
 }
+
+.card_deleted {
+  opacity: 0.3;
+  pointer-events: none;
+}

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 // import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import SearchInput from '../SearchInput/SearchInput.jsx';
+import '../SearchInput/SearchInput.css';
 import { getEmployeesWithoutIdp } from '../../utils/api';
 
 export default function SearchInputCreatePlan({ setSelectedEmployeeId }) {
   const [EmployeesWithoutIdp, setEmployeesWithoutIdp] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isActiveError, setActiveError] = useState(false);
   // const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
 
   useEffect(() => {
@@ -20,6 +22,12 @@ export default function SearchInputCreatePlan({ setSelectedEmployeeId }) {
 
   function onChange(evt) {
     setSearchQuery(evt.target.value);
+    console.log(setSearchQuery);
+    if (searchQuery.length === 0) {
+      setActiveError(false);
+    } else {
+      setActiveError(true);
+    }
   }
 
   function onSearch(searchTerm) {
@@ -40,6 +48,7 @@ export default function SearchInputCreatePlan({ setSelectedEmployeeId }) {
         onChange={onChange}
         array={EmployeesWithoutIdp}
         onSearch={onSearch}
+        isActiveError={isActiveError}
       />
     </>
   );

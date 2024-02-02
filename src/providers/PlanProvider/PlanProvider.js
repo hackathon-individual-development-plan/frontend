@@ -18,6 +18,15 @@ const PlanProvider = ({ children }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [goalsComponent, setGoalsComponent] = useState([]);
 
+  const [goalsDeleteMode, setGoalsDeleteMode] = useState([]);
+  const collectDeleteModeGoals = (cardIndex) => {
+    if (goalsDeleteMode.includes(cardIndex)) {
+      // setGoalsDeleteMode(goalsDeleteMode.filter((index) => index !== cardIndex));
+    } else {
+      setGoalsDeleteMode([...goalsDeleteMode, cardIndex]);
+    }
+  };
+
   // render curent plan
   const initialize = (employeeId) => {
     if (employeeId) {
@@ -57,9 +66,24 @@ const PlanProvider = ({ children }) => {
     setIsEditMode(!isEditMode);
   };
 
+  // const addNewGoal = () => {
+  //   const newGoal = {
+  //     id: 11000,
+  //     isNew: true,
+  //     title: '',
+  //     description: '',
+  //     tasks: [],
+  //     status: 'Отсутсвует',
+  //     created_at: Date.now(),
+  //     comments: [],
+  //   };
+  //   const updPlan = { ...plan };
+  //   updPlan.goals.push(newGoal);
+  //   setPlan(updPlan);
+  // };
   const addNewGoal = () => {
     const newGoal = {
-      id: 11000,
+      id: plan.goals.length > 0 ? plan.goals[plan.goals.length - 1].id + 1 : 1,
       isNew: true,
       title: '',
       description: '',
@@ -73,11 +97,24 @@ const PlanProvider = ({ children }) => {
     setPlan(updPlan);
   };
 
+  // const deleteGoalByIndex = (cardIndex) => {
+  //   const updPlan = { ...plan };
+  //   updPlan.goals.splice(cardIndex, 1);
+  //   setPlan(updPlan);
+  // };
   const deleteGoalByIndex = (cardIndex) => {
-    const updPlan = { ...plan };
-    updPlan.goals.splice(cardIndex, 1);
-    setPlan(updPlan);
+    setPlan((prevPlan) => {
+      const updPlan = { ...prevPlan };
+      updPlan.goals = updPlan.goals.filter((gl, i) => !goalsDeleteMode.includes(i));
+      return updPlan;
+    });
   };
+
+  // const deleteGoalByIndex = (cardIndex) => {
+  //   const updatedGoals = plan.goals.filter((goal, index) => index !== cardIndex);
+  //   const updatedPlan = { ...plan, goals: [...updatedGoals] };
+  //   setPlan(updatedPlan);
+  // };
 
   // const filterEmployees = (selectedId) => {
   //   if (selectedId === 'Все') {
@@ -103,10 +140,6 @@ const PlanProvider = ({ children }) => {
   //   setFilteredEmployeesList(filteredList);
   // };
 
-  const remove = () => {
-    // setTargetList();
-  };
-
   const value = {
     initialize,
     toggleEditMode,
@@ -114,13 +147,14 @@ const PlanProvider = ({ children }) => {
     deleteGoalByIndex,
     edit,
     createPlan,
-    remove,
     plan,
     setPlan,
     isEditMode,
     goalsComponent,
     setGoalsComponent,
     setIsEditMode,
+    collectDeleteModeGoals,
+    goalsDeleteMode,
   };
 
   return <PlanProviderContext.Provider value={value}>{children}</PlanProviderContext.Provider>;

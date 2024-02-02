@@ -83,12 +83,12 @@ function GoalCard({ cardIndex }) {
           <button type="button"
             onClick={() => setActiveTasks(!isActiveTasks)}
             className={
-              isActiveTasks ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
+              isActiveTasks ? 'card__list-button' : 'card__list-button card__list-button_active'}></button>
           <p className="card__subtitle">
             Задачи <span>{card?.tasks?.length}</span>
           </p>
         </div>
-        <div className={isActiveTasks ? 'card__list-tasks card__list-tasks_active' : 'card__list-tasks'}>
+        <div className={isActiveTasks ? 'card__list-tasks' : 'card__list-tasks card__list-tasks_active'}>
           <ol className="card__list-items">
             {card.tasks
               && card.tasks.map((item, index) => (
@@ -104,14 +104,14 @@ function GoalCard({ cardIndex }) {
           <button type="button"
             onClick={() => setActiveMessages(!isActiveMessages)}
             className={
-              isActiveMessages ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
+              isActiveMessages ? 'card__list-button' : 'card__list-button card__list-button_active'}></button>
           <p className="card__subtitle">
             Комментарии <span>{currentComments?.length}</span>
           </p>
         </div>
         <div
           className={
-            isActiveMessages ? 'card__list-messages card__list-messages_active' : 'card__list-messages'
+            isActiveMessages ? 'card__list-messages' : 'card__list-messages card__list-messages_active'
           }
         >
           <ul className="card__message-list">
