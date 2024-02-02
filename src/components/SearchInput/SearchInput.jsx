@@ -2,13 +2,14 @@ import React from 'react';
 import './SearchInput.css';
 
 export default function SearchInput({
-  searchQuery, onChange, array, onSearch,
+  searchQuery, onChange, array, onSearch, isActiveError,
 }) {
   return (
     <>
       <div className='search'>
         <div className='search__container'>
           <input className='search__input' type='text' placeholder='Поиск по сотруднику' value={searchQuery} onChange={onChange} />
+          <span className={isActiveError ? 'search__error search__error_active' : 'search__error'}>Никого не найдено</span>
         </div>
         <div className='search__dropdown'>
           {array.filter((item) => {
