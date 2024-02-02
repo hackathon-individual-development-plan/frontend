@@ -28,7 +28,7 @@ function PlanSelectStatusButton({ status }) {
   // }
 
   return status ? (
-    <div>
+    <>
       <select
         className="dropdown-button"
         defaultValue={statusState}
@@ -42,9 +42,8 @@ function PlanSelectStatusButton({ status }) {
         <option value={IPD_STATUS.DONE}>{IPD_STATUS.DONE}</option>
         <option value={IPD_STATUS.NOT_DONE}>{IPD_STATUS.NOT_DONE}</option>
         <option value={IPD_STATUS.CANCELED}>{IPD_STATUS.CANCELED}</option>
-        {/* <option value="IPD_STATUS.EMPTY">IPD_STATUS.EMPTY</option> */}
       </select>
-    </div>
+    </>
   ) : null;
 }
 

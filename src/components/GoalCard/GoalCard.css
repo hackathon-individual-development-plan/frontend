@@ -75,9 +75,9 @@
   color: var(--Status-Red, #EC2E13);
 }
 
-.card__status__type.grey {
-  background: var(--Status-Gray, #E7E8EA);
-  color: var(--Status-Grey, #6A6A74);
+.card__status__type.yellow {
+  background: #FDE6C8;
+  color: #EA8314;
 }
 
 .card__status {
