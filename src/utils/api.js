@@ -2,6 +2,8 @@
 import { BASE_URL } from './constants';
 
 export const TOKEN = localStorage.getItem('AlfaIprProjectToken');
+// eslint-disable-next-line linebreak-style, max-len
+// export const TOKEN = localStorage.getItem('AlfaIprProjectToken', 'Token 8e9361528a15b9a61dc4ee1dc40d41525080d9de');
 
 export function checkResponse(res) {
   if (res.ok) {

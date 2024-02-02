@@ -26,17 +26,12 @@ function Calendar() {
   ];
 
   const calendarStyles = {
-    border: '1px solid rgba(233, 233, 235, 1)',
     borderRadius: '8px',
     boxSizing: 'border-box',
-    boxShadow: `0px 20px 24px rgba(0, 0, 0, 0.08),
-                        0px 12px 16px rgba(0, 0, 0, 0.04),
-                        0px 4px 8px rgba(0, 0, 0, 0.04),
-                        0px 0px 1px rgba(0, 0, 0, 0.04)`,
   };
 
   return (
-    <div style={{ width: '320px', marginTop: 'var(--gap-2xl)', ...calendarStyles }}>
+    <div style={{ width: '262px', marginTop: 'var(--gap-2xl)', ...calendarStyles }}>
       <CalendarDesktop
         defaultMonth={defaultDate.getTime()}
         value={value}
