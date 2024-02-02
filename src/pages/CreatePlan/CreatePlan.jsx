@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './CreatePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
-// import SearchInputCreatePlan from
-// '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
 import EmployeePlan from '../EmployeePlan/EmployeePlan.jsx';
 
 function CreatePlan() {
@@ -12,11 +10,9 @@ function CreatePlan() {
   const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
 
   useEffect(() => {
-    console.log(selectedEmployeeId);
   }, [selectedEmployeeId]);
 
   const emolID = +selectedEmployeeId;
-  // const emolID = 7;
   useEffect(() => {
     const newPlan = {
       title: 'Введите название ИПР',
@@ -38,17 +34,9 @@ function CreatePlan() {
   }, [emolID]);
 
   return (
-<<<<<<< HEAD
-    <>
-      <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />
-      <EmployeePlan />
-    </>
-=======
   <>
-    {/* <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/> */}
     <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
   </>
->>>>>>> develop
   );
 }
 export default CreatePlan;
