@@ -28,11 +28,7 @@ function PlanSelectStatusButton({ status }) {
   // }
 
   return status ? (
-<<<<<<< HEAD
-    <div>
-=======
     <>
->>>>>>> develop
       <select
         className="dropdown-button"
         defaultValue={statusState}
@@ -42,21 +38,12 @@ function PlanSelectStatusButton({ status }) {
         }}
         {...register('status')}
       >
-<<<<<<< HEAD
-        <option value="In progress">In progress</option>
-        <option value="Work done">Work done</option>
-        <option value="Not done">Not done</option>
-        <option value="Empty">Empty</option>
-      </select>
-    </div>
-=======
         <option value={IPD_STATUS.IN_PROGRESS}>{IPD_STATUS.IN_PROGRESS}</option>
         <option value={IPD_STATUS.DONE}>{IPD_STATUS.DONE}</option>
         <option value={IPD_STATUS.NOT_DONE}>{IPD_STATUS.NOT_DONE}</option>
         <option value={IPD_STATUS.CANCELED}>{IPD_STATUS.CANCELED}</option>
       </select>
     </>
->>>>>>> develop
   ) : null;
 }
 

@@ -38,17 +38,10 @@ function CreatePlan() {
   }, [emolID]);
 
   return (
-<<<<<<< HEAD
     <>
-      <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId} />
-      <EmployeePlan />
+      {/* <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/> */}
+      <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId} />
     </>
-=======
-  <>
-    {/* <SearchInputCreatePlan setSelectedEmployeeId={setSelectedEmployeeId}/> */}
-    <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
-  </>
->>>>>>> develop
   );
 }
 export default CreatePlan;
