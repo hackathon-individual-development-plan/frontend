@@ -34,9 +34,9 @@ function CreatePlan() {
   }, [emolID]);
 
   return (
-  <>
-    <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId}/>
-  </>
+    <>
+      <EmployeePlan setSelectedEmployeeId={setSelectedEmployeeId} />
+    </>
   );
 }
 export default CreatePlan;
