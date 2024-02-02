@@ -283,6 +283,14 @@
   padding-bottom: 4px;
 }
 
+.card__message-date {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: #0E0E0E;
+  padding-left: 8px;
+}
+
 .card__message-edit-text {
   font-size: 16px;
   font-style: normal;

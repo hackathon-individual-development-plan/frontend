@@ -19,17 +19,25 @@ import PopupSave from '../../components/Popups/PopupSave.jsx';
 import PopupCancel from '../../components/Popups/PopupCancel.jsx';
 
 // function EmployeePlan({ employeeId }) {
-function EmployeePlan({ setSelectedEmployeeId }) {
+function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
   const { pathname } = useLocation();
   const { employeeId } = useParams();
   const {
     // eslint-disable-next-line no-unused-vars
-    initialize, isEditMode, plan, edit, toggleEditMode, createPlan,
+    initialize, isEditMode, plan, edit, toggleEditMode, createPlan, setPlan,
   } = usePlan();
 
   useEffect(() => {
-    initialize(employeeId);
+    if (employeeId) {
+      initialize(employeeId);
+    }
   }, [employeeId]);
+
+  useEffect(() => {
+    if (!employeeId && userIpdId) {
+      initialize(userIpdId);
+    }
+  }, [userIpdId]);
 
   // switch a goal card mode
   const renderCardOrEditForm = () => {

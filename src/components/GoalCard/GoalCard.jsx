@@ -117,9 +117,9 @@ function GoalCard({ cardIndex }) {
           <ul className="card__message-list">
             {currentComments?.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={currentUser.photo} />
+                <img className="card__message-photo" src={item.user?.photo ? item.user?.photo : currentUser.photo} alt='аватар'/>
                 <div className="card__message-info">
-                  <p className="card__message-name">{currentUser.fio}
+                  <p className="card__message-name">{item.user?.fio ? item.user?.fio : currentUser.fio}
                     <span className='card__message-date'>{item.created_at && new Date(item.created_at).toLocaleString('ru-RU', {
                       day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
                     })}</span></p>

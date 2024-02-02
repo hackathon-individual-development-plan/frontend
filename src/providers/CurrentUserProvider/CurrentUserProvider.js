@@ -9,13 +9,16 @@
 
 import { useState, useEffect } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
-import { getUserInfo } from '../../utils/api';
+import { getUserInfo, getIdpInfo } from '../../utils/api';
 
 const CurrentUserProvider = ({ children }) => {
   // const [userToken, setUserToken] = useState(localStorage.getItem(token));
   const [currentUser, setCurrentUser] = useState({});
   const [currentUserRole, setCurrentUserRole] = useState('');
   const [isSenior, setIsSenior] = useState(false);
+
+  const [isUserPlan, setIsUserPlan] = useState(false);
+  const [userIpdId, setUserIpdId] = useState('');
 
   const initialize = () => {
     getUserInfo(localStorage.getItem('AlfaIprProjectToken'))
@@ -33,6 +36,19 @@ const CurrentUserProvider = ({ children }) => {
     initialize();
   }, []);
 
+  const getUserPlan = () => {
+    getIdpInfo()
+      .then((data) => {
+        setIsUserPlan(data.length > 0);
+        if (data.length > 0) {
+          setUserIpdId(data[0]?.idp[0]?.id);
+        }
+      })
+      .catch((err) => {
+        console.error(`Произошла ошибка: ${err}`);
+      });
+  };
+
   // const getUserRole = (token) => { // убраить и заменить на currentUserRole
   //   setUserToken(localStorage.getItem(token));
   //   if (userToken === USER_ROLES[0].senior.token) {
@@ -48,6 +64,9 @@ const CurrentUserProvider = ({ children }) => {
     currentUser,
     currentUserRole,
     isSenior,
+    isUserPlan,
+    userIpdId,
+    getUserPlan,
   };
 
   return <CurrentUserProviderContext.Provider value={value}>{children}</CurrentUserProviderContext.Provider>;
