@@ -8,7 +8,6 @@ import './EmployeePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfirmation.jsx';
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
-// import SearchInput from '../../components/SearchInput/SearchInput.jsx';
 import PlanTitle from '../../components/PlanTitle/PlanTitle.jsx';
 import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
@@ -16,8 +15,8 @@ import PlanSelectStatusButton from '../../components/PlanSelectStatusButton/Plan
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
 import GoalCardEditList from '../../components/GoalCardEditList/GoalCardEditList.jsx';
 import SearchInputCreatePlan from '../../components/SearchInputCreatePlan/SearchInputCreatePlan.jsx';
-import Popup from '../../components/Popup/Popup.jsx';
-import PopupCancel from '../../components/PopupCancel/PopupCancel.jsx';
+import PopupSave from '../../components/Popups/PopupSave.jsx';
+import PopupCancel from '../../components/Popups/PopupCancel.jsx';
 
 // function EmployeePlan({ employeeId }) {
 function EmployeePlan({ setSelectedEmployeeId }) {
@@ -99,18 +98,15 @@ function EmployeePlan({ setSelectedEmployeeId }) {
     toggleEditMode();
   };
 
-  // popup
+  // POPUPS
   const [isPopupConfirm, setIsPopupConfirm] = useState(false);
   const [isPopupCancel, setIsPopupCancel] = useState(false);
-  // const onClickPopup = () => {
-  //   setIsPopupOpen(true);
-  // };
+  // open popup
   const onClickPopup = (popupType) => {
     if (popupType === 'popupCancellation') {
       setIsPopupCancel(true);
     } else setIsPopupConfirm(true);
   };
-
   // cancel and go to edit mode
   const handleCancel = (event) => {
     event.preventDefault();
@@ -167,8 +163,18 @@ function EmployeePlan({ setSelectedEmployeeId }) {
       <section className="content__right-part">
         <BriefInfoCard />
       </section>
-      <Popup isOpen={isPopupConfirm} onClick={popupSubmit} popupType="popupConfirmation" handleCancel={handleCancel} />
-      <PopupCancel isOpen={isPopupCancel} onClick={handleOriginal} popupType="popupCancellation" handleCancel={handleCancel} />
+      <PopupSave
+       isOpen={isPopupConfirm}
+       onClick={popupSubmit}
+       handleCancel={handleCancel}
+       question='Вы уверены, что хотите сохранить изменения?'
+       />
+      <PopupCancel
+       isOpen={isPopupCancel}
+       onClick={handleOriginal}
+       handleCancel={handleCancel}
+       question='Вы уверены, что хотите отменить изменения?'
+       />
     </div >
   );
 }
