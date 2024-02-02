@@ -1,12 +1,11 @@
 import React from 'react';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 
-function ButtonCancellation() {
-  const title = 'Отменить';
+function ButtonCancellation({ onClick, buttonText }) {
   return (
     <div style={{ minwidth: 128 }}>
-      <ButtonDesktop view="secondary" size="s" type='submit'>
-        {title}
+      <ButtonDesktop onClick={onClick} view="secondary" size="s" type='button'>
+        {buttonText}
       </ButtonDesktop>
     </div>
   );

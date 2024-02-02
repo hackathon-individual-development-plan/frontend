@@ -90,3 +90,7 @@
   background: #FDE6C8;
   color: #EA8314;
 }
+
+.plan__notvisible-input {
+  display: none;
+}
