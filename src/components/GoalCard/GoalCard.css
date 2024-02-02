@@ -225,6 +225,9 @@
 .card__message-photo {
   width: 40px;
   height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50px;
   margin-right: var(--gap-s);
 }
 
@@ -252,6 +255,14 @@
   margin: 0;
 }
 
+.card__message-date {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: #0E0E0E;
+  padding-left: 8px;
+}
+
 .card__textarea {
   margin: 0;
   margin-top: var(--gap-m);
@@ -268,7 +279,7 @@
   border: 1px solid var(--Gray-80, #D2D3D9);
   background: var(--White, #FFF);
   justify-self: start;
-  
+
 }
 
 .card__counter {
