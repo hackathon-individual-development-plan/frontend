@@ -61,7 +61,7 @@ function EmployeePlan({ employeeId }) {
   const onSubmit = (data) => {
     // eslint-disable-next-line no-unused-vars
 
-    const idsToKeep = new Set(plan.goals.map((item) => item.id.toString()));
+    const idsToKeep = new Set(plan.goals.map((item) => item.id?.toString()));
 
     // Filter the first array based on the presence of ids in the second array
     const filteredArray = data.goals.filter((item) => idsToKeep.has(item.id.toString()));

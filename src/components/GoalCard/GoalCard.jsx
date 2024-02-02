@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
-import './GoalCard.css';
 import { createComments } from '../../utils/api';
+import './GoalCard.css';
+import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 
 function GoalCard({ cardIndex }) {
   const {
     plan,
   } = usePlan();
+  const { currentUser } = useCurrentUser();
   const [count, setCount] = useState('');
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
@@ -17,73 +19,40 @@ function GoalCard({ cardIndex }) {
   // COMMENTS SECTION
   // state for current goal messages
   const [currentComments, setCurrentComments] = useState([]);
-  const [newCommentValue, setNewCommentValue] = useState('');
   console.log('currentComments', currentComments);
 
-  // в этом коде ошибка 404 goal_id = undefined
+  console.log(card);
+  // state for new comment value
+  const [newCommentValue, setNewCommentValue] = useState('');
+
   useEffect(() => {
     setCurrentComments(card?.comments);
-  }, [card, card?.comments]);
-  const onAddNewComment = (data, goal_id) => {
-    createComments(data, goal_id)
-      .then((comment) => {
-        const newComment = {
-          id: comment.id,
-          user: {
-            id: comment.user.id,
-            fio: comment.user.fio,
-            photo: comment.user.photo,
-          },
-          // eslint-disable-next-line camelcase
-          comment_text: newCommentValue,
-        };
-        setCurrentComments((prevComments) => [...prevComments, newComment]);
-      });
+  }, [card?.comments, newCommentValue]);
+
+  const onAddNewComment = () => {
+    // Проверка, чтобы избежать добавления пустого комментария
+    if (newCommentValue.trim() !== '') {
+      // Создание нового комментария
+      const newComment = {
+        // eslint-disable-next-line camelcase
+        comment_text: newCommentValue.trim(),
+      };
+      createComments(newComment, card.id)
+        .then((data) => {
+          // Обновление состояния с добавлением нового комментария
+          setCurrentComments((prevComments) => [...prevComments, data]);
+        })
+        .catch((err) => {
+          console.error(`Произошла ошибка: ${err}`);
+        });
+      // Очистка значения newCommentValue после добавления комментария
+      setNewCommentValue('');
+      setCount('');
+    }
+    newCommentRef.current.value = null;
   };
 
-  /* в этом коде ошибка 500 goal_id = id цели и выводится номером
-  useEffect(() => {
-    setCurrentComments(card?.comments);
-  }, [card, card?.comments]);
-  const goalID = card.id;
-  const onAddNewComment = (data) => {
-    createComments(data, goalID)
-      .then((comment) => {
-        const newComment = {
-          id: comment.id,
-          user: {
-            id: comment.user.id,
-            fio: comment.user.fio,
-            photo: comment.user.photo,
-          },
-          // eslint-disable-next-line camelcase
-          comment_text: newCommentValue,
-        };
-        setCurrentComments((prevComments) => [...prevComments, newComment]);
-      });
-  }; */
-
-  /* в этом коде комментарии добавляются, но по 2-3 штуки и выплывает ошибка 404
-const onAddNewComment = (data, goal_id) => {
-  currentComments.filter((comment) => {
-    const newComment = {
-      id: comment.id,
-      user: {
-        id: comment.user.id,
-        fio: comment.user.fio,
-        photo: comment.user.photo,
-      },
-      // eslint-disable-next-line camelcase
-      comment_text: newCommentValue,
-    };
-    createComments(data, goal_id)
-      .then(() => {
-        setNewCommentValue('');
-        setCurrentComments(data);
-      });
-    return setCurrentComments((prevComments) => [...prevComments, newComment]);
-  });
-}; */
+  console.log(currentUser);
 
   function handleTextChange(e) {
     setNewCommentValue(e.target.value);
@@ -101,7 +70,7 @@ const onAddNewComment = (data, goal_id) => {
       </div>
       <div className="card__status">
         <p className="card__subtitle">Статус:</p>
-        <p className={`card__status__type ${card.status === 'В работе' ? 'blue' : ''} ${card.status === 'Выполнен' ? 'green' : ''} ${card.status === 'Не выполнен' ? 'red' : ''} ${card.status === 'Отсутствует' ? 'grey' : ''} `}>{card.status}</p>
+        <p className={`card__status__type ${card.status === 'В работе' ? 'blue' : ''} ${card.status === 'Выполнен' ? 'green' : ''} ${card.status === 'Не выполнен' ? 'red' : ''} ${card.status === 'Отменен' ? 'yellow' : ''} `}>{card.status}</p>
       </div>
       <div className="card__description">
         <p className="card__subtitle">Описание:</p>
@@ -135,7 +104,7 @@ const onAddNewComment = (data, goal_id) => {
             className={
               isActiveMessages ? 'card__list-button card__list-button_active' : 'card__list-button'}></button>
           <p className="card__subtitle">
-            Комментарии <span>{card?.comments?.length}</span>
+            Комментарии <span>{currentComments?.length}</span>
           </p>
         </div>
         <div
@@ -144,11 +113,14 @@ const onAddNewComment = (data, goal_id) => {
           }
         >
           <ul className="card__message-list">
-            {currentComments.map((item, index) => (
+            {currentComments?.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.user.photo} />
+                <img className="card__message-photo" src={currentUser.photo} />
                 <div className="card__message-info">
-                  <p className="card__message-name">{item.user.fio}</p>
+                  <p className="card__message-name">{currentUser.fio}
+                    <span className='card__message-date'>{item.created_at && new Date(item.created_at).toLocaleString('ru-RU', {
+                      day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+                    })}</span></p>
                   <p className="card__message-text">{item.comment_text}</p>
                 </div>
               </li>
