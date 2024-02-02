@@ -149,9 +149,9 @@ function EmployeePlan({ setSelectedEmployeeId }) {
                 {isEditMode ? (
                   <>
                     <ButtonConfirmation isValid={formMethods.formState.isValid}
-                     type="button" onClick={onClickPopup} buttonText="Сохранить" />
+                      type="button" onClick={onClickPopup} buttonText="Сохранить" />
                     <ButtonCancellation type="popupCancellation" onClick={() => onClickPopup('popupCancellation')}
-                    buttonText="Отменить" />
+                      buttonText="Отменить" />
                     <input className='plan__notvisible-input' type='submit' ref={submitButtonRef} />
                   </>
                 ) : null}
@@ -162,21 +162,21 @@ function EmployeePlan({ setSelectedEmployeeId }) {
       </FormProvider >
 
       {pathname !== '/create-target'
-      && (<section className="content__right-part">
-        <BriefInfoCard />
-      </section>)}
+        && (<section className="content__right-part">
+          <BriefInfoCard />
+        </section>)}
       <PopupSave
-       isOpen={isPopupConfirm}
-       onClick={popupSubmit}
-       handleCancel={handleCancel}
-       question='Вы уверены, что хотите сохранить изменения?'
-       />
+        isOpen={isPopupConfirm}
+        onClick={popupSubmit}
+        handleCancel={handleCancel}
+        question='Вы уверены, что хотите сохранить изменения?'
+      />
       <PopupCancel
-       isOpen={isPopupCancel}
-       onClick={handleOriginal}
-       handleCancel={handleCancel}
-       question='Вы уверены, что хотите отменить изменения?'
-       />
+        isOpen={isPopupCancel}
+        onClick={handleOriginal}
+        handleCancel={handleCancel}
+        question='Вы уверены, что хотите отменить изменения?'
+      />
     </div >
   );
 }

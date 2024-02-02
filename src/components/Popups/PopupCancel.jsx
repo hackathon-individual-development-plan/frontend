@@ -14,9 +14,9 @@ function PopupCancel({
         <h2 className="popup__title">{question}</h2>
         <div className="popup__buttons">
           <ButtonConfirmation
-          onClick={onClick} buttonText='Да, отменить' isValid={true} />
+            onClick={onClick} buttonText='Да, отменить' isValid={true} />
           <ButtonCancellation isValid={true}
-          onClick={handleCancel} buttonText='Нет, продолжить' />
+            onClick={handleCancel} buttonText='Нет, продолжить' />
         </div>
       </div>
     </div>
