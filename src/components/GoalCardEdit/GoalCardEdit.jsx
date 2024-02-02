@@ -63,9 +63,9 @@ function GoalCardEdit({ cardId, cardIndex }) {
   };
 
   return (
-     // <div className="card" key={`${cardId}_card`} >Nummer {cardId} fantas
-     <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
-     <div className="card__target" key={`${cardId}_cardtarget`}>
+    // <div className="card" key={`${cardId}_card`} >Nummer {cardId} fantas
+    <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
+      <div className="card__target" key={`${cardId}_cardtarget`}>
         <div className="card__target-header">
           <p className="card__field-name">Цель:</p>
           <button type="button" className="card__trash" onClick={onDeleteGoal} />
@@ -154,14 +154,14 @@ function GoalCardEdit({ cardId, cardIndex }) {
             type="button"
             onClick={() => setActiveTasks(!isActiveTasks)}
             className={
-              isActiveTasks ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'
+              isActiveTasks ? 'card__list-edit-button' : 'card__list-edit-button card__list-edit-button_active'
             }
           ></button>
           <p className="card__list-edit-title">
             Задачи <span>{card?.tasks?.length}</span>
           </p>
         </div>
-        <div className={isActiveTasks ? 'card__list-edit-tasks card__list-edit-tasks_active' : 'card__list-edit-tasks'}>
+        <div className={isActiveTasks ? 'card__list-edit-tasks' : 'card__list-edit-tasks card__list-edit-tasks_active'}>
           <ol className="card__list-edit-items">
             {currentTasks?.map((item, index) => (
               <li className="card__list-edit-item" key={index}>

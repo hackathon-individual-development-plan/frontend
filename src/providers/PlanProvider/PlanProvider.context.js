@@ -16,5 +16,5 @@ export default createContext({
   targetList: [],
   isEditMode: false,
   goalsComponent: [],
-  collectDeleteModeGoals: () => {},
+  collectDeleteModeGoals: () => { },
 });
