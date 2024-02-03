@@ -3,7 +3,6 @@ import { useFormContext } from 'react-hook-form';
 import { IPD_STATUS } from '../../utils/constants';
 import './GoalSelectStatusButton.css';
 
-// eslint-disable-next-line no-unused-vars
 function GoalSelectStatusButton({ status, cardIndex }) {
   const [statusState, setStatusState] = useState(status);
   const { register } = useFormContext();

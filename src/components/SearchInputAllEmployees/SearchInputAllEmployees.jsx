@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useEffect } from 'react';
 import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import SearchInput from '../SearchInput/SearchInput.jsx';

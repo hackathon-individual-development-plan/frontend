@@ -6,7 +6,6 @@ import '../MessageError/MessageError.css';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 
-// eslint-disable-next-line no-unused-vars
 export default function PlanTitle() {
   const { isEditMode, toggleEditMode, plan } = usePlan();
   const { isSenior } = useCurrentUser();

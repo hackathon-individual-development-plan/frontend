@@ -1,5 +1,4 @@
 import React from 'react';
-import './MatrixCompetency.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import PageTitle from '../../components/PageTitle/PageTitle.jsx';
 import Menu from '../../components/Menu/Menu.jsx';

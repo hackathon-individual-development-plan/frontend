@@ -1,9 +1,7 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import './EmployeesCard.css';
 import { Link } from 'react-router-dom';
 import { IPD_STATUS } from '../../utils/constants';
-// import { useNavigate } from 'react-router-dom';
 
 export default function EmployeesCard({ employee }) {
   function onClick(evt) {

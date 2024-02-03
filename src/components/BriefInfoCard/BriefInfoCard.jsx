@@ -3,7 +3,6 @@ import { useLocation, useParams } from 'react-router-dom';
 import ProgressBarCard from '../ProgressBarCard/ProgressBarCard.jsx';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
-// import photo from '../../images/avatar-1.jpg';
 import './BriefInfoCard.css';
 
 export default function BriefInfoCard() {
