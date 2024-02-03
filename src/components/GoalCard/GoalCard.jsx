@@ -36,7 +36,6 @@ function GoalCard({ cardIndex }) {
         comment_text: newCommentValue.trim(),
       };
 
-      // setCurrentComments((prevComments) => [...prevComments, newComment]);
       createComments(newComment, card.id)
         .then((data) => {
           // Обновление состояния с добавлением нового комментария
@@ -61,8 +60,6 @@ function GoalCard({ cardIndex }) {
       <p className="card__title">Цель: {card.title}</p>
       <div className="card__deadline">
         <p className="card__subtitle">Дедлайн:</p>
-        {/* <p className="card__deadline__date">
-        {(new Date(card.deadline)).toLocaleDateString()}</p> */}
         <p className="card__deadline__date">{(new Date(card.deadline)).toLocaleDateString('en-GB', { year: 'numeric', month: 'numeric', day: 'numeric' }).split('/').join('/')}</p>
 
       </div>

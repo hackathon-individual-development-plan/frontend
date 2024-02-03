@@ -15,25 +15,19 @@ function GoalCardEdit({ cardId, cardIndex }) {
   } = useFormContext();
 
   // PLAN PROVIDER
-  const { deleteGoalByIndex, plan, collectDeleteModeGoals } = usePlan();
+  const { plan, collectDeleteModeGoals } = usePlan();
   const card = plan.goals[cardIndex];
 
   // Добавлено новое состояние isDeleted
   const [isDeleted, setIsDeleted] = useState(false);
   // delete goal
   const onDeleteGoal = () => {
-    // Вместо удаления, устанавливаем флаг isDeleted в true
     setIsDeleted(true);
     collectDeleteModeGoals(cardIndex);
   };
 
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
-
-  // delete goal
-  // const onDeleteGoal = () => {
-  //   deleteGoalByIndex(cardIndex);
-  // };
 
   // TASKS SECTION
   // state for current goal tasks
@@ -63,7 +57,6 @@ function GoalCardEdit({ cardId, cardIndex }) {
   };
 
   return (
-    // <div className="card" key={`${cardId}_card`} >Nummer {cardId} fantas
     <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
       <div className="card__target" key={`${cardId}_cardtarget`}>
         <div className="card__target-header">
@@ -113,14 +106,12 @@ function GoalCardEdit({ cardId, cardIndex }) {
         <p className="card__field-name">Дедлайн:</p>
         <p className="card__field-name">Статус:</p>
         <DateInput deadlineData={card?.deadline} cardIndex={cardIndex} />
-        {/* <PickerStatusButton /> */}
         <GoalSelectStatusButton status={card?.status} cardIndex={cardIndex} />
       </section>
       <section className="card__discription">
         <p className="card__field-name">Описание:</p>
         <textarea
           type="text"
-          // cols='10'
           rows='15'
           className="card__discription-input"
           defaultValue={card?.description}
@@ -184,43 +175,6 @@ function GoalCardEdit({ cardId, cardIndex }) {
           </div>
         </div>
       </section>
-      {/* {!card || !card?.comments ? (
-        <></>
-      ) : (
-        <section className="card__list-edit card__list-edit-padding-none">
-          <div className="card__list-edit-header">
-            <button
-              type="button"
-              onClick={() => setActiveMessages(!isActiveMessages)}
-              className={
-                isActiveMessages ? 'card__list-edit-button card__list-edit-button_active' : 'card__list-edit-button'
-              }
-            ></button>
-            <p className="card__list-edit-title">
-              Комментарии <span>{card?.comments?.length}</span>
-            </p>
-          </div>
-          <div
-            className={
-              isActiveMessages ? 'card__list-edit-messages card__list-edit-messages_active' : 'card__list-edit-messages'
-            }
-          >
-            <ul className="card__message-edit-list">
-              {card?.comments
-                && card?.comments.map((item, index) => (
-                  <li className="card__message-edit-item" key={index}>
-                    <img className="card__message-edit-photo" src={item.photo} />
-                    <div className="card__message-edit-info">
-                      <p className="card__message-edit-name">{item.fio}</p>
-                      <p className="card__message-edit-text">{item.message}</p>
-                    </div>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        </section>
-      )} */}
-
       {!card || !card?.comments ? (
         <></>
       ) : (
@@ -259,7 +213,6 @@ function GoalCardEdit({ cardId, cardIndex }) {
           </div>
         </section>
       )}
-
     </div>
   );
 }

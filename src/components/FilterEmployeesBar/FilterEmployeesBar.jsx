@@ -17,22 +17,6 @@ export default function FilterEmployeesBar() {
       <div className='filter-bar__container'>
         <h3 className='filter-bar__title'>Статус</h3>
         <TabsPrimary />
-        {/* <li className='filter-bar__element'>
-                        <button className='filter-bar__button'>Все</button>
-                    </li>
-                    <li className='filter-bar__element'>
-                        <button className='filter-bar__button'>В работе</button>
-                    </li>
-                    <li className='filter-bar__element'>
-                        <button className='filter-bar__button'>Выполнен</button>
-                    </li>
-                    <li className='filter-bar__element'>
-                        <button className='filter-bar__button'>Не выполнен</button>
-                    </li>
-                    <li className='filter-bar__element'>
-                        <button className='filter-bar__button'>Отсутствует</button>
-                    </li>
-                </ul> */}
       </div>
     </section>
   );

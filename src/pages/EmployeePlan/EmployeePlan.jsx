@@ -27,7 +27,6 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
   const { employeeId } = useParams();
   const { isSenior } = useCurrentUser();
   const {
-    // eslint-disable-next-line no-unused-vars
     initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode, deleteGoalByIndex,
   } = usePlan();
 

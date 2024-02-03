@@ -27,7 +27,6 @@ export default function PlanTitle() {
     }
     return (
       <div>
-        {/* <input type="hidden" value={plan?.employee} {...register('employee')} /> */}
         <input
           type="text"
           className="headline-plan__title-edit"
