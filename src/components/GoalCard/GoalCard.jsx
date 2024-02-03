@@ -19,9 +19,7 @@ function GoalCard({ cardIndex }) {
   // COMMENTS SECTION
   // state for current goal messages
   const [currentComments, setCurrentComments] = useState([]);
-  console.log('currentComments', currentComments);
 
-  console.log(card);
   // state for new comment value
   const [newCommentValue, setNewCommentValue] = useState('');
 
@@ -38,7 +36,6 @@ function GoalCard({ cardIndex }) {
         comment_text: newCommentValue.trim(),
       };
 
-      // setCurrentComments((prevComments) => [...prevComments, newComment]);
       createComments(newComment, card.id)
         .then((data) => {
           // Обновление состояния с добавлением нового комментария
@@ -54,8 +51,6 @@ function GoalCard({ cardIndex }) {
     newCommentRef.current.value = null;
   };
 
-  console.log(currentUser);
-
   function handleTextChange(e) {
     setNewCommentValue(e.target.value);
     setCount(e.target.value);
@@ -65,8 +60,6 @@ function GoalCard({ cardIndex }) {
       <p className="card__title">Цель: {card.title}</p>
       <div className="card__deadline">
         <p className="card__subtitle">Дедлайн:</p>
-        {/* <p className="card__deadline__date">
-        {(new Date(card.deadline)).toLocaleDateString()}</p> */}
         <p className="card__deadline__date">{(new Date(card.deadline)).toLocaleDateString('en-GB', { year: 'numeric', month: 'numeric', day: 'numeric' }).split('/').join('/')}</p>
 
       </div>

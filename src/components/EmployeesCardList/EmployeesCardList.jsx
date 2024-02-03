@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import useEmployees from '../../providers/EmployeesProvider/EmployeesProvider.hook';
 import EmployeesCard from '../EmployeesCard/EmployeesCard.jsx';
-// import { getEmployees } from '../../utils/api';
 import './EmployeesCardList.css';
 
 export default function EmployeesCardList({ onCardClick }) {

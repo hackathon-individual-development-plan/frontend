@@ -8,7 +8,6 @@ export function checkResponse(res) {
     return res.json();
   }
   const error = new Error(`Request failed with status: ${res.status}`);
-  // return Promise.reject(`${res.status}`);
   return Promise.reject(error);
 }
 

@@ -1,12 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-// Здесь создается компонент TargetProvider, который использует useState
-// для хранения состояния targetList. Функции initialize, edit, add,
-// и remove используют setTargetList для обновления состояния. Затем
-// создается объект value, который содержит эти функции и targetList.
-// Этот объект передается в провайдер контекста, который обертывает
-// дочерние компоненты и предоставляет им доступ к значениям контекста.
-
 import { useState, useEffect } from 'react';
 import EmployeesProviderContext from './EmployeesProvider.context';
 import useCurrentUser from '../CurrentUserProvider/CurrentUserProvider.hook';
@@ -25,7 +18,6 @@ const EmployeesProvider = ({ children }) => {
     if (isSenior) {
       getEmployees()
         .then((data) => {
-          console.log(data);
           const employeesWithStatus = data.map((employee) => {
             if (employee.idp.length === 0) {
               employee.idp.push({ status: IPD_STATUS.EMPTY }); // Добавляем статус "Отсутствует" для пустого массива idp

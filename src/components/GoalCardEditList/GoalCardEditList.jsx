@@ -19,7 +19,6 @@ export default function GoalCardEditList() {
           <GoalCardEdit
             key={item.id}
             cardId={item.id}
-            // card={item}
             cardIndex={index}
           />
         ))}

@@ -23,7 +23,6 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
   const { pathname } = useLocation();
   const { employeeId } = useParams();
   const {
-    // eslint-disable-next-line no-unused-vars
     initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode, deleteGoalByIndex,
   } = usePlan();
 

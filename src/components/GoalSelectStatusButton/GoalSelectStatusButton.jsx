@@ -8,12 +8,6 @@ function GoalSelectStatusButton({ status, cardIndex }) {
   const [statusState, setStatusState] = useState(status);
   const { register } = useFormContext();
 
-  // const statusIpd = {
-  //   inProgress: IPD_STATUS.IN_PROGRESS,
-  //   done: IPD_STATUS.DONE,
-  //   notDone: IPD_STATUS.NOT_DONE,
-  // };
-
   return (
     <>
       <select
@@ -29,99 +23,9 @@ function GoalSelectStatusButton({ status, cardIndex }) {
         <option value={IPD_STATUS.DONE}>{IPD_STATUS.DONE}</option>
         <option value={IPD_STATUS.NOT_DONE}>{IPD_STATUS.NOT_DONE}</option>
         <option value={IPD_STATUS.CANCELED}>{IPD_STATUS.CANCELED}</option>
-        {/* <option value="В работе">В работе</option>
-        <option value="Выполнен">Выполнен</option>
-        <option value="Не выполнен">Не выполнен</option>
-        <option value="Отсутсвует">Отсутсвует</option> */}
-        {/* <option value="In progress">In progress</option>
-        <option value="Work done">Work done</option>
-        <option value="Not done">Not done</option>
-        <option value="Empty">Empty</option> */}
       </select>
     </>
   );
 }
-
-// eslint-disable-next-line no-unused-vars
-// function DropdownButton({ cardIndex, status }) {
-//   const options = {
-//     'In progress': 'В работе',
-//     'Work done': 'Выполнен',
-//     'Not done': 'Не выполнен',
-//     Empty: 'Отсутствует',
-//   };
-//   const [isOpen, setIsOpen] = useState(false);
-//   const [valueLabelStatus, setValueLabelStatus] = useState('Отсутствует');
-//   const [valueCodeStatus, setValueCodeStatus] = useState('Empty');
-//   // const { register } = useFormContext();
-//   useEffect(() => {
-//     setValueCodeStatus(status);
-//     setValueLabelStatus(options[status]);
-//   }, [status]);
-//   // const options = [
-//   //   { key: 'In progress', label: 'В работе' },
-//   //   { key: 'Work done', label: 'Выполнен' },
-//   //   { key: 'Not done', label: 'Не выполнен' },
-//   //   { key: 'Empty', label: 'Отсутствует' },
-//   // ];
-
-//   function onClick() {
-//     setIsOpen(!isOpen);
-//   }
-
-//   // function onChange(evt) {
-//   //   setValueCodeStatus(evt.target.value);
-//   // }
-
-//   // eslint-disable-next-line no-unused-vars
-//   function onClickItem(code, label) {
-//     setValueCodeStatus(code);
-//     setValueLabelStatus(label);
-//     setIsOpen(false);
-//   }
-
-//   return (
-//     <div className="dropdown-button-container">
-//       <input
-//       type='hidden'
-//       // defaultValue={valueCodeStatus}
-//       value={valueCodeStatus}
-//       // {...register(`goals.${cardIndex}.status2`)}
-//       />
-//       <input
-//       placeholder="–"
-//         // value={valueStatus}
-//         onClick={onClick}
-//         // onChange={valueLabelStatus}
-//         // defaultValue={valueLabelStatus}
-//       value={valueLabelStatus}
-//       className={'dropdown-button'}
-//         // {...register(`goals.${cardIndex}.status`, {
-//         //   required: {
-//         //     value: false,
-//         //   },
-//         // })}
-//       />
-//       <ul className={`dropdown-button__list ${isOpen ? 'active' : ''}`}>
-//         <li className="dropdown-button__item dropdown-button__item_blue"
-// onClick={() => onClickItem('In progress', options['In progress'])}>
-//           {options['In progress']}
-//         </li>
-//         <li className="dropdown-button__item dropdown-button__item_green"
-// onClick={() => onClickItem('Work done', options['Work done'])}>
-//           {options['Work done']}
-//         </li>
-//         <li className="dropdown-button__item dropdown-button__item_red"
-// onClick={() => onClickItem('Not done', options['Not done'])}>
-//           {options['Not done']}
-//         </li>
-//         <li className="dropdown-button__item dropdown-button__item_grey"
-// onClick={() => onClickItem('Empty', options.Empty)}>
-//           {options.Empty}
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// }
 
 export default GoalSelectStatusButton;

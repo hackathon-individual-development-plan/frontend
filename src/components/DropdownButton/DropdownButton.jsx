@@ -1,45 +1,4 @@
-// import React from 'react';
-// import { Select, useSelectWithApply } from '@alfalab/core-components/select';
-// import { useFormContext } from 'react-hook-form';
-
-// function PickerStatusButton() {
-//   const [valueStatus, setValueStatus] = useState('');
-//   const { register } = useFormContext();
-//   const [serialized, setSerialized] = React.useState();
-//   const [selected, setSelected] = React.useState([]);
-//   const handleChange = (ddlContext) => {
-//     setSelected(ddlContext.selected.key);
-//   };
-//   const OPTIONS = [
-//     { key: '1', content: '-' },
-//     { key: '2', content: 'В работе' },
-//     { key: '3', content: 'Выполнен' },
-//     { key: '4', content: 'Не выполнен' },
-//     { key: '5', content: 'Отсутствует' },
-//   ];
-
-//   return (
-//     <div style={{ width: 194 }}>
-//       <Select
-//       allowUnselect={false}
-//       block={true}
-//       size="s"
-//       selected={selected}
-//       {...useSelectWithApply({
-//         OPTIONS,
-//         selected,
-//         onChange: handleChange,
-//       })}/>
-//     </div>
-//   );
-// }
-
-// export default PickerStatusButton;
-
-// PickerStatusButton.js
-
 import React, { useState, useEffect } from 'react';
-// import { useFormContext } from 'react-hook-form';
 // eslint-disable-next-line import/no-unresolved
 import './DropdownButton.css';
 
@@ -54,25 +13,15 @@ function DropdownButton({ cardIndex, status }) {
   const [isOpen, setIsOpen] = useState(false);
   const [valueLabelStatus, setValueLabelStatus] = useState('Отсутствует');
   const [valueCodeStatus, setValueCodeStatus] = useState('Empty');
-  // const { register } = useFormContext();
+
   useEffect(() => {
     setValueCodeStatus(status);
     setValueLabelStatus(options[status]);
   }, [status]);
-  // const options = [
-  //   { key: 'In progress', label: 'В работе' },
-  //   { key: 'Work done', label: 'Выполнен' },
-  //   { key: 'Not done', label: 'Не выполнен' },
-  //   { key: 'Empty', label: 'Отсутствует' },
-  // ];
 
   function onClick() {
     setIsOpen(!isOpen);
   }
-
-  // function onChange(evt) {
-  //   setValueCodeStatus(evt.target.value);
-  // }
 
   // eslint-disable-next-line no-unused-vars
   function onClickItem(code, label) {
@@ -85,23 +34,13 @@ function DropdownButton({ cardIndex, status }) {
     <div className="dropdown-button-container">
       <input
         type='hidden'
-        // defaultValue={valueCodeStatus}
         value={valueCodeStatus}
-      // {...register(`goals.${cardIndex}.status2`)}
       />
       <input
         placeholder="–"
-        // value={valueStatus}
         onClick={onClick}
-        // onChange={valueLabelStatus}
-        // defaultValue={valueLabelStatus}
         value={valueLabelStatus}
         className={'dropdown-button'}
-      // {...register(`goals.${cardIndex}.status`, {
-      //   required: {
-      //     value: false,
-      //   },
-      // })}
       />
       <ul className={`dropdown-button__list ${isOpen ? 'active' : ''}`}>
         <li className="dropdown-button__item dropdown-button__item_blue"
