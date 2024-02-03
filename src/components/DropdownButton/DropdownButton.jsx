@@ -1,8 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-// eslint-disable-next-line import/no-unresolved
-import './DropdownButton.css';
 
-// eslint-disable-next-line no-unused-vars
 function DropdownButton({ cardIndex, status }) {
   const options = {
     'In progress': 'В работе',
@@ -23,7 +21,6 @@ function DropdownButton({ cardIndex, status }) {
     setIsOpen(!isOpen);
   }
 
-  // eslint-disable-next-line no-unused-vars
   function onClickItem(code, label) {
     setValueCodeStatus(code);
     setValueLabelStatus(label);

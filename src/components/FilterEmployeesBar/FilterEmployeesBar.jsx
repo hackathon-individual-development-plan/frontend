@@ -6,8 +6,9 @@ import { IPD_STATUS } from '../../utils/constants';
 
 export default function FilterEmployeesBar() {
   const { employeesList } = useEmployees();
-  // eslint-disable-next-line max-len
-  const filteredList = employeesList.filter((employee) => employee.idp[0].status === IPD_STATUS.IN_PROGRESS);
+  const filteredList = employeesList.filter(
+    (employee) => employee.idp[0].status === IPD_STATUS.IN_PROGRESS,
+  );
   return (
     <section className='filter-bar'>
       <div className='filter-bar__container'>

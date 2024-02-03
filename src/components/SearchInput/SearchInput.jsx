@@ -15,7 +15,6 @@ export default function SearchInput({
           {array.filter((item) => {
             const searchTermInput = searchQuery.toLowerCase();
             const name = item.employee.fio.toLowerCase();
-            // eslint-disable-next-line max-len
             return searchTermInput && name.startsWith(searchTermInput) && name !== searchTermInput;
           })
             .slice(0, 10)

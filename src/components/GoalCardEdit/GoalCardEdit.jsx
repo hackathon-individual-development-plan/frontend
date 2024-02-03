@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useRef } from 'react';
 import './GoalCardEdit.css';

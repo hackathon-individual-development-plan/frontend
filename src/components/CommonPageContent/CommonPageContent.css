@@ -1,6 +1,5 @@
 .content {
   display: flex;
-  /* justify-content: space-between; */
   justify-content: flex-start;
 }
 
@@ -10,7 +9,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 38px;
-  /* margin-bottom: var(--gap-3xl); */
   border: none;
 }
 

@@ -30,10 +30,6 @@
     line-height: 20px;
 }
 
-/* .menu__link:hover {
-    opacity: .7;
-} */
-
 .menu__link_is_active {
     border-radius: 16px;
     background: var(--Gray-30, #E7E8EA);

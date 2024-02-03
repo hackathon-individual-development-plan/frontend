@@ -18,13 +18,16 @@ const PlanProvider = ({ children }) => {
     }
   };
 
-  // render curent plan
+  // render current plan
   const initialize = (employeeId) => {
     if (employeeId) {
       api
         .getEmployeeIdp(employeeId)
         .then((currentPlan) => {
           setPlan(currentPlan);
+        })
+        .catch((err) => {
+          console.error(`Произошла ошибка: ${err}`);
         });
     } else {
       setPlan({
@@ -41,6 +44,9 @@ const PlanProvider = ({ children }) => {
       .editEmployeeIdp(data, id)
       .then((currentPlan) => {
         setPlan(currentPlan);
+      })
+      .catch((err) => {
+        console.error(`Произошла ошибка: ${err}`);
       });
   };
 
@@ -49,6 +55,9 @@ const PlanProvider = ({ children }) => {
       .createEmployeeIpd(data)
       .then((currentPlan) => {
         setPlan(currentPlan);
+      })
+      .catch((err) => {
+        console.error(`Произошла ошибка: ${err}`);
       });
   };
 

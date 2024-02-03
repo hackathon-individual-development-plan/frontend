@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import EmployeesProviderContext from './EmployeesProvider.context';
 import useCurrentUser from '../CurrentUserProvider/CurrentUserProvider.hook';
@@ -20,7 +18,8 @@ const EmployeesProvider = ({ children }) => {
         .then((data) => {
           const employeesWithStatus = data.map((employee) => {
             if (employee.idp.length === 0) {
-              employee.idp.push({ status: IPD_STATUS.EMPTY }); // Добавляем статус "Отсутствует" для пустого массива idp
+              // Добавляем статус "Отсутствует" для пустого массива idp
+              employee.idp.push({ status: IPD_STATUS.EMPTY });
             }
             return employee;
           });
@@ -59,7 +58,8 @@ const EmployeesProvider = ({ children }) => {
     selectedEmployee,
   };
 
-  return <EmployeesProviderContext.Provider value={value}>{children}</EmployeesProviderContext.Provider>;
+  return <EmployeesProviderContext.Provider value={value}>
+    {children}</EmployeesProviderContext.Provider>;
 };
 
 export default EmployeesProvider;

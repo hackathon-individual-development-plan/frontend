@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 import { useState, useEffect } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
 import { getUserInfo, getIdpInfo } from '../../utils/api';
@@ -50,7 +48,8 @@ const CurrentUserProvider = ({ children }) => {
     getUserPlan,
   };
 
-  return <CurrentUserProviderContext.Provider value={value}>{children}</CurrentUserProviderContext.Provider>;
+  return <CurrentUserProviderContext.Provider value={value}>
+    {children}</CurrentUserProviderContext.Provider>;
 };
 
 export default CurrentUserProvider;

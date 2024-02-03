@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import './Breadcrumbs.css';

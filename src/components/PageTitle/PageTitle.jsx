@@ -24,7 +24,6 @@ export default function PageTitle({ content }) {
       title = content;
       break;
     default:
-      // eslint-disable-next-line no-unused-vars
       title = '';
       break;
   }

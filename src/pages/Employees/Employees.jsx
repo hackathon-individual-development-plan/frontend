@@ -1,5 +1,4 @@
 import React from 'react';
-import './Employees.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
 import SearchInputAllEmployees from '../../components/SearchInputAllEmployees/SearchInputAllEmployees.jsx';
 import EmployeesCardList from '../../components/EmployeesCardList/EmployeesCardList.jsx';
