@@ -4,16 +4,28 @@ import SearchInput from '../SearchInput/SearchInput.jsx';
 
 export default function SearchInputAllEmployees() {
   const {
-    searchQuery, setSearchQuery, setSelectedEmployee, filteredEmployeesList,
+    searchQuery,
+    setSearchQuery,
+    setSelectedEmployee,
+    filteredEmployeesList,
+    employeesList,
+    setFilteredEmployeesList,
   } = useEmployees();
-
-  function onChange(evt) {
-    setSearchQuery(evt.target.value);
-  }
 
   function onSearch(searchTerm) {
     setSelectedEmployee(searchTerm);
     setSearchQuery(searchTerm);
+    if (searchTerm === '') {
+      const allEmployees = employeesList;
+      setFilteredEmployeesList(allEmployees);
+    }
+  }
+
+  function onChange(evt) {
+    setSearchQuery(evt.target.value);
+    if (evt.target.value === '') {
+      onSearch('');
+    }
   }
 
   useEffect(() => {
