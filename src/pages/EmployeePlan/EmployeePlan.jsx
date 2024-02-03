@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { FormProvider, useForm } from 'react-hook-form';
+import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import usePlan from '../../providers/PlanProvider/PlanProvider.hook';
 import './EmployeePlan.css';
 import '../../components/CommonPageContent/CommonPageContent.css';
@@ -10,6 +11,7 @@ import ButtonConfirmation from '../../components/ButtonConfirmation/ButtonConfir
 import ButtonCancellation from '../../components/ButtonCancellation/ButtonCancellation.jsx';
 import PlanTitle from '../../components/PlanTitle/PlanTitle.jsx';
 import BriefInfoCard from '../../components/BriefInfoCard/BriefInfoCard.jsx';
+import Calendar from '../../components/Calendar/Calendar.jsx';
 import Menu from '../../components/Menu/Menu.jsx';
 import PlanSelectStatusButton from '../../components/PlanSelectStatusButton/PlanSelectStatusButton.jsx';
 import GoalCardList from '../../components/GoalCardList/GoalCardList.jsx';
@@ -21,7 +23,9 @@ import PopupCancel from '../../components/Popups/PopupCancel.jsx';
 // function EmployeePlan({ employeeId }) {
 function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const { employeeId } = useParams();
+  const { isSenior } = useCurrentUser();
   const {
     // eslint-disable-next-line no-unused-vars
     initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode, deleteGoalByIndex,
@@ -31,7 +35,7 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
     if (employeeId) {
       initialize(employeeId);
     }
-  }, [employeeId]);
+  }, [employeeId, isEditMode]);
 
   useEffect(() => {
     if (!employeeId && userIpdId) {
@@ -132,6 +136,9 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
     toggleEditMode();
     setIsPopupConfirm(false);
     setIsPopupCancel(false);
+    if (pathname === '/create-target') {
+      navigate('/employees', { replace: true });
+    }
   };
   // change and submit a plan
   const submitButtonRef = useRef(null);
@@ -176,7 +183,12 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
       {pathname !== '/create-target'
         && (<section className="content__right-part">
           <BriefInfoCard />
+          {pathname === '/my-idp' && !isSenior
+            && (
+              <Calendar />
+            )}
         </section>)}
+
       <PopupSave
         isOpen={isPopupConfirm}
         onClick={popupSubmit}

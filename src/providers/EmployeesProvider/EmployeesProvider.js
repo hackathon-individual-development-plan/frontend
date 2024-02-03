@@ -25,7 +25,6 @@ const EmployeesProvider = ({ children }) => {
     if (isSenior) {
       getEmployees()
         .then((data) => {
-          console.log(data);
           const employeesWithStatus = data.map((employee) => {
             if (employee.idp.length === 0) {
               employee.idp.push({ status: IPD_STATUS.EMPTY }); // Добавляем статус "Отсутствует" для пустого массива idp
@@ -35,7 +34,6 @@ const EmployeesProvider = ({ children }) => {
 
           setEmployeesList(employeesWithStatus);
           setFilteredEmployeesList(employeesWithStatus);
-          console.log(employeesWithStatus);
         })
         .catch((err) => {
           console.error(`Произошла ошибка: ${err}`);

@@ -21,7 +21,7 @@ function Menu() {
             {isSenior
               ? <>
                 <li className='menu__element'>
-                  <NavLink to='/employees' className={({ isActive }) => `menu__link ${isActive || pathname === '/employee-plan' || pathname === 'create-target' ? 'menu__link_is_active' : ''}`}>
+                  <NavLink to='/employees' className={({ isActive }) => `menu__link ${isActive || pathname.startsWith('/employee-plan') ? 'menu__link_is_active' : ''}`}>
                     <img src='/images/multiple-users.svg' className='menu__img' alt='Сотрудники' />Сотрудники
                   </NavLink>
                 </li>

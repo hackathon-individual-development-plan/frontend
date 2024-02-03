@@ -34,7 +34,6 @@ const PlanProvider = ({ children }) => {
         .getEmployeeIdp(employeeId)
         .then((currentPlan) => {
           setPlan(currentPlan);
-          console.log(currentPlan);
         });
     } else {
       setPlan({
