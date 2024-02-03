@@ -19,9 +19,7 @@ function GoalCard({ cardIndex }) {
   // COMMENTS SECTION
   // state for current goal messages
   const [currentComments, setCurrentComments] = useState([]);
-  console.log('currentComments', currentComments);
 
-  console.log(card);
   // state for new comment value
   const [newCommentValue, setNewCommentValue] = useState('');
 
@@ -53,8 +51,6 @@ function GoalCard({ cardIndex }) {
     }
     newCommentRef.current.value = null;
   };
-
-  console.log(currentUser);
 
   function handleTextChange(e) {
     setNewCommentValue(e.target.value);

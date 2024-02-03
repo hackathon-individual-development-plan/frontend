@@ -1,10 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './PageTitle.css';
-import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 
 export default function PageTitle({ content }) {
-  const { isSenior } = useCurrentUser();
   const { pathname } = useLocation();
 
   let title = '';
@@ -18,9 +16,6 @@ export default function PageTitle({ content }) {
       break;
     case '/matrix':
       title = 'Матрица компетенций';
-      break;
-    case '/my-idp' && isSenior:
-      title = 'Индивидуальный план развития';
       break;
     case '/my-idp':
       title = content;
