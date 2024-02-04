@@ -230,6 +230,7 @@
   object-position: center;
   border-radius: 50px;
   margin-right: var(--gap-s);
+  align-self: flex-start;
 }
 
 .card__message-info {

@@ -14,8 +14,8 @@ export default function TabsPrimary() {
     { title: IPD_STATUS.IN_PROGRESS, id: IPD_STATUS.IN_PROGRESS },
     { title: IPD_STATUS.DONE, id: IPD_STATUS.DONE },
     { title: IPD_STATUS.NOT_DONE, id: IPD_STATUS.NOT_DONE },
-    { title: IPD_STATUS.CANCELED, id: IPD_STATUS.CANCELED },
     { title: IPD_STATUS.EMPTY, id: IPD_STATUS.EMPTY },
+    { title: IPD_STATUS.CANCELED, id: IPD_STATUS.CANCELED },
   ];
 
   const IS_MOBILE = document.body.clientWidth < 450;

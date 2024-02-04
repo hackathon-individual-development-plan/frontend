@@ -68,7 +68,10 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
     const statusName = plan?.status;
 
     if (isEditMode) {
-      return <PlanSelectStatusButton status={statusName} />;
+      return <>
+        <PlanSelectStatusButton status={statusName} />
+        {pathname === '/create-target' && <p className='plan__status-create-plan'>В работе</p>}
+      </>;
     }
     return <p className={`plan__status-type ${statusName === 'В работе' ? 'blue' : ''} ${statusName === 'Выполнен' ? 'green' : ''} ${statusName === 'Не выполнен' ? 'red' : ''} ${statusName === 'Отменен' ? 'yellow' : ''} `}>
       {statusName}
@@ -159,7 +162,7 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
             {renderTitleOrEdit()}
             <section className="plan">
               <div className="plan__status">
-                <p className="plan__status-title">Статус ИПР:</p>
+                <p className="plan__status-title">Статус ИПР</p>
                 {renderModeOfPlanStatus()}
               </div>
               {renderCardOrEditForm()}

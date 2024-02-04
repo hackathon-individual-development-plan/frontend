@@ -94,3 +94,17 @@
 .plan__notvisible-input {
   display: none;
 }
+
+.plan__status-create-plan {
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  padding: 4px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  background: var(--Status-Blue, #D8EAFF);
+  color: var(--Status-Blue, #2A77EF);
+}

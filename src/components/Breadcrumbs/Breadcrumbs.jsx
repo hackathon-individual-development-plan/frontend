@@ -29,7 +29,7 @@ function Breadcrumbs() {
         <>
           {renderNavLink('/employees', 'Сотрудники')}
           <img src='/images/chevron-right.svg' className='breadcrumbs__image' alt='Стрелка, указывающая путь' />
-          <NavLink to='/employee-plan' className='breadcrumbs__link' onClick={handleClick}>Карточка</NavLink>
+          <NavLink to='/employee-plan' className='breadcrumbs__link' onClick={handleClick}>Карточка сотрудника</NavLink>
         </>
       )}
     </nav>
