@@ -15,12 +15,13 @@
 }
 
 .headline-plan__edit {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border: none;
   background: url('../../../public/images/edit-icon.svg') center;
   background-repeat: no-repeat;
   cursor: pointer;
+  align-self: center;
 }
 
 .headline-plan__title-edit {

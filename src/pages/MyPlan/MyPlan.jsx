@@ -31,7 +31,7 @@ function MyPlan() {
             </section>
 
             <section className="content__middle-part">
-            <h1 className="headline__title">Индивидуальный план развития</h1>
+              <h1 className="headline__title">Индивидуальный план развития</h1>
               <p className='my-plan'>Ещё не назначен</p>
             </section>
 

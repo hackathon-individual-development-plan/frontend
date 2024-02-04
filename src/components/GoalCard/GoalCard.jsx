@@ -59,16 +59,16 @@ function GoalCard({ cardIndex }) {
     <div className="card">
       <p className="card__title">Цель: {card.title}</p>
       <div className="card__deadline">
-        <p className="card__subtitle">Дедлайн:</p>
+        <p className="card__subtitle">Дедлайн</p>
         <p className="card__deadline__date">{(new Date(card.deadline)).toLocaleDateString('en-GB', { year: 'numeric', month: 'numeric', day: 'numeric' }).split('/').join('/')}</p>
 
       </div>
       <div className="card__status">
-        <p className="card__subtitle">Статус:</p>
+        <p className="card__subtitle">Статус</p>
         <p className={`card__status__type ${card.status === 'В работе' ? 'blue' : ''} ${card.status === 'Выполнен' ? 'green' : ''} ${card.status === 'Не выполнен' ? 'red' : ''} ${card.status === 'Отменен' ? 'yellow' : ''} `}>{card.status}</p>
       </div>
       <div className="card__description">
-        <p className="card__subtitle">Описание:</p>
+        <p className="card__subtitle">Описание</p>
         <p className="card__description-text">{card.description}</p>
       </div>
       <section className="card__list">
@@ -110,7 +110,7 @@ function GoalCard({ cardIndex }) {
           <ul className="card__message-list">
             {currentComments?.map((item, index) => (
               <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.user?.photo ? item.user?.photo : currentUser.photo} alt='аватар'/>
+                <img className="card__message-photo" src={item.user?.photo ? item.user?.photo : currentUser.photo} alt='аватар' />
                 <div className="card__message-info">
                   <p className="card__message-name">{item.user?.fio ? item.user?.fio : currentUser.fio}
                     <span className='card__message-date'>{item.created_at && new Date(item.created_at).toLocaleString('ru-RU', {

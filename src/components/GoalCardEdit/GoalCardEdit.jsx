@@ -59,7 +59,7 @@ function GoalCardEdit({ cardId, cardIndex }) {
     <div className={`card ${isDeleted ? 'card_deleted' : ''}`} key={cardId} >
       <div className="card__target" key={`${cardId}_cardtarget`}>
         <div className="card__target-header">
-          <p className="card__field-name">Цель:</p>
+          <p className="card__field-name">Цель</p>
           <button type="button" className="card__trash" onClick={onDeleteGoal} />
         </div>
         <input
@@ -102,13 +102,13 @@ function GoalCardEdit({ cardId, cardIndex }) {
         )}
       </div>
       <section className="card__condition">
-        <p className="card__field-name">Дедлайн:</p>
-        <p className="card__field-name">Статус:</p>
+        <p className="card__field-name">Дедлайн</p>
+        <p className="card__field-name">Статус</p>
         <DateInput deadlineData={card?.deadline} cardIndex={cardIndex} />
         <GoalSelectStatusButton status={card?.status} cardIndex={cardIndex} />
       </section>
       <section className="card__discription">
-        <p className="card__field-name">Описание:</p>
+        <p className="card__field-name">Описание</p>
         <textarea
           type="text"
           rows='15'
