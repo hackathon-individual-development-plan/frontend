@@ -31,6 +31,7 @@ export default function SearchInputCreatePlan({ setSelectedEmployeeId }) {
     const selectedEmployee = EmployeesWithoutIdp.find((item) => item.employee.fio === searchTerm);
     setSelectedEmployeeId(selectedEmployee.employee.id);
     setSearchQuery(selectedEmployee.employee.fio);
+    setActiveError(false);
   }
 
   useEffect(() => {
