@@ -18,8 +18,10 @@
   width: 32px;
   height: 32px;
   border: none;
-  background: url('../../../public/images/edit-icon.svg') center;
+  background: url('../../../public/images/edit-icon.svg');
+  background-position: 0 50%;
   background-repeat: no-repeat;
+  background-size: 72%;
   cursor: pointer;
   align-self: center;
 }
