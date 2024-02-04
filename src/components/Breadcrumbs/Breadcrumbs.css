@@ -3,7 +3,7 @@
     display: flex;
     gap: var(--gap-2xs);
     align-items: center;
-    margin-bottom: 52px;
+    margin-bottom: var(--gap-2xl);
 }
 
 .breadcrumbs__link {
