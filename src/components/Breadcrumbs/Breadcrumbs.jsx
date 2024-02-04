@@ -22,7 +22,7 @@ function Breadcrumbs() {
       <img src='/images/chevron-right.svg' className='breadcrumbs__image' alt='Стрелка, указывающая путь' />
       <p className='breadcrumbs__link'>Индивидуальный план развития</p>
       {pathname === '/employees' && renderNavLink('/employees', 'Сотрудники')}
-      {pathname === '/create-target' && renderNavLink('/create-target', 'Карточка сотрудника')}
+      {pathname === '/create-target' && renderNavLink('/create-target', 'Создать ИПР')}
       {pathname === '/matrix' && renderNavLink('/matrix', 'Матрица компетенций')}
       {pathname === '/my-idp' && renderNavLink('/my-idp', 'Мой ИПР')}
       {pathname.startsWith('/employee-plan') && (
