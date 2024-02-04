@@ -1,0 +1,28 @@
+.tabs__container_1du2s {
+    margin: 0;
+    padding: 0;
+}
+
+.tabs__component_1du2s {
+    flex-wrap: wrap;
+    row-gap: 6px;
+    column-gap: 4px;
+}
+
+.tabs__xxs_1du2s .tabs__title_1du2s+.tabs__title_1du2s {
+    margin-left: 0;
+    box-sizing: border-box;
+}
+
+.tag__component_hx9jn {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.tag__xxs_hx9jn {
+    display: flex;
+    padding: 10px 16px;
+}

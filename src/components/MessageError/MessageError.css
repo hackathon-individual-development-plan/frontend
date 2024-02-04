@@ -1,0 +1,6 @@
+.message__error {
+  font-size: 10px;
+  line-height: normal;
+  color: var(--Red, #EF3124);
+  padding-top: 6px;
+}

@@ -1,0 +1,23 @@
+.newtarget {
+    display: flex;
+    align-self: flex-start;
+    margin-bottom: var(--gap-l);
+    align-items: center;
+  }
+  
+  .newtarget__button {
+    background: url(/public/images/add-outline-icon.svg);
+    width: 24px;
+    height: 24px;
+    margin-right: var(--gap-xs);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .newtarget__title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+  }

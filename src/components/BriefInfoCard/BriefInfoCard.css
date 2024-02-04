@@ -1,0 +1,37 @@
+.brief-card {
+    max-width: 264px;
+    width: 100%;
+}
+
+.brief-card__avatar {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 96px;
+}
+
+.brief-card__title {
+    margin: 0;
+    padding-top: 3px;
+    box-sizing: border-box;
+    color: #0E0E0E;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.brief-card__job {
+    margin: 0;
+    padding-top: 12px;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+    color: rgba(14, 14, 14, 0.70);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}

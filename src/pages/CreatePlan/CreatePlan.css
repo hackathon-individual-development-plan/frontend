@@ -1,0 +1,23 @@
+.plan {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan__content-buttons {
+  display: flex;
+  align-self: flex-end;
+}
+
+.plan__status {
+  display: flex;
+  margin-bottom: 26px;
+}
+
+.plan__status-title {
+  margin: 0;
+  margin-right: var(--gap-xs);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}

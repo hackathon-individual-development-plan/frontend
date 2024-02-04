@@ -1,0 +1,30 @@
+.headline {
+    display: flex;
+    align-items: center;
+    column-gap: 264px;
+    margin-bottom: var(--gap-3xl);
+}
+
+.headline__button {
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url('/public/images/menu__exit.svg');
+    border: 0;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 7px 0;
+    cursor: pointer;
+}
+
+.headline__title {
+    margin: 0;
+    margin-bottom: var(--gap-3xl);
+    color: var(--Text-Black, #0E0E0E);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 38px;
+    max-width: 500px;
+}
