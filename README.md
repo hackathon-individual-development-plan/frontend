@@ -93,6 +93,7 @@
 
   
 ## &#128214; Инструкция по сборке и запуску <a id="setting"></a>
+Для запуска проекта локально:  
 1. Склонируйте репозиторий:
   ```
     git clone https://github.com/hackathon-individual-development-plan/frontend.git
@@ -110,6 +111,8 @@
   ```
     npm run start
   ```
+
+Для полной сборки проекта воспользуйтесь инструкцией в [бэкенд-части приложения](https://github.com/hackathon-individual-development-plan/backend)
 
 ## &#128296; Cтэк технологий <a id="technology"></a>
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
