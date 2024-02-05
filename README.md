@@ -128,7 +128,8 @@
 
 ## &#128204; Cсылки на сторонние библиотеки <a id="libraries"></a>
 [core-components](https://github.com/core-ds/core-components)   
-[react-hook-form](https://www.npmjs.com/package/react-hook-form)  
+[react-hook-form 7.49.3](https://www.npmjs.com/package/react-hook-form)  
+[http-proxy-middleware 2.0.6](https://www.npmjs.com/package/http-proxy-middleware)  
 
 
 
