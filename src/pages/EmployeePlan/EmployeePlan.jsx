@@ -25,9 +25,9 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { employeeId } = useParams();
-  const { isSenior } = useCurrentUser();
+  const { isSenior, token } = useCurrentUser();
   const {
-    initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode, deleteGoalByIndex,
+    initialize, isEditMode, plan, edit, toggleEditMode, createPlan, goalsDeleteMode, deleteGoalByIndex, setIsEditMode,
   } = usePlan();
 
   useEffect(() => {
@@ -38,9 +38,10 @@ function EmployeePlan({ setSelectedEmployeeId, userIpdId }) {
 
   useEffect(() => {
     if (!employeeId && userIpdId) {
+      setIsEditMode(false);
       initialize(userIpdId);
     }
-  }, [userIpdId]);
+  }, [userIpdId, token, isEditMode]);
 
   // switch a goal card mode
   const renderCardOrEditForm = () => {

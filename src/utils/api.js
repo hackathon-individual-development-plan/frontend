@@ -1,9 +1,9 @@
 /* eslint-disable quote-props */
-import { BASE_URL } from './constants';
+import { BASE_URL, TOKEN_KEY, TOKEN_VALUE } from './constants';
 
-localStorage.setItem('AlfaIprProjectToken', 'Token 08c8b74340e79ea26fbb73a9cc398c79fd36d77c');
+localStorage.setItem(TOKEN_KEY, TOKEN_VALUE.CHIEF);
 
-export const TOKEN = localStorage.getItem('AlfaIprProjectToken');
+export const TOKEN = localStorage.getItem(TOKEN_KEY);
 
 export function checkResponse(res) {
   if (res.ok) {
