@@ -8,13 +8,14 @@ import Employees from '../../pages/Employees/Employees.jsx';
 import Layout from '../Layout/Layout.jsx';
 import MyPlan from '../../pages/MyPlan/MyPlan.jsx';
 import MatrixCompetency from '../../pages/MatrixCompetency/MatrixCompetency.jsx';
+import { TOKEN_KEY, TOKEN_VALUE } from '../../utils/constants'; // в продакшане токенов быть не должно, авторизация будет из AlphaPeople
 import EmployeePlan from '../../pages/EmployeePlan/EmployeePlan.jsx';
 import PlanProvider from '../../providers/PlanProvider/PlanProvider';
 
 function App() {
   const navigate = useNavigate();
 
-  const { isSenior } = useCurrentUser();
+  const { isSenior, token, setToken } = useCurrentUser();
 
   useEffect(() => {
     if (isSenior) {
@@ -24,11 +25,17 @@ function App() {
     }
   }, [isSenior]);
 
+  const handleClick = () => {
+    const newToken = token === TOKEN_VALUE.CHIEF ? TOKEN_VALUE.EMPLOYEE : TOKEN_VALUE.CHIEF;
+    setToken(newToken);
+    localStorage.setItem(TOKEN_KEY, newToken);
+  };
+
   return (
     <div className='body'>
       <div className="page">
         <Routes>
-          <Route path='/' element={<Layout />}>
+          <Route path='/' element={<Layout onClick={handleClick} />}>
             <Route path='/my-idp' element={
               <PlanProvider>
                 <MyPlan />

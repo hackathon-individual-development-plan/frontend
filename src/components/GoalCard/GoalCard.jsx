@@ -9,7 +9,7 @@ function GoalCard({ cardIndex }) {
   const {
     plan,
   } = usePlan();
-  const { currentUser } = useCurrentUser();
+  const { currentUser, token } = useCurrentUser();
   const [count, setCount] = useState('');
   const [isActiveTasks, setActiveTasks] = useState(false);
   const [isActiveMessages, setActiveMessages] = useState(false);
@@ -36,7 +36,7 @@ function GoalCard({ cardIndex }) {
         comment_text: newCommentValue.trim(),
       };
 
-      createComments(newComment, card.id)
+      createComments(newComment, card.id, token)
         .then((data) => {
           // Обновление состояния с добавлением нового комментария
           setCurrentComments((prevComments) => [...prevComments, data]);
@@ -108,18 +108,19 @@ function GoalCard({ cardIndex }) {
           }
         >
           <ul className="card__message-list">
-            {currentComments?.map((item, index) => (
-              <li className="card__message-item" key={index}>
-                <img className="card__message-photo" src={item.user?.photo ? item.user?.photo : currentUser.photo} alt='аватар' />
-                <div className="card__message-info">
-                  <p className="card__message-name">{item.user?.fio ? item.user?.fio : currentUser.fio}
-                    <span className='card__message-date'>{item.created_at && new Date(item.created_at).toLocaleString('ru-RU', {
-                      day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
-                    })}</span></p>
-                  <p className="card__message-text">{item.comment_text}</p>
-                </div>
-              </li>
-            ))}
+            {currentComments?.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+              .map((item, index) => (
+                <li className="card__message-item" key={index}>
+                  <img className="card__message-photo" src={item.user?.photo ? item.user?.photo : currentUser.photo} alt='аватар' />
+                  <div className="card__message-info">
+                    <p className="card__message-name">{item.user?.fio ? item.user?.fio : currentUser.fio}
+                      <span className='card__message-date'>{item.created_at && new Date(item.created_at).toLocaleString('ru-RU', {
+                        day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+                      })}</span></p>
+                    <p className="card__message-text">{item.comment_text}</p>
+                  </div>
+                </li>
+              ))}
           </ul>
         </div>
         <section className="card__textarea">

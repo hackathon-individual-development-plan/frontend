@@ -5,10 +5,10 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs.jsx';
 import Footer from '../Footer/Footer.jsx';
 import './Layout.css';
 
-export default function Layout() {
+export default function Layout({ onClick }) {
   return (
     <>
-      <Header />
+      <Header onClick={onClick} />
       <Breadcrumbs />
       <main className='main'>
         <Outlet />

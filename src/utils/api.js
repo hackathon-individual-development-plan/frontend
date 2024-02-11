@@ -1,6 +1,8 @@
 /* eslint-disable quote-props */
 import { BASE_URL } from './constants';
 
+localStorage.setItem('AlfaIprProjectToken', 'Token 08c8b74340e79ea26fbb73a9cc398c79fd36d77c');
+
 export const TOKEN = localStorage.getItem('AlfaIprProjectToken');
 
 export function checkResponse(res) {
@@ -33,11 +35,11 @@ export const getEmployees = () => request('/employees', {
   },
 });
 
-export const getIdpInfo = () => request('/employee/my-idp', {
+export const getIdpInfo = (authToken) => request('/employee/my-idp', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `${TOKEN}`,
+    'Authorization': `${authToken}`,
   },
 });
 
@@ -75,11 +77,11 @@ export const editEmployeeIdp = (data, id) => request(`/idps/${id}/`, {
   body: JSON.stringify(data),
 });
 
-export const createComments = (data, goal_id) => request(`/goals/${goal_id}/comments/`, {
+export const createComments = (data, goal_id, authToken) => request(`/goals/${goal_id}/comments/`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `${TOKEN}`,
+    'Authorization': `${authToken}`,
   },
   body: JSON.stringify(data),
 });

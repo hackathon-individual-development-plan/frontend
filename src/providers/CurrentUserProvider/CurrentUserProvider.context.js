@@ -7,6 +7,7 @@ export default createContext({
   userIpdID: '',
   isSenior: false,
   isUserPlan: false,
+  token: '',
   userIpdId: '',
   setIsUserPlan: () => { },
 });

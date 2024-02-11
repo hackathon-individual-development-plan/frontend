@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import CurrentUserProviderContext from './CurrentUserProvider.context';
 import { getUserInfo, getIdpInfo } from '../../utils/api';
+import { TOKEN_KEY, TOKEN_VALUE } from '../../utils/constants';
 
 const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
@@ -9,9 +10,11 @@ const CurrentUserProvider = ({ children }) => {
 
   const [isUserPlan, setIsUserPlan] = useState(false);
   const [userIpdId, setUserIpdId] = useState('');
+  // в продакшане токенов быть не должно, авторизация будет из AlphaPeople
+  const [token, setToken] = useState(localStorage.getItem(TOKEN_KEY) || TOKEN_VALUE.CHIEF);
 
   const initialize = () => {
-    getUserInfo(localStorage.getItem('AlfaIprProjectToken'))
+    getUserInfo(token)
       .then((user) => {
         setCurrentUser(user);
         setCurrentUserRole(user.role);
@@ -24,10 +27,10 @@ const CurrentUserProvider = ({ children }) => {
 
   useEffect(() => {
     initialize();
-  }, []);
+  }, [token]);
 
   const getUserPlan = () => {
-    getIdpInfo()
+    getIdpInfo(token)
       .then((data) => {
         setIsUserPlan(data.length > 0);
         if (data.length > 0) {
@@ -45,6 +48,8 @@ const CurrentUserProvider = ({ children }) => {
     isSenior,
     isUserPlan,
     userIpdId,
+    token,
+    setToken,
     getUserPlan,
   };
 

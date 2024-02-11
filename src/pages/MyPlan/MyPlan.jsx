@@ -10,7 +10,7 @@ import EmployeePlan from '../EmployeePlan/EmployeePlan.jsx';
 
 function MyPlan() {
   const {
-    userPlan, getUserPlan, isUserPlan, userIpdId,
+    userPlan, getUserPlan, isUserPlan, userIpdId, token,
   } = useCurrentUser();
   const { setPlan } = usePlan();
 
@@ -19,7 +19,7 @@ function MyPlan() {
     if (isUserPlan) {
       setPlan(userPlan);
     }
-  }, []);
+  }, [token]);
 
   return (
     <>

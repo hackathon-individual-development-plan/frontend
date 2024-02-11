@@ -3,7 +3,7 @@ import { ButtonDesktop } from '@alfalab/core-components/button/desktop';
 import useCurrentUser from '../../providers/CurrentUserProvider/CurrentUserProvider.hook';
 import './Header.css';
 
-function Header() {
+function Header({ onClick }) {
   const { currentUser } = useCurrentUser();
 
   return (
@@ -24,7 +24,7 @@ function Header() {
         <ButtonDesktop view='primary' shape='rectangular' size='xxs' className='header__button' >
           Альфа-рубли: 5000
         </ButtonDesktop>
-        <img src={currentUser.photo} className='header__avatar' alt='Аватар' />
+        <img src={currentUser.photo} className='header__avatar' alt='Аватар' onClick={onClick}/>
       </div>
     </header>
   );
